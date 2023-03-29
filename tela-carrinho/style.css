@@ -1,3 +1,8 @@
+:root{
+    --primary: #D081F4
+}
+
+
 .header {
     background-color: var(--primary);
     width: 100%;
