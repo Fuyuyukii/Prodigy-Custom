@@ -148,3 +148,14 @@ input[type=text]:focus, input[type=password]:focus{
     max-height: 8ch;
     overflow: hidden;
 }
+
+.imagem-produto-grande{
+    width:500px;
+    height:400px;
+    border-radius: 10px;
+}
+.imagem-produto-menores{
+    width: 75px;
+    height: 75px;
+    border-radius: 10px;
+}
