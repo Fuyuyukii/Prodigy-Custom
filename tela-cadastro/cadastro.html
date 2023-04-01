@@ -6,7 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prodigy Custom</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;400;500&display=swap" rel="stylesheet">
@@ -15,44 +20,57 @@
 
 <body>
 
-    <header class="header">
-        <img class='logo' src="logo.jpeg" alt="Imagem logo">
+    <header>
+        <nav class="nav navbar">
+            <img class='logo' src="logo.jpeg" alt="Imagem logo">
+        </nav>
     </header>
 
+    <main>
+        <div class="col-md-12 mt-5">
+            <h2 class="fw-bold mb-5 cad" style="margin-left: 1em;">Faça seu cadastro</h2>
+            <div class="col-md-12 d-flex flex-row align-items-center justify-content-center">
+                <div class="col-md-8">
+                    <div class="form-floating mb-4">
+                        <input type="text" id="nome" class="form-control" placeholder="Nome">
+                        <label for="nome">Nome</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="text" id="email" class="form-control" placeholder="Email">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="text" id="endereco" class="form-control" placeholder="Endereço">
+                        <label for="endereco">Endereço</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="password" id="senha" class="form-control" placeholder="Senha">
+                        <label for="senha">Senha</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="password" id="senhaConfirma" class="form-control" placeholder="Confirmar senha">
+                        <label for="senhaConfirma">Confirmar senha</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="text" id="telefone" class="form-control" placeholder="Telefone">
+                        <label for="telefone">Telefone</label>
+                    </div>
 
-
-
-    <div class="main">
-        <div class="cadastro">
-            <h2>Faça Seu Cadastro</h2>
-        </div>
-        <div>
-
-            <div class="icons">
-
-
-            </div>
-            <form class="login">
-                <input type="text" placeholder="Nome">
-                <input type="text" placeholder="Email">
-                <input type="text" placeholder="Endereço">
-                <input type="text" placeholder="Senha">
-                <input type="text" placeholder="Confirmação de senha">
-                <input type="text" placeholder="Telefone">
-
-
-                <div class="divisor">
-
-                    <a  class="btn-primary" href="../index.html" target="_self">
-                       Voltar
-                    </a>
-                    <a class="btn-primary">Cadastrar</a>
                 </div>
+            </div>
+            <div class="col-md-12">
+                <div class="offset-sm-2 col-sm-8 d-flex justify-content-between">
 
-            </form>
+                        <a href="../index.html"><button class="button-primario">Voltar</button></a>
+
+                        <button class="button-primario">Cadastrar</button>
+
+                </div>
+            </div>
         </div>
+        </div>
+    </main>
 
-    </div>
 </body>
 
 </html>

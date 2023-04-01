@@ -1,5 +1,6 @@
 :root{
-    --primary: #D081F4
+    --primary: #D081F4;
+    --primary300: #D081F490;
 }
 
 * {
@@ -37,6 +38,11 @@ body {
     background-color: var(--primary);
 }
 
+.icon{
+    cursor: pointer;
+}
+
+
 input[type=text], input[type=password]{
     border-radius: 100vh;
     background-color: #cfcfcf90;
@@ -59,4 +65,9 @@ input[type=text]:focus, input[type=password]:focus{
     font-weight: bolder;
     letter-spacing: 1px;
     height: 3rem;
+}
+
+.button-primario:hover{
+    background-color: var(--primary300) !important;
+    transition: background-color 150ms ease-in-out;
 }
