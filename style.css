@@ -106,3 +106,45 @@ input[type=text]:focus, input[type=password]:focus{
     width: 650px;
     height: 500px;
 }
+
+.pesquisa-produto{
+    max-width: 50%;
+}
+
+.grid-items{
+    grid-template-columns: repeat(6, 1fr);
+    place-items: center;
+}
+
+@media (max-width:1000px){
+    .grid-items{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media (max-width:850px){
+    .grid-items{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width:600px){
+    .grid-items{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width:430px){
+    .grid-items{
+        grid-template-columns: 1fr;
+    }
+}
+
+.item>img{
+    max-width: 150px;
+    max-height: 150px;
+    border-radius:10px
+}
+.item>p{
+    text-overflow: ellipsis;
+    max-width: 150px;
+    max-height: 8ch;
+    overflow: hidden;
+}
