@@ -9,17 +9,13 @@
 
 }
 
-a{
-    text-decoration: none;
-    color: var(--primary);
-}
 
 body {
-    overflow: hidden;
+    height: 100vh;
     background-image: linear-gradient(to bottom, #cfcfcfd2, #fff);
     background-repeat: no-repeat;
     min-width: fit-content;
-    
+    font-family: Urbanist !important;
 }
 
 
@@ -29,105 +25,38 @@ body {
     cursor: pointer;
 }
 
-.header {
-    background-color: var(--primary);
-    width: 100%;
-    animation: para-cima 4s;
-}
 
-@keyframes para-cima {
-    0%{height: 1000px;}
-    10%{height: 900px;}
-    20%{height: 800px;}
-    30%{height: 700px;}
-    40%{height: 600px;}
-    50%{height:500px;}
-    60%{height:400px;}
-    70%{height:300px;}
-    80%{height:200px;}
-    90%{height:100px;}
-    100%{height:auto}
-}
 
 
 .logo {
     width: 170px;
     height: 80px;
-    animation: heartBeat 4s;
-
 }
 
-h2,
-h4,
-form {
-    margin: 0.5rem
-}
-
-h4{
-    font-weight: 400;
-}
-
-.main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 85vh;
-    font-size: 1.5rem;
-    font-family: 'Urbanist', sans-serif;
-    min-width: fit-content;
-}
-
-p{
-    font-size: 1rem;
-}
-
-.main .icons {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-}
-
-svg{
-    cursor: pointer;
-}
-
-.login {
-    display: flex;
-    flex-direction: column;
-    
-    
-}
-
-.login input {
-    margin-top: 0.5rem;
-    background-color: #CFCFCF;
-    border-radius: 100vw;
-    padding: 0.8em;
-    width: 400px;
-    border:none;
-    font-family: urbanist;
-    font-size:16px;
-}
-
-.btn-primary{
-    font-family: urbanist;
-    font-weight: 600;
-    padding: 0.825em 1.5em;
-    border-radius: 100vw;
-    border:none;
+.nav{
     background-color: var(--primary);
-    color:white;
-    pointer-events: auto;
-    cursor: pointer;
-    letter-spacing: 2px;
-    text-decoration: none;
-    font-size: 1rem;
-}
- 
-.divisor{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 7%;
 }
 
+input[type=text], input[type=password]{
+    border-radius: 100vh;
+    background-color: #cfcfcf90;
+    outline: 0;
+}
+
+input[type=text]:focus, input[type=password]:focus{
+    border-radius: 100vh;
+    background-color: #cfcfcf90;
+    box-shadow: 0 0 0 0;
+    border:0
+}
+
+.button-primario{
+    background-color: var(--primary) !important;
+    border-radius: 100vh !important;
+    border:none;
+    padding: 0.5em 1em;
+    color: #fff;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    height: 3rem;
+}
