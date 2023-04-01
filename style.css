@@ -12,7 +12,6 @@
 
 
 body {
-    height: 100vh;
     background-image: linear-gradient(to bottom, #cfcfcfd2, #fff);
     background-repeat: no-repeat;
     min-width: fit-content;
@@ -70,4 +69,40 @@ input[type=text]:focus, input[type=password]:focus{
 .button-primario:hover{
     background-color: var(--primary300) !important;
     transition: background-color 150ms ease-in-out;
+}
+.icones{
+    display: flex;
+    gap:2em;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.card{
+    outline: 1px solid black !important;
+}
+
+.imagemLista{
+    width: 75px !important;
+    height: 75px;
+    object-fit: cover;
+    margin-left: 15px;
+}
+
+.desc{
+    text-overflow: ellipsis;
+    max-height: 30px;
+    max-width: 95%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.listaProdutos{
+    background-color: #D9D9D9;
+    border-radius:10px;
+    height: 100px;
+}
+
+.carro{
+    width: 650px;
+    height: 500px;
 }
