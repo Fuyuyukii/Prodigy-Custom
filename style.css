@@ -69,6 +69,7 @@ input[type=text]:focus, input[type=password]:focus{
 .button-primario:hover{
     background-color: var(--primary300) !important;
     transition: background-color 150ms ease-in-out;
+
 }
 .icones{
     display: flex;
