@@ -160,3 +160,22 @@ input[type=text]:focus, input[type=password]:focus{
     height: 75px;
     border-radius: 10px;
 }
+
+.faleConosco{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    position: absolute;
+    bottom:50px;
+    right: 50px;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.faleConosco:hover{
+    background-color: var(--primary300);
+    cursor: pointer;
+}
