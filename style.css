@@ -59,7 +59,7 @@ input[type=text]:focus, input[type=password]:focus{
     background-color: var(--primary) !important;
     border-radius: 100vh !important;
     border:none;
-    padding: 0.5em 1em;
+    padding: 0.5em 3em;
     color: #fff;
     font-weight: bolder;
     letter-spacing: 1px;
