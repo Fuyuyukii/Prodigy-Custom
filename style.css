@@ -53,7 +53,7 @@ input[type=text]:focus, input[type=password]:focus{
     border-radius: 100vh !important;
     border:none;
     padding: 0.5em 3em;
-    color: #fff;
+    color: #fff !important;
     font-weight: bolder;
     letter-spacing: 1px;
     height: 3rem;
@@ -199,4 +199,9 @@ hr.favoritos{
 .carrinho{
     outline: 0!important;
     background-color: #cfcfcf90!important;
+}
+
+.img-minhaconta{
+    width: 200px;
+    height: 200px;
 }
