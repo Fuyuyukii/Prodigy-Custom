@@ -57,6 +57,7 @@ input[type=text]:focus, input[type=password]:focus{
     font-weight: bolder;
     letter-spacing: 1px;
     height: 3rem;
+    width: fit-content;
 }
 
 .button-primario:hover{
@@ -74,6 +75,27 @@ input[type=text]:focus, input[type=password]:focus{
 
 .card{
     outline: 1px solid black !important;
+}
+
+.card-popup{
+    background-color: #E7E2E2 !important;
+    width: 200px;
+    height: fit-content;
+    position: absolute;
+    margin:100px
+}
+
+.card-popup::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-bottom: 18px solid #cfcfcf;
+    border: 1px solid black;
+    position: relative;
+    inset: -142px 0px 0px 177px;
+    z-index:50
 }
 
 .imagemLista{
@@ -157,6 +179,11 @@ input[type=text]:focus, input[type=password]:focus{
     border-radius: 10px;
 }
 
+hr.favoritos{
+    width: 75%;
+    margin: 50px auto;
+}
+
 .faleConosco{
     width: 50px;
     height: 50px;
@@ -174,4 +201,9 @@ input[type=text]:focus, input[type=password]:focus{
 .faleConosco:hover{
     background-color: var(--primary300);
     cursor: pointer;
+}
+
+.carrinho{
+    outline: 0!important;
+    background-color: #cfcfcf90!important;
 }
