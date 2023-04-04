@@ -59,36 +59,81 @@
 
     <main>
         <div class="col-md-12">
-            <div class="row">
+            <div class="d-flex m-5">
                 <!-- Lado esquerda da tela -->
                 <div class="col-md-9">
-                    <div class="Meucarrinho">
-                        <div class="">
-                            
+                    <div class="card carrinho">
+                        <div class="card-body">
+                            <div class="d-flex flex-column">
+                                <div class="col-md-11 d-flex justify-content-between ps-2">
+                                    <h4>Meu carrinho</h4><h4>Preço</h4>
+                                </div>
+                                <hr>
+                                <div class="produtos">
+                                    <div class="col-md-12 d-flex align-items-center mt-3">
+                                        <img class="imagemLista rounded" src="carro.png" alt="">
+                                        <div class="col-md-10 d-flex flex-column ps-2">
+                                            <div class="d-flex justify-content-between">
+                                                <h4 style="margin: 0;">Retrovisor Porsche 911 Carrera Coupé</h4>
+                                                <h4 style="margin: 0;">R$ 1799,90</h4>
+                                            </div>
+                                            <span class="status" style="color: green;"> Em estoque </span>
+                                            <a href="" style="text-decoration: none; color: black;">excluir</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 d-flex align-items-center mt-3">
+                                        <img class="imagemLista rounded" src="carro.png" alt="">
+                                        <div class="col-md-10 d-flex flex-column ps-2">
+                                            <div class="d-flex justify-content-between">
+                                                <h4 style="margin: 0;">Retrovisor Porsche 911 Carrera Coupé</h4>
+                                                <h4 style="margin: 0;">R$ 1799,90</h4>
+                                            </div>
+                                            <span class="status" style="color: green;"> Em estoque </span>
+                                            <a href="" style="text-decoration: none; color: black;">excluir</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 d-flex align-items-center mt-3">
+                                        <img class="imagemLista rounded" src="carro.png" alt="">
+                                        <div class="col-md-10 d-flex flex-column ps-2">
+                                            <div class="d-flex justify-content-between">
+                                                <h4 style="margin: 0;">Retrovisor Porsche 911 Carrera Coupé</h4>
+                                                <h4 style="margin: 0;">R$ 1799,90</h4>
+                                            </div>
+                                            <span class="status" style="color: green;"> Em estoque </span>
+                                            <a href="" style="text-decoration: none; color: black;">excluir</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="col-md-11 d-flex justify-content-end ps-2 gap-1">
+                                    <h4>Subtotal</h4><h4>(1 item):</h4><h4>R$1799,90</h4>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- Lado direito da tela -->
-                <div class="col-md-3">
+                <div class="col-md-3 d-flex justify-content-center">
                     <div class="d-flex flex-column">
                         <h4>Finalizar pedido</h4>
                         <hr>
-                        <div class="d-flex">
+                        <div class="d-flex gap-1">
                             <h4>Itens:</h4><h4>R$1799,90</h4>
                         </div>
-                        <div class="d-flex">
+                        <div class="d-flex gap-1">
                             <h4>Frete:</h4><h4>R$50,00</h4>
                         </div>  
                         <hr>
-                        <div class="d-flex">
+                        <div class="d-flex gap-1">
                             <h4>Total do Pedido:</h4><h4>R$1850,90</h4>
                         </div>
-                        <div class="d-flex justify-content-end">
+                        <div class="d-flex justify-content-end gap-1">
                             <h4>10x</h4><h4>de</h4><h4>R$185,09</h4>
                         </div>
-                        <button class="button-primario">Qtd:<span>1</span></button>
-                        <br>
-                        <button class="button-primario">Finalizar</button>
+                        <div class="botoes d-flex gap-3 flex-column align-items-end">
+                            <button class="button-primario">Qtd:<span>1</span></button>
+                            <button class="button-primario">Finalizar</button>
+                        </div>
                     </div>
                 </div>
             </div>

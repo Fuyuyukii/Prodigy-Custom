@@ -57,6 +57,7 @@ input[type=text]:focus, input[type=password]:focus{
     font-weight: bolder;
     letter-spacing: 1px;
     height: 3rem;
+    width: fit-content;
 }
 
 .button-primario:hover{
@@ -202,8 +203,7 @@ hr.favoritos{
     cursor: pointer;
 }
 
-.Meucarrinho{
-    width: 400;
-    height: 250;
-    background-color: #D9D9D9;
+.carrinho{
+    outline: 0!important;
+    background-color: #cfcfcf90!important;
 }
