@@ -77,26 +77,19 @@ input[type=text]:focus, input[type=password]:focus{
     outline: 1px solid black !important;
 }
 
-.card-popup{
-    background-color: #E7E2E2 !important;
-    width: 200px;
-    height: fit-content;
-    position: absolute;
-    margin:100px
+.drop-msg .dropdown-menu[data-bs-popper]{
+    top: 100%;
+    left: -340px !important;
+    margin-top: var(--bs-dropdown-spacer);
 }
 
-.card-popup::after {
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 18px solid transparent;
-    border-right: 18px solid transparent;
-    border-bottom: 18px solid #cfcfcf;
-    border: 1px solid black;
-    position: relative;
-    inset: -142px 0px 0px 177px;
-    z-index:50
+.drop-minhaconta .dropdown-menu[data-bs-popper]{
+    top: 100%;
+    left: -100px !important;
+    margin-top: var(--bs-dropdown-spacer);
 }
+
+
 
 .imagemLista{
     width: 75px !important;
