@@ -1,32 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;400;500&display=swap" rel="stylesheet">
+        <title>prodigy custom</title>
+    </head>
+
 <body>
     
-    <header class="header">
-        <img class='logo' src="logo.jpeg" alt="Imagem logo">
+    <header>
+        <nav class="nav navbar">
+            <img class="logo" src="fotologo.png" alt="imagem da logo">
+            <div class="icones">
+                <svg fill="#000000" width="55px" height="55px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M6,18.5c0,1.104,0.896,2,2,2h15.401l3.532,14.183c-0.051,0.361-0.086,0.822-0.086,1.195c0,0.121,0.011,0.29,0.033,0.409 l4.914,26.758c0.016,0.089,0.038,0.188,0.066,0.274c0.643,1.957,2.037,6.191,5.856,7.287c-1.088,1.469-1.74,3.281-1.74,5.244 c0,4.869,3.962,8.832,8.831,8.832s8.831-4.151,8.831-9.021c0-1.843-0.569-3.161-1.538-5.161h18.414 c-0.969,2-1.538,3.319-1.538,5.162c0,4.869,3.962,8.926,8.831,8.926s8.831-3.914,8.831-8.783c0-1.978-0.661-3.774-1.764-5.248 c2.026-0.626,4.455-2.437,5.852-7.312c0.024-0.085,0.043-0.166,0.056-0.254l3.932-26.73c0.015-0.097,0.021-0.382,0.021-0.48 c0-4.386-3.616-8.281-7.897-8.281H34.745c-1.868,0-3.61,0.896-4.979,2.058l-2.867-11.452c-0.225-0.889-1.023-1.606-1.939-1.606H8 C6.896,16.5,6,17.396,6,18.5z M44.809,80.684c-2.664,0-4.831-2.167-4.831-4.831s2.167-4.831,4.831-4.831s4.831,2.167,4.831,4.831 S47.473,80.684,44.809,80.684z M77.809,80.684c-2.664,0-4.831-2.167-4.831-4.831s2.167-4.831,4.831-4.831s4.831,2.167,4.831,4.831 S80.473,80.684,77.809,80.684z M34.745,31.5h52.094c2.07,0,3.826,1.99,3.896,4.15l-3.889,26.344 c-0.627,2.129-1.813,4.506-3.938,4.506H39.659c-1.479,0-2.66-0.595-3.955-4.481l-4.854-26.305c0.009-0.207,0.045-0.36,0.083-0.558 c0.013-0.064,0.022-0.293,0.029-0.359C31.388,33.025,32.947,31.5,34.745,31.5z"></path> </g> </g></svg>
+                <svg style='cursor:pointer' width="40px" height="40px" version="1.0" id="Layer_1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64"
+                    enable-background="new 0 0 64 64" xml:space="preserve" fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <g>
+                            <path fill="#000"
+                                d="M56,44c-1.832,0-4-2.168-4-4V20C52,8.973,43.027,0,32,0S12,8.973,12,20v20c0,1.793-2.207,4-4,4 c-2.211,0-4,1.789-4,4s1.789,4,4,4h48c2.211,0,4-1.789,4-4S58.211,44,56,44z">
+                            </path>
+                            <path fill="#000" d="M32,64c4.418,0,8-3.582,8-8H24C24,60.418,27.582,64,32,64z"></path>
+                        </g>
+                    </g>
+                </svg>
+                <svg style='cursor:pointer' width="40px" height="40px" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <rect width="24" height="24"></rect>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M6 8C6 4.68629 8.68629 2 12 2C15.3137 2 18 4.68629 18 8C18 11.3137 15.3137 14 12 14C8.68629 14 6 11.3137 6 8Z"
+                            fill="#000"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.43094 16.9025C7.05587 16.2213 9.2233 16 12 16C14.771 16 16.9351 16.2204 18.5586 16.8981C20.3012 17.6255 21.3708 18.8613 21.941 20.6587C22.1528 21.3267 21.6518 22 20.9592 22H3.03459C2.34482 22 1.84679 21.3297 2.0569 20.6654C2.62537 18.8681 3.69119 17.6318 5.43094 16.9025Z"
+                            fill="#000"></path>
+                    </g>
+                </svg>
+            </div>
+        </nav>
     </header>
 
-    <div class="card">
-        <div class="head">
-            <h6 class="title">Meu Carrinho</h6>
-            <p >Preço</p>
+    <main>
+        <div class="col-md-12">
+            <div class="row">
+                <!-- Lado esquerda da tela -->
+                <div class="col-md-9">
+                    <div class="Meucarrinho">
+                        <div class="">
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- Lado direito da tela -->
+                <div class="col-md-3">
+                    <div class="d-flex flex-column">
+                        <h4>Finalizar pedido</h4>
+                        <hr>
+                        <div class="d-flex">
+                            <h4>Itens:</h4><h4>R$1799,90</h4>
+                        </div>
+                        <div class="d-flex">
+                            <h4>Frete:</h4><h4>R$50,00</h4>
+                        </div>  
+                        <hr>
+                        <div class="d-flex">
+                            <h4>Total do Pedido:</h4><h4>R$1850,90</h4>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <h4>10x</h4><h4>de</h4><h4>R$185,09</h4>
+                        </div>
+                        <button class="button-primario">Qtd:<span>1</span></button>
+                        <br>
+                        <button class="button-primario">Finalizar</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <hr>
-        <img src="" alt="">
-        <p>Retrovisor Porsche 911 Carrera Coupé</p>
-        <p>R$ 1799,90</p>
-        <p>Em estoque</p>
-        <p>Excluir</p>
-        <hr>
-        <p>Subtotal (1 item): </p>
-        <p>R$ 1799,90</p>
-    </div>
+    </main>
 </body>
 </html>
