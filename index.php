@@ -78,14 +78,16 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="form-floating mb-3">
-                    <input type="text" id="email" class="form-control" placeholder="Email">
-                    <label for="floatingPassword">Email</label>
-                </div>
-                <div class="form-floating">
-                    <input type="password" id="senha" class="form-control" placeholder="Senha">
-                    <label for="floatingPassword">Senha</label>
-                </div>
+                <form action="mostrar.php" target="_blank" method="post">
+                    <div class="form-floating mb-3">
+                        <input type="text" id="email" class="form-control" placeholder="Email" name="email">
+                        <label for="floatingPassword">Email</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" id="senha" class="form-control" placeholder="Senha" name="senha">
+                        <label for="floatingPassword">Senha</label>
+                    </div>
+                </form>
             </div>
             <div class="col-md-6 d-flex justify-content-between mt-3">
                 <div class="d-flex flex-column ">
@@ -93,7 +95,7 @@
                     <p>Sou novo. <a style="text-decoration: underline; color:#000"
                             href="tela-cadastro/cadastro.html">Fazer cadastro</a></p>
                 </div>
-                <a href="venda-produto/tela_venda.html"><button class="button-primario">Entrar</button></a>
+                <button type="submit" class="button-primario">Entrar</button>
             </div>
         </div>
     </main>
