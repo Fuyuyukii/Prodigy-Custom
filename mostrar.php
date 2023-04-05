@@ -9,11 +9,12 @@
 <body>
     
     <?php
-    $email = $_POST["email"]
-    $senha = $_POST["senha"]
-
-        echo($email)
-        echo($senha)
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];
+        echo("Email <br>");
+        echo($email . "<br><br>");
+        echo("Senha <br>");
+        echo($senha);
     ?>
 
 </body>

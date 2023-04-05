@@ -87,7 +87,7 @@
                         <input type="password" id="senha" class="form-control" placeholder="Senha" name="senha">
                         <label for="floatingPassword">Senha</label>
                     </div>
-                </form>
+                
             </div>
             <div class="col-md-6 d-flex justify-content-between mt-3">
                 <div class="d-flex flex-column ">
@@ -95,8 +95,9 @@
                     <p>Sou novo. <a style="text-decoration: underline; color:#000"
                             href="tela-cadastro/cadastro.html">Fazer cadastro</a></p>
                 </div>
-                <button type="submit" class="button-primario">Entrar</button>
+                <input type="submit" class="button-primario" value="Entrar"></input>
             </div>
+            </form>
         </div>
     </main>
 
