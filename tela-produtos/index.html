@@ -133,7 +133,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="../index.html" class="dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2">
+                            <a href="../index.php" class="dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2">
                                 <svg fill="#828282" width="20px" height="20px" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg" stroke="#828282">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -167,7 +167,52 @@
 
             <a href="../venda-produto/tela_venda.html"><button class="button-primario">Voltar</button></a>
             <input type="text" class="form-control text-center pesquisa-produto" placeholder="Pesquisar">
-            <a href=""><button class="button-primario">Filtro</button></a>
+            <button class="button-primario" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                                    role="button" aria-controls="offcanvasExample">
+                                    Filtro
+                                </button>
+
+                                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+                                    aria-labelledby="offcanvasExampleLabel">
+                                    <div class="offcanvas-header">
+                                        <h4 class="offcanvas-title fw-bold" id="offcanvasExampleLabel">Filtro</h4>
+                                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        <div class="d-flex flex-column">
+                                            <div>
+                                                <label for="customRange" class="form-label">Valor</label>
+                                                <input type="range" class="form-range" min="0" max="500000"
+                                                    id="customRange">
+                                            </div>
+                                            <div>
+                                                <label for="escolherCor" class="form-label">Cor</label>
+                                                <input id="escolherCor" type="color">
+                                            </div>
+                                            <div>
+                                                <label for="marcaCarro">Marca</label>
+                                                <select name="" id="">
+                                                    <option value="">Toyota</option>
+                                                    <option value="">BMW</option>
+                                                    <option value="">Porsche</option>
+                                                    <option value="">Ferrari</option>
+                                                    <option value="">Bugatti</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label for="tipoItem">Tipo</label>
+                                                <select name="" id="">
+                                                    <option value="">Toyota</option>
+                                                    <option value="">BMW</option>
+                                                    <option value="">Porsche</option>
+                                                    <option value="">Ferrari</option>
+                                                    <option value="">Bugatti</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
         </div>
 
