@@ -35,13 +35,13 @@ body {
     cursor: pointer;
 }
 
-input[type=text], input[type=password]{
+input[type=text], input[type=password], input[type=email]{
     border-radius: 100vh;
     background-color: #cfcfcf90;
     outline: 0;
 }
 
-input[type=text]:focus, input[type=password]:focus{
+input[type=text]:focus, input[type=password]:focus,  input[type=email]:focus{
     border-radius: 100vh;
     background-color: #cfcfcf90;
     box-shadow: 0 0 0 0;
@@ -51,13 +51,13 @@ input[type=text]:focus, input[type=password]:focus{
 .button-primario{
     background-color: var(--primary) !important;
     border-radius: 100vh !important;
-    border:none;
+    border:none !important;
     padding: 0.5em 3em;
     color: #fff !important;
-    font-weight: bolder;
-    letter-spacing: 1px;
-    height: 3rem;
-    width: fit-content;
+    font-weight: bold !important;
+    letter-spacing: 1px !important;
+    height: 3rem !important;
+    width: fit-content !important;
 }
 
 .button-primario:hover{
@@ -75,6 +75,12 @@ input[type=text]:focus, input[type=password]:focus{
 
 .card{
     outline: 1px solid black !important;
+}
+
+.heightfix{
+    height: 495px;
+    overflow:hidden;
+    overflow-y:auto
 }
 
 .drop-msg .dropdown-menu[data-bs-popper]{
@@ -110,6 +116,12 @@ input[type=text]:focus, input[type=password]:focus{
     background-color: #D9D9D9;
     border-radius:10px;
     height: 100px;
+}
+
+.produtos{
+    height: 285px;
+    overflow: hidden;
+    overflow-y:auto
 }
 
 .carro{
