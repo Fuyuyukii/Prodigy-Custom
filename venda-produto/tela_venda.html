@@ -137,7 +137,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="../index.html" class="dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2">
+                            <a href="../index.html"
+                                class="dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2">
                                 <svg fill="#828282" width="20px" height="20px" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg" stroke="#828282">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -183,81 +184,62 @@
 
                                 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
                                     aria-labelledby="offcanvasExampleLabel">
-                                    <div class="offcanvas-header">
-                                        <h4 class="offcanvas-title fw-bold" id="offcanvasExampleLabel">Filtro</h4>
+                                    <div class="offcanvas-header d-flex justify-content-center">
+                                        <div style="width: 100%; display: flex; justify-content: center;">
+                                            <h4 class="offcanvas-title fw-bold" id="offcanvasExampleLabel">Filtro</h4>
+                                        </div>
                                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                                             aria-label="Close"></button>
-                                    </div>
+                                        </div>
                                     <div class="offcanvas-body">
-                                        <div class="d-flex flex-column">
+                                        <div class="d-flex flex-column gap-3">
                                             <div>
                                                 <label for="customRange" class="form-label">Valor</label>
                                                 <input type="range" class="form-range" min="0" max="500000"
                                                     id="customRange">
                                             </div>
-                                            <div>
+                                            <div class="d-flex align-items-center gap-4">
                                                 <label for="escolherCor" class="form-label">Cor</label>
-                                                <input id="escolherCor" type="color">
+                                                <input id="escolherCor" type="color" class="mb-1" style="border-radius: -80px;">
                                             </div>
                                             <div>
                                                 <label for="marcaCarro">Marca</label>
-                                                <select name="" id="">
-                                                    <option value="">Toyota</option>
-                                                    <option value="">BMW</option>
+                                                <select class="form-select" name="" id="">
+                                                    <option value="">Chevrolet</option>
+                                                    <option value="">Volkswagen</option>
+                                                    <option value="">Peugeot</option>
                                                     <option value="">Porsche</option>
-                                                    <option value="">Ferrari</option>
-                                                    <option value="">Bugatti</option>
+                                                    <option value="">Ford</option>
                                                 </select>
                                             </div>
+
                                             <div>
                                                 <label for="tipoItem">Tipo</label>
-                                                <select name="" id="">
-                                                    <option value="">Toyota</option>
-                                                    <option value="">BMW</option>
-                                                    <option value="">Porsche</option>
-                                                    <option value="">Ferrari</option>
-                                                    <option value="">Bugatti</option>
+                                                <select class="form-select " name="" id="">
+                                                    <option value="">Sedan</option>
+                                                    <option value="">Hatch</option>
+                                                    <option value="">SUV</option>
+                                                    <option value="">Perua</option>
+                                                    <option value="">Picape</option>
                                                 </select>
                                             </div>
-                                            <div>
-                                                <label for="tipoItem">Tipo</label>
-                                                <select name="" id="">
-                                                    <option value="">Toyota</option>
-                                                    <option value="">BMW</option>
-                                                    <option value="">Porsche</option>
-                                                    <option value="">Ferrari</option>
-                                                    <option value="">Bugatti</option>
-                                                </select>
-                                            </div>
-                                            <div>
-                                                <label for="tipoItem">Tipo</label>
-                                                <select name="" id="">
-                                                    <option value="">Toyota</option>
-                                                    <option value="">BMW</option>
-                                                    <option value="">Porsche</option>
-                                                    <option value="">Ferrari</option>
-                                                    <option value="">Bugatti</option>
-                                                </select>
-                                            </div>
-                                            <div>
-                                                <label for="tipoItem">Tipo</label>
-                                                <select name="" id="">
-                                                    <option value="">Toyota</option>
-                                                    <option value="">BMW</option>
-                                                    <option value="">Porsche</option>
-                                                    <option value="">Ferrari</option>
-                                                    <option value="">Bugatti</option>
-                                                </select>
-                                            </div>
-                                            <div>
-                                                <label for="tipoItem">Tipo</label>
-                                                <select name="" id="">
-                                                    <option value="">Toyota</option>
-                                                    <option value="">BMW</option>
-                                                    <option value="">Porsche</option>
-                                                    <option value="">Ferrari</option>
-                                                    <option value="">Bugatti</option>
-                                                </select>
+                                            <div class="form-check">
+                                                <label for="adicionadosRecente" class="form=check-label">Adicionados
+                                                    recentemente</label>
+                                                <input id="adicionadosRecente" type="checkbox" class="form-check-input">
+                                                </div>
+                                                <div>
+                                                    <label for="anoPeca">Ano</label>
+                                                    <div id="anoPeca" class="d-flex gap-3">
+                                                        <input type="text" class="input-ano" placeholder="de">
+                                                        <input type="text" class="input-ano" placeholder="até">
+                                                    </div>
+                                                </div>
+
+                                            
+                                            <div class="d-flex justify-content-center mt-5">
+                                                <a href=""><button class="btn button-primario">Limpar
+                                                        filtros</button></a>
                                             </div>
                                         </div>
                                     </div>
