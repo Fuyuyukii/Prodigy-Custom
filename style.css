@@ -234,3 +234,37 @@ background-color: var(--primary)!important;
     border: solid 1px #cfcfcf !important;
     padding: 0px 13px !important;
 }
+
+.fundo-animacao{
+    width:100%;
+    height: 100vh;
+    background-color:var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index:100000;
+    position: absolute;
+    animation:cimasome 3s 3s forwards;
+}
+.gira-gira{
+    animation: gira 2000ms infinite linear;
+    z-index:100001;
+    width: 200px;
+    position: relative;
+}
+
+@keyframes gira {
+    0%{
+        rotate: 0deg;
+    }
+    100%{
+        rotate: 360deg
+    }
+}
+
+@keyframes cimasome{
+    100%{
+        margin-top: -1000px;
+        display:none
+    }
+}
