@@ -1,6 +1,7 @@
 :root{
     --primary: #D081F4;
     --primary300: #D081F490;
+
 }
 
 * {
@@ -216,4 +217,20 @@ hr.favoritos{
 .img-minhaconta{
     width: 200px;
     height: 200px;
+}
+.form-range::-webkit-slider-thumb{
+background-color: var(--primary)!important;
+}
+.input-ano{
+    width: 100px;
+    border-radius: 10px;
+    background-color: #fff!important;
+    outline: 0;
+    box-shadow: 0 0 0 0;
+    border: solid 1px #cfcfcf;
+    padding: 0px 13px !important;
+}
+.input-ano:focus{
+    border: solid 1px #cfcfcf !important;
+    padding: 0px 13px !important;
 }
