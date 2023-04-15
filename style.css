@@ -160,6 +160,14 @@ input[type=text]:focus, input[type=password]:focus,  input[type=email]:focus{
     }
 }
 
+a.item{
+    text-decoration: none;
+    color: black;
+}
+
+a.item:hover{
+    color: black;
+}
 .item>img{
     max-width: 150px !important;
     max-height: 150px !important;
