@@ -161,11 +161,11 @@ input[type=text]:focus, input[type=password]:focus,  input[type=email]:focus{
 }
 
 .item>img{
-    max-width: 150px;
-    max-height: 150px;
-    border-radius:10px
+    max-width: 150px !important;
+    max-height: 150px !important;
+    border-radius:10px !important;
 }
-
+ 
 .item>p{
     text-overflow: ellipsis;
     max-width: 150px;
