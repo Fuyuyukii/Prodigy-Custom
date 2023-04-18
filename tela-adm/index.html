@@ -19,7 +19,7 @@
 
 </head>
 
-<body style="overflow:hidden">
+<body style="overflow-x:hidden">
     <header>
         <nav class="nav navbar">
             <a href="../index.html"><img class="logo" src="fotologo.png" alt="imagem da logo"></a>
@@ -27,7 +27,7 @@
     </header>
 
     <main>
-        <div class="col-md-12 mt-5" style="margin-left: 10em">
+        <div class="col-md-12 text-center mt-5">
             <h2 class="fw-bold">
                 Adicionar novo produto
             </h2>
@@ -52,8 +52,22 @@
                 </div>
                 <div class="form-floating">
                     <input type="text" id="preco" class="form-control" placeholder="Preço" name="preco">
-                    <label for="nome">Preço</label>
+                    <label for="preco">Preço</label>
                 </div>
+                <div class="form-floating">
+                    <input type="text" id="categoria" class="form-control" placeholder="Categoria" name="categoria">
+                    <label for="categoria">Categoria</label>
+                </div>
+                <div class="col-md-12" style="height: 100px">
+                    <div class="d-flex justify-content-between mb-6">
+    
+                            <a href="../index.html"><button class="button-primario">Voltar</button></a>
+    
+                            <button class="button-primario">Cadastrar</button>
+    
+                    </div>
+                </div>
+
             </div>
         </div>
     </main>
