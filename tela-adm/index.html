@@ -36,7 +36,7 @@
                             <div class="d-flex flex-column">
                                 <div class="col-md-12 d-flex justify-content-between ps-2">
                                     <h4>Produtos</h4>
-                                    <button class="button-primario"
+                                    <button class="button-primario" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"
                                         style="padding:0;width:36px !important;height: 36px !important;"><svg
                                             fill="#fff" width="32px" height="32px" viewBox="0 0 32 32"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -112,6 +112,57 @@
                                 <hr>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade modal-xl" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
+            style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header fw-bold" style="font-size: 25px;">
+                        Adicionar Produto
+                        <button type="button" class="btn btn-primary btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-md-12">
+                            <div class="d-flex">
+                                <button type="button" class="button-secundario">
+                                    <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" stroke="#737373">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M10.942 2.406a1.497 1.497 0 0 1 2.116 0L16.45 5.79c.39.39.39 1.03 0 1.42a.996.996 0 0 1-1.41 0l-.466-.466a10.002 10.002 0 0 1-1.407-1.768l-.215-.344-.206.207A10 10 0 0 1 13 7.079V15a1 1 0 1 1-2 0V7.078a10 10 0 0 1 .254-2.24l-.206-.206-.215.344c-.4.64-.873 1.234-1.407 1.768l-.466.466a.996.996 0 0 1-1.41 0c-.39-.39-.39-1.03 0-1.42l3.392-3.384zM20 11a1 1 0 0 0-1 1v6.077c0 .459-.022.57-.082.684a.363.363 0 0 1-.157.157c-.113.06-.225.082-.684.082H5.923c-.459 0-.57-.022-.684-.082a.363.363 0 0 1-.157-.157c-.06-.113-.082-.225-.082-.684V12a1 1 0 0 0-2 0v6.077c0 .76.082 1.185.319 1.627.223.419.558.753.977.977.442.237.866.319 1.627.319h12.154c.76 0 1.185-.082 1.627-.319.419-.224.753-.558.977-.977.237-.442.319-.866.319-1.627V12a1 1 0 0 0-1-1z"
+                                                fill="#737373"></path>
+                                        </g>
+                                    </svg>
+                                </button>
+                                <div class="col-md-10">
+                                    <div class="inside-body d-flex flex-column">
+                                        <div class="top-side d-flex col-md-12">
+                                            <div class="col-md-6"><input type="text" id="produto-nome-adicionar"
+                                                    class="form-control" placeholder="Nome"></div>
+                                            <div class="col-md-3"><input type="text" id="produto-nome-adicionar"
+                                                    class="form-control" placeholder="Preço"></div>
+                                            <div class="col-md-3"><input type="text" id="produto-nome-adicionar"
+                                                    class="form-control" placeholder="categoria"></div>
+                                        </div>
+                                        <div class="bot-side">
+                                            <input type="text" id="produto-nome-adicionar" class="form-control"
+                                                placeholder="Descrição">
+                                            <input type="text" id="produto-nome-adicionar" class="form-control"
+                                                placeholder="Informações técnicas">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary"> Adicionar Produto</button>
                     </div>
                 </div>
             </div>
