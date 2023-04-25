@@ -170,16 +170,21 @@ a.item:hover{
     color: black;
 }
 .item>img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
     max-width: 150px !important;
     max-height: 150px !important;
     border-radius:10px !important;
 }
  
 .item>p{
-    text-overflow: ellipsis;
     max-width: 150px;
     max-height: 8ch;
+    min-width: 150px;
+    min-height: 8ch;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .imagem-produto-grande{
