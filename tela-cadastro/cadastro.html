@@ -33,31 +33,36 @@
             </div>
             <div class="col-md-12 d-flex flex-row align-items-center justify-content-center">
                 <div class="col-md-4">
-                    <div class="form-floating mb-4">
-                        <input type="text" id="nome" class="form-control" placeholder="Nome">
-                        <label for="nome">Nome</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                        <input type="text" id="email" class="form-control" placeholder="Email">
-                        <label for="email">Email</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                        <input type="text" id="endereco" class="form-control" placeholder="Endereço">
-                        <label for="endereco">Endereço</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                        <input type="password" id="senha" class="form-control" placeholder="Senha">
-                        <label for="senha">Senha</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                        <input type="password" id="senhaConfirma" class="form-control" placeholder="Confirmar senha">
-                        <label for="senhaConfirma">Confirmar senha</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                        <input type="text" id="telefone" class="form-control" placeholder="Telefone">
-                        <label for="telefone">Telefone</label>
-                    </div>
-
+                    <form action="../php/cadastrar.php" method="post">
+                        <div class="form-floating mb-4">
+                            <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome">
+                            <label for="nome">Nome</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="text" id="cpf" name="cpf" class="form-control" placeholder="CPF">
+                            <label for="nome">Nome</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="text" id="email" name="email" class="form-control" placeholder="Email">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="text" id="endereco" name="endereco" class="form-control" placeholder="Endereço">
+                            <label for="endereco">Endereço</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha">
+                            <label for="senha">Senha</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="password" id="senhaConfirma" name="senhaconfirma" class="form-control" placeholder="Confirmar senha">
+                            <label for="senhaConfirma">Confirmar senha</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="text" id="telefone" name="telefone" class="form-control" placeholder="Telefone">
+                            <label for="telefone">Telefone</label>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="col-md-12">
