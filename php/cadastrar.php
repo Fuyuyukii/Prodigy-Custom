@@ -1,22 +1,29 @@
 <?php
     include("sql_connect.php");
-    $nome = $_POST["nome"];
-    $cpf = $_POST["cpf"];
-    $email = $_POST["email"];
-    $endereco = $_POST["endereco"];
-    $senha = $_POST["senha"];
-    $confirma_senha = $_POST["senhaconfirma"];
-    $telefone = $_POST["telefone"];
+    $nome = $_GET["N"];
+    $cpf = $_GET["C"];
+    $email = $_GET["EM"];
+    $endereco = $_GET["EN"];
+    $senha = $_GET["S"];
+    $senhaconfirma = $_GET["SC"];
+    $telefone = $_GET["T"]; 
 
-    if ($senha == $confirma_senha)
-    {
-        $comando = $pdo->prepare("insert into usuarios(cpf, nome, Email, Endereco, Senha, Telefone) values('$nome', $cpf, '$email',
-        '$endereco', '$senha', $telefone)");
-        $resultado = $comando->execute();
-    }
-    else
-    {
-        echo("deu errado");
+    if ($senha == $senhaconfirma) {
+        try {
+            $stmt = $pdo->prepare("INSERT INTO users (nome, cpf, email, endereco, senha, telefone) VALUES (:nome, :cpf, :email, :endereco, :senha, :telefone)");
+            $stmt->bindParam(':nome', $nome);
+            $stmt->bindParam(':cpf', $cpf);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':endereco', $endereco);
+            $stmt->bindParam(':senha', $senha);
+            $stmt->bindParam(':telefone', $telefone);
+            $stmt->execute();
+            echo "Data inserted successfully";
+        } catch(PDOException $e) {
+            echo "Error inserting data: " . $e->getMessage();
+        }
+    } else {
+        echo "Error: Passwords do not match";
     }
 
     header("Location: cadastro.html");

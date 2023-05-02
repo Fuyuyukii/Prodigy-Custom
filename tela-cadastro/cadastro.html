@@ -33,36 +33,34 @@
             </div>
             <div class="col-md-12 d-flex flex-row align-items-center justify-content-center">
                 <div class="col-md-4">
-                    <form action="../php/cadastrar.php" method="post">
-                        <div class="form-floating mb-4">
-                            <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome">
-                            <label for="nome">Nome</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input type="text" id="cpf" name="cpf" class="form-control" placeholder="CPF">
-                            <label for="nome">CPF</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input type="text" id="email" name="email" class="form-control" placeholder="Email">
-                            <label for="email">Email</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input type="text" id="endereco" name="endereco" class="form-control" placeholder="Endereço">
-                            <label for="endereco">Endereço</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha">
-                            <label for="senha">Senha</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input type="password" id="senhaConfirma" name="senhaconfirma" class="form-control" placeholder="Confirmar senha">
-                            <label for="senhaConfirma">Confirmar senha</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input type="text" id="telefone" name="telefone" class="form-control" placeholder="Telefone">
-                            <label for="telefone">Telefone</label>
-                        </div>
-                    </form>
+                    <div class="form-floating mb-4">
+                        <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome">
+                        <label for="nome">Nome</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="text" id="cpf" name="cpf" class="form-control" placeholder="CPF">
+                        <label for="nome">CPF</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="text" id="email" name="email" class="form-control" placeholder="Email">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="text" id="endereco" name="endereco" class="form-control" placeholder="Endereço">
+                        <label for="endereco">Endereço</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha">
+                        <label for="senha">Senha</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="password" id="senhaconfirma" name="senhaconfirma" class="form-control" placeholder="Confirmar senha">
+                        <label for="senhaConfirma">Confirmar senha</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="text" id="telefone" name="telefone" class="form-control" placeholder="Telefone">
+                        <label for="telefone">Telefone</label>
+                    </div>
                 </div>
             </div>
             <div class="col-md-12">
@@ -70,7 +68,7 @@
 
                         <a href="../index.html"><button class="button-primario">Voltar</button></a>
 
-                        <button class="button-primario">Cadastrar</button>
+                        <button class="button-primario" onclick="cadastrar()">Cadastrar</button>
 
                 </div>
             </div>
@@ -79,5 +77,16 @@
     </main>
 
 </body>
-
+<script>
+    function cadastrar() {
+        var N = document.getElementById("nome").value;
+        var C = document.getElementById("cpf").value;
+        var EN = document.getElementById("endereco").value;
+        var EM = document.getElementById("email").value;
+        var S = document.getElementById("senha").value;
+        var SC = document.getElementById("senhaconfirma").value;
+        var T = document.getElementById("telefone").value;
+        window.open("../php/cadastrar.php?N="+N+"&C="+C+"&EN="+EN+"&EM="+EM+"&S="+S+"&SC="+SC+"&T="+T, "_self");
+    }
+</script>
 </html>
