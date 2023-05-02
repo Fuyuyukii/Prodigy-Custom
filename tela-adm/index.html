@@ -144,15 +144,15 @@
                                         <div class="top-side d-flex col-md-12">
                                             <div class="col-md-6"><input type="text" id="produto-nome-adicionar"
                                                     class="form-control" placeholder="Nome"></div>
-                                            <div class="col-md-3"><input type="text" id="produto-nome-adicionar"
+                                            <div class="col-md-3"><input type="text" id="produto-preço-adicionar"
                                                     class="form-control" placeholder="Preço"></div>
-                                            <div class="col-md-3"><input type="text" id="produto-nome-adicionar"
+                                            <div class="col-md-3"><input type="text" id="produto-categoria-adicionar"
                                                     class="form-control" placeholder="categoria"></div>
                                         </div>
                                         <div class="bot-side">
-                                            <input type="text" id="produto-nome-adicionar" class="form-control"
+                                            <input type="text" id="produto-descricao-adicionar" class="form-control"
                                                 placeholder="Descrição">
-                                            <input type="text" id="produto-nome-adicionar" class="form-control"
+                                            <input type="text" id="produto-tecinfo-adicionar" class="form-control"
                                                 placeholder="Informações técnicas">
                                         </div>
                                     </div>
@@ -162,12 +162,22 @@
         
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary"> Adicionar Produto</button>
+                        <button type="button" class="btn btn-primary" onclick="inserir_produto()"> Adicionar Produto</button>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 </body>
-
+<script>
+    inserir_produto()
+    {
+        var npn = document.getElementById("produto-nome-adicionar").value;
+        var npp = document.getElementById("produto-preço-adicionar").value;
+        var npc = document.getElementById("produto-categoria-adicionar").value;
+        var npd = document.getElementById("produto-descricao-adicionar").value;
+        var npi = document.getElementById("produto-tecinfo-adicionar").value;
+        window.open("../php/cadastrar_produto.php?npn="+npn+"&npp="+npp+"&npc="+npc+"&npd="+npd+"&npi="+npi, "_self"); 
+    }
+</script>
 </html>
