@@ -102,12 +102,18 @@
                     <p>Sou novo. <a style="text-decoration: underline; color:#000"
                             href="tela-cadastro/cadastro.html">Fazer cadastro</a></p>
                 </div>
-                <a href="venda-produto/tela_venda.html"><input type="button" class="button-primario" value="Entrar"></input></a>
+                <input type="button" class="button-primario" value="Entrar" onclick="validar_login();"></input>
             </div>
 
         </div>
     </main>
 
 </body>
-
+<script>
+    function validar_login() {
+        var gmail = document.getElementById("email").value;
+        var password = document.getElementById("senha").value;
+        window.open("php/validacao_login.php?gmail="+gmail+"&password="+password, "_self");
+    }
+</script>
 </html>
