@@ -304,16 +304,18 @@
             })
             $('.btn-comprar').on('click', function () {
                 if ($('body').hasClass('modal-open')) {
-                    const estrelas = $('.estrelas i')
-                    estrelas.forEach(estrela, index1){
-                        estrela.on('click', function(){
-                            console.
+                    const estrelas = document.querySelectorAll('.estrelas i')
+                    estrelas.forEach((estrela, index1) => {
+                        estrela.addEventListener('click', function(){
+                            estrelas.forEach((estrela, index2) => {
+                                index1 >= index2 ? estrela.classList.add('fa-sharp-active') : estrela.classList.remove('fa-sharp-active')
+                            })
+                            let avaliacao = (index1 + 1)
+                            console.log(avaliacao)
                         })
-                    }
+                    })
                 }
             })
-
-
         })
     </script>
 </body>
