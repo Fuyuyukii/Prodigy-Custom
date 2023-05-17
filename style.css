@@ -100,7 +100,10 @@ select{
     margin-top: var(--bs-dropdown-spacer);
 }
 
-
+.fa-sharp-active{
+    color: #FFEA00;
+    text-shadow: -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000;
+}
 
 .imagemLista{
     width: 75px !important;
@@ -256,6 +259,21 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.info{
+    position: relative;
+}
+
+.botaoExpande{
+    position: absolute;
+    left: 200px;
+    top:-5px;
+}
+
+.rodar{
+    transition: rotate 1s ease-in-out;
+    rotate:180deg;
 }
 
 .fundo-animacao{
