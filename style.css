@@ -309,3 +309,16 @@ input::-webkit-inner-spin-button {
         display:none
     }
 }
+
+.label-insere{
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.imagemProduto{
+    display: none;   
+}
