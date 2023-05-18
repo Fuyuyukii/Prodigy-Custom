@@ -319,12 +319,14 @@
             })
             $('#salvar').on('click', function(){
                 if (globalAvaliacao != undefined){
+                    let cpf_usuario = 123;
                     let produto_id = 5;
                     let produto_avaliacao = globalAvaliacao;
-                    window.open("../php/avaliar.php?produto_id="+produto_id+"&produto_avaliacao="+produto_avaliacao, "_self");
+                    window.open("../php/avaliar.php?produto_id="+produto_id+"&produto_avaliacao="+produto_avaliacao+"&cpf_usuario="+cpf_usuario, "_self");
                 } else {
                     console.log("não foi possível avaliar o produto")
                 }
+
             })
         })
     </script>
