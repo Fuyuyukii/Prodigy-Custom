@@ -158,7 +158,7 @@
                 <div class="modal-content">
                     <div class="modal-header fw-bold" style="font-size: 25px;">
                         Adicionar Produto
-                        <button type="button" class="btn btn-primary btn-close" data-bs-dismiss="modal"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
                         <div class="col-md-12">
@@ -184,7 +184,8 @@
                                 </label>
                                 <div class="col-md-10">
                                     <div class="inside-body d-flex flex-column">
-                                        <div class="top-side d-flex col-md-12">
+                                        <div class="top-side d-flex col-md-11 mb-2
+                                        " style="gap:2.3rem">
                                             <div class="col-md-6"><input type="text" id="produto-nome-adicionar"
                                                     class="form-control" placeholder="Nome"></div>
                                             <div class="col-md-3"><input type="text" id="produto-preço-adicionar"
@@ -192,9 +193,13 @@
                                             <div class="col-md-3"><input type="text" id="produto-categoria-adicionar"
                                                     class="form-control" placeholder="categoria"></div>
                                         </div>
-                                        <div class="bot-side">
-                                            <input type="text" id="produto-descricao-adicionar" class="form-control"
+                                        <div class="bot-side col-md-12 mb-2">
+                                            <textarea type="text" id="produto-descricao-adicionar" class="form-control"
                                                 placeholder="Descrição">
+                                                
+                                            </textarea>
+                                        </div>
+                                                <div class="col-md-12 mb-2">
                                             <input type="text" id="produto-tecinfo-adicionar" class="form-control"
                                                 placeholder="Informações técnicas">
                                         </div>
@@ -205,7 +210,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" onclick="inserir_produto()"> Adicionar
+                        <button type="button" class="btn button-primario" onclick="inserir_produto()"> Adicionar
                             Produto</button>
                     </div>
                 </div>
