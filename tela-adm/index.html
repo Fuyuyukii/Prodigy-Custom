@@ -180,7 +180,6 @@
                                         Inserir imagem
                                     </div>
                                         <input type="file" name="" id="insereImagem" class="imagemProduto">
-
                                 </label>
                                 <div class="col-md-10">
                                     <div class="inside-body d-flex flex-column">
@@ -220,12 +219,13 @@
 </body>
 <script>
     function inserir_produto() {
-        console.log("lucas gay")
-        var npn = document.getElementById("produto-nome-adicionar").value;
-        var npp = document.getElementById("produto-preço-adicionar").value;
-        var npc = document.getElementById("produto-categoria-adicionar").value;
-        var npd = document.getElementById("produto-descricao-adicionar").value;
-        var npi = document.getElementById("produto-tecinfo-adicionar").value;
+        // SALVANDO A IMAGEM
+        
+        let npn = document.getElementById("produto-nome-adicionar").value;
+        let npp = document.getElementById("produto-preço-adicionar").value;
+        let npc = document.getElementById("produto-categoria-adicionar").value;
+        let npd = document.getElementById("produto-descricao-adicionar").value;
+        let npi = document.getElementById("produto-tecinfo-adicionar").value;
         window.open("../php/cadastrar_produto.php?npn=" + npn + "&npp=" + npp + "&npc=" + npc + "&npd=" + npd + "&npi=" + npi, "_self");
     }
 </script>
