@@ -288,7 +288,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn button-primario">Salvar avaliação</button>
+                        <button type="button" class="btn button-primario" id="salvar">Salvar avaliação</button>
                     </div>
                 </div>
             </div>
@@ -302,6 +302,7 @@
             $('.botaoExpande').on('click', function () {
                 $(this).toggleClass('rodar')
             })
+            let globalAvaliacao
             $('.btn-comprar').on('click', function () {
                 if ($('body').hasClass('modal-open')) {
                     const estrelas = document.querySelectorAll('.estrelas i')
@@ -311,10 +312,13 @@
                                 index1 >= index2 ? estrela.classList.add('fa-sharp-active') : estrela.classList.remove('fa-sharp-active')
                             })
                             let avaliacao = (index1 + 1)
-                            console.log(avaliacao)
+                            globalAvaliacao = avaliacao
                         })
                     })
                 }
+            })
+            $('#salvar').on('click', function(){
+                console.log(globalAvaliacao)
             })
         })
     </script>
