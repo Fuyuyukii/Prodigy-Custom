@@ -18,8 +18,8 @@ body {
     font-family: Urbanist !important;
 }
 
-.underline {
-    text-decoration: underline;
+a.underline {
+    text-decoration: underline !important;
     cursor: pointer;
 }
 
@@ -38,16 +38,19 @@ body {
 }
 
 input[type=text], input[type=password], input[type=email], select{
-    border-radius: 100vh !important;
-    background-color: #cfcfcf90 !important;
+    border:0;
+    border-bottom: 2px solid #cfcfcf;
+    background-color: transparent;
     outline: 0 !important;
+    border-radius: 0;
 }
 
 input[type=text]:focus, input[type=password]:focus,  input[type=email]:focus, select{
-    border-radius: 100vh !important;
-    background-color: #cfcfcf90 !important;
-    box-shadow: 0 0 0 0 !important;
-    border:0 !important
+    border-bottom: 2px solid #000;
+    background-color: transparent;
+    outline: 0;
+    box-shadow: 0 0 0 0;
+    border-radius: 0;
 }
 
 textarea{
@@ -87,6 +90,9 @@ select{
     letter-spacing: 1px !important;
     height: 3rem !important;
     width: fit-content !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button-primario:hover{
@@ -195,10 +201,19 @@ a.item{
     text-decoration: none;
     color: black;
 }
-
+a{
+    text-decoration: none !important;
+}
 a.item:hover{
     color: black;
 }
+a.link{
+    color:#777777 !important;
+    text-decoration: underline !important;
+}
+
+
+
 .item>img{
     width: 150px;
     height: 150px;
@@ -350,4 +365,9 @@ input::-webkit-inner-spin-button {
 #imagemInserida{
     max-width: 100px;
     object-fit: contain;
+}
+.imagem-minha-conta{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
 }

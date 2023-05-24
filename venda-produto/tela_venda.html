@@ -356,6 +356,17 @@
     $("#InsereImagemCarro").change(function () {
         $(this).css('display', 'none')
         $('#ImagemCarroInserida').css('display', 'block')
+        $('.labelImagem').css('display', 'none')
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#ImagemCarroInserida').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    })
+    $('#ImagemCarroInserida').on('click', function(){
+        $('#InsereImagemCarro').trigger('click')
         if (this.files && this.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {

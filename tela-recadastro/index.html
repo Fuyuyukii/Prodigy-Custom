@@ -146,22 +146,23 @@
     <main>
         <div class="d-flex justify-content-center align-items-center" style="margin-top: 145px;">
             <div class="col-md-4">
-                <div class="card" style="background-color: #D9D9D9;">
+                <div class="card" style="background-color: #e1e1e1;">
 
                     <div class="card-body card-padding">
                         <div class="d-flex gap-5">
-                            <input type="file" class="img-minhaconta rounded-circle">
+                            <input type="file" class="img-minhaconta">
+                            <img id="InsereImagemPerfil" class="imagem-minha-conta rounded-circle" src="" alt="" style="display:none">
                             <div class="d-flex flex-column">
                                 <h4>Nome</h4>
-                                <input type="text" class="form-control" style="background-color: #fff;">
+                                <input type="text" class="form-control">
                                 <h4>E-mail</h4>
-                                <input type="email" class="form-control" style="background-color: #fff;">
+                                <input type="email" class="form-control" >
                                 <h4>Senha</h4>
-                                <input type="password" class="form-control" style="background-color: #fff;">
+                                <input type="password" class="form-control" >
                                 <h4>Telefone</h4>
-                                <input type="text" class="form-control" style="background-color: #fff;">
+                                <input type="text" class="form-control">
                                 <h4>Endereço</h4>
-                                <input type="text" class="form-control" style="background-color: #fff;">
+                                <input type="text" class="form-control">
                             </div>
                         </div>
                         <div class="d-flex justify-content-end mt-2">
@@ -175,5 +176,30 @@
     </main>
 
 </body>
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script>
+    $(function () {
+    $(".img-minhaconta").change(function () {
+        $(this).css('display', 'none')
+        $('#InsereImagemPerfil').css('display', 'block')
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#InsereImagemPerfil').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    })
+    $('#InsereImagemPerfil').on('click', function(){
+        $('.img-minhaconta').trigger('click')
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#InsereImagemPerfil').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    })
+});
+</script>
 </html>
