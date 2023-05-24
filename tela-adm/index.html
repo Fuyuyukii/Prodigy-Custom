@@ -219,13 +219,32 @@
 </body>
 <script>
     function inserir_produto() {
-        // SALVANDO A IMAGEM
-        
+        // INSERE OS DADOS BASES
         let npn = document.getElementById("produto-nome-adicionar").value;
         let npp = document.getElementById("produto-preço-adicionar").value;
         let npc = document.getElementById("produto-categoria-adicionar").value;
         let npd = document.getElementById("produto-descricao-adicionar").value;
         let npi = document.getElementById("produto-tecinfo-adicionar").value;
+        // INSERINDO IMAGENS
+        let FileInput = document.getElementById('insereImagem');
+        let file = FileInput.files[0];
+
+        let formData = new FormData();
+        formData.append('photo', file);
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', '../php/cadastrar_produto.php', true);
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                console.log("Photo uploaded successfully");
+            } else {
+                console.log("Error uploading photo ");
+            }
+        };
+
+        xhr.send(FormData);
+        
+        // LEVANDO OS DADOS PRO PHP 
         window.open("../php/cadastrar_produto.php?npn=" + npn + "&npp=" + npp + "&npc=" + npc + "&npd=" + npd + "&npi=" + npi, "_self");
     }
 </script>
