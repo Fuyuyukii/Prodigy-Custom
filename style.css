@@ -49,6 +49,24 @@ input[type=text]:focus, input[type=password]:focus,  input[type=email]:focus, se
     box-shadow: 0 0 0 0 !important;
     border:0 !important
 }
+
+textarea{
+    border-radius:10px;
+    background-color: #cfcfcf90 !important;
+    outline: 0 !important;
+}
+textarea:focus{
+    border-radius:10px;
+    background-color: #cfcfcf90 !important;
+    box-shadow: 0 0 0 0 !important;
+    border:0 !important
+}
+
+.carro{
+    min-width: 700px;
+    max-width: 700px;
+}
+
 select{
     cursor: pointer;
 }

@@ -190,8 +190,10 @@
                                                     class="form-control" placeholder="Nome"></div>
                                             <div class="col-md-3"><input type="text" id="produto-preço-adicionar"
                                                     class="form-control" placeholder="Preço"></div>
-                                            <div class="col-md-3"><input type="text" id="produto-categoria-adicionar"
-                                                    class="form-control" placeholder="categoria"></div>
+                                                    <div class="col-md-3"><input type="text" data-bs-toggle="tooltip"
+                                                        data-bs-title="Essa categoria não existe, deseja criá-la?"
+                                                        id="produto-categoria-adicionar" class="form-control"
+                                                        placeholder="categoria"></div>
                                         </div>
                                         <div class="bot-side col-md-12 mb-2">
                                             <textarea type="text" id="produto-descricao-adicionar" class="form-control"
@@ -199,10 +201,11 @@
                                                 
                                             </textarea>
                                         </div>
-                                                <div class="col-md-12 mb-2">
-                                            <input type="text" id="produto-tecinfo-adicionar" class="form-control"
-                                                placeholder="Informações técnicas">
+                                        <div class="col-md-12 mb-2">
+                                            <textarea id="produto-tecinfo-adicionar" class="form-control"
+                                                placeholder="Informações técnicas"></textarea>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -260,6 +263,24 @@
         }
         $('#imagemInserirLabel').css('display', 'none')
     });
+    $(document).on('shown.bs.modal', function () {
+
+
+$('#produto-categoria-adicionar').bind('keypress', function (e) {
+    if (e.keyCode == 13) {
+        if ($('#produto-categoria-adicionar').val() == '') {
+            $('#produto-categoria-adicionar').tooltip('toggle')
+        }
+        if (!$('#produto-categoria-adicionar').val() == '') {
+            $('#produto-categoria-adicionar').tooltip('dispose')
+            let textoCategoria = $('#produto-categoria-adicionar').val()
+            $('#categoriaAAdicionar').append(textoCategoria + ', ')
+        }
+
+    }
+});
+})
+
 });
 </script>
 
