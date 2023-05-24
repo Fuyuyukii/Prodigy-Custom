@@ -163,7 +163,7 @@
                     <div class="modal-body">
                         <div class="col-md-12">
                             <div class="d-flex">
-                                <label for="insereImagem" class="label-insere">
+                                <label id="imagemInserirLabel" for="insereImagem" class="label-insere">
 
                                         <svg fill="#000000" width="48px" height="48px" viewBox="0 0 32 32" version="1.1"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -181,6 +181,7 @@
                                     </div>
                                         <input type="file" name="" id="insereImagem" class="imagemProduto">
                                 </label>
+                                <img id="imagemInserida" src="" alt="">
                                 <div class="col-md-10">
                                     <div class="inside-body d-flex flex-column">
                                         <div class="top-side d-flex col-md-11 mb-2
@@ -217,6 +218,7 @@
         </div>
     </main>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 <script>
     function inserir_produto() {
         // INSERE OS DADOS BASES
@@ -247,6 +249,18 @@
         window.open("../php/cadastrar_produto.php?npn=" + npn + "&npp=" + npp + "&npc=" + npc + "&npd=" + npd + "&npi=" + npi, "_self")
         
     }
+    $(function () {
+    $("#insereImagem").change(function () {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#imagemInserida').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+        $('#imagemInserirLabel').css('display', 'none')
+    });
+});
 </script>
 
 </html>

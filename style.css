@@ -322,3 +322,8 @@ input::-webkit-inner-spin-button {
 .imagemProduto{
     display: none;   
 }
+
+#imagemInserida{
+    max-width: 100px;
+    object-fit: contain;
+}
