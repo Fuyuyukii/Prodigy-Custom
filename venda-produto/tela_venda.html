@@ -325,7 +325,9 @@
                 </div>
                 <div class="col-md-8 d-flex justify-content-center align-items-center"
                     style="height: calc(100vh - 120px);">
-                    <img src="image-removebg-preview.png" class="carro">
+                    <label for="InsereImagemCarro" class="labelImagem button-primario">Insira uma imagem</label>
+                    <input type="file" name="InsereImagemCarro" id="InsereImagemCarro" class="visually-hidden">
+                    <img id="ImagemCarroInserida" src="" class="carro" style="display:none">
                 </div>
             </div>
             <a href="../MQTT.html">
@@ -348,4 +350,20 @@
     </main>
 </body>
 <script src="../index.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script>
+    $(function () {
+    $("#InsereImagemCarro").change(function () {
+        $(this).css('display', 'none')
+        $('#ImagemCarroInserida').css('display', 'block')
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#ImagemCarroInserida').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    })
+});
+</script>
 </html>
