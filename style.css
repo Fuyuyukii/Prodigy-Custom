@@ -311,7 +311,7 @@ input::-webkit-inner-spin-button {
 }
 
 .rodar{
-    transition: rotate 1s ease-in-out;
+    transition: rotate 0.5s ease-in-out;
     rotate:180deg;
 }
 
