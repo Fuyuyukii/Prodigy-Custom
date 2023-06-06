@@ -68,6 +68,9 @@ textarea:focus{
 .carro{
     min-width: 700px;
     max-width: 700px;
+    width: 650px;
+    height: 500px;
+    object-fit: none;
 }
 label.labelImagem{
     position: absolute;
@@ -160,11 +163,6 @@ select{
     height: 285px;
     overflow: hidden;
     overflow-y:auto
-}
-
-.carro{
-    width: 650px;
-    height: 500px;
 }
 
 .pesquisa-produto{
