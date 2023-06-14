@@ -10,5 +10,5 @@
     $stmt->bindParam(':produto_avaliacao', $produto_avaliacao);
     $stmt->execute();
 
-    header("Location: ../visualiza-produto/index.html");
+    header("Location: ../visualiza-produto/index.php");
 ?>
