@@ -229,9 +229,9 @@
                             </div>
                             <div class="heightfix">
                                 <?php
-                                include("../php/sql_connect.php");
-                                $carro_id = 1;
-                                $comando = $pdo->prepare("SELECT produtos.nome, produtos.preco from carro_produto inner join produtos on carro_produto.produto_id = produtos.id_produto where carro_produto.carro_id = $carro_id");
+                                include("sql_connect.php");
+                                $comando = $pdo->prepare("select * from carro_produto inner join produtos on carro_produto.produto_id = produtos.id_produto where carro_produto.carro_id = :carro_id");
+                                $comando->bindParam(':carro_id', 1);
                                 $comando->execute();
                                 while ($linhas = $comando->fetch()){
 

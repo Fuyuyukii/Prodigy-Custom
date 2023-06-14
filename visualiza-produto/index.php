@@ -191,11 +191,21 @@
             <div>
                 <h4>Retrovisor Porsche 911 Carrera Coupé</h4>
                 <div class="mb-4">
-                    <i class="fa-sharp fa-solid fa-star fa-2x"></i>
-                    <i class="fa-sharp fa-solid fa-star fa-2x"></i>
-                    <i class="fa-sharp fa-solid fa-star fa-2x"></i>
-                    <i class="fa-sharp fa-solid fa-star fa-2x"></i>
-                    <i class="fa-sharp fa-solid fa-star fa-2x"></i>
+                    <svg width="38" height="38" viewBox="0 0 32 32">
+                        <polygon points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
+                    </svg>
+                    <svg width="38" height="38" viewBox="0 0 32 32">
+                        <polygon points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
+                    </svg>
+                    <svg width="38" height="38" viewBox="0 0 32 32">
+                        <polygon points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
+                    </svg>
+                    <svg width="38" height="38" viewBox="0 0 32 32">
+                        <polygon points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
+                    </svg>
+                    <svg width="38" height="38" viewBox="0 0 32 32">
+                        <polygon points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
+                    </svg>
                 </div>
                 <div>
                     <h2 style="margin-bottom: 0;">R$ 1799,90</h2>
@@ -280,11 +290,21 @@
                     </div>
                     <div class="modal-body">
                         <div class="estrelas">
-                            <i class="fa-sharp fa-solid fa-star fa-2x icon" id="estrela"></i>
-                            <i class="fa-sharp fa-solid fa-star fa-2x icon" id="estrela"></i>
-                            <i class="fa-sharp fa-solid fa-star fa-2x icon" id="estrela"></i>
-                            <i class="fa-sharp fa-solid fa-star fa-2x icon" id="estrela"></i>
-                            <i class="fa-sharp fa-solid fa-star fa-2x icon" id="estrela"></i>
+                            <svg width="38" height="38" viewBox="0 0 32 32">
+                                <polygon  class="icon" points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
+                            </svg>
+                            <svg width="38" height="38" viewBox="0 0 32 32" >
+                                <polygon class="icon" points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
+                            </svg>
+                            <svg width="38" height="38" viewBox="0 0 32 32" >
+                                <polygon class="icon" points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
+                            </svg>
+                            <svg width="38" height="38" viewBox="0 0 32 32" >
+                                <polygon class="icon" points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
+                            </svg>
+                            <svg width="38" height="38" viewBox="0 0 32 32" >
+                                <polygon class="icon" points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
+                            </svg>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -305,11 +325,11 @@
             let globalAvaliacao
             $('.btn-comprar').on('click', function () {
                 if ($('body').hasClass('modal-open')) {
-                    const estrelas = document.querySelectorAll('.estrelas i')
-                    estrelas.forEach((estrela, index1) => {
-                        estrela.addEventListener('click', function(){
-                            estrelas.forEach((estrela, index2) => {
-                                index1 >= index2 ? estrela.classList.add('fa-sharp-active') : estrela.classList.remove('fa-sharp-active')
+                    const poligonos = document.querySelectorAll('.estrelas #poligono')
+                    poligonos.forEach((poligono, index1) => {
+                        poligono.addEventListener('click', function(){
+                            poligonos.forEach((poligono, index2) => {
+                                if(index1 >= index2){ poligono.setAttribute('fill', 'yellow'); poligono.setAttribute('stroke','black'); poligono.setAttribute('stroke-width','1')}else{poligono.setAttribute('fill', 'black')};
                             })
                             let avaliacao = (index1 + 1)
                             globalAvaliacao = avaliacao
