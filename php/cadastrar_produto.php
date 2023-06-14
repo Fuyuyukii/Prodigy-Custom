@@ -56,11 +56,11 @@
                 echo $erro;
             } 
         } else {
-            $root_path = ../img
+            $root_path = "../img";
             if (move_uploaded_file($nome_temporario, $root_path.$nome_arquivo)) {
-                echo "upload feito"
+                echo "upload feito";
             } else {
-                "erro no upload"
+                "erro no upload";
             }
         }
 
