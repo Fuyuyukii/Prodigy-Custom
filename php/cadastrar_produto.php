@@ -1,22 +1,21 @@
 <?php
     include("sql_connect.php");
-    $nome_produto = $_GET["npn"];
-    $produto_preco = $_GET["npp"];
-    $produto_categoria = $_GET["npc"];
-    $produto_descricao = $_GET["npd"];
-    $produto_info_tec = $_GET["npi"]; 
-
+    $nome_produto = $_POST["produto-nome-adicionar"];
+    $produto_preco = $_POST["produto-preço-adicionar"];
+    $produto_categoria = $_POST["produto-categoria-adicionar"];
+    $produto_descricao = $_POST["produto-descricao-adicionar"];
+    $produto_info_tec = $_POST["produto-tecinfo-adicionar"]; 
     
-    // // INSERINDO OS DADOS BRUTOS
-    // $stmt = $pdo->prepare("INSERT INTO produtos(nome, preco, categoria, descricao, info_tecnica)
-    // VALUES (:nome_produto, :produto_preco, :produto_categoria, :produto_descricao, :produto_info_tec)");
-    // $stmt->bindParam(':nome_produto', $nome_produto);
-    // $stmt->bindParam(':produto_preco', $produto_preco);
-    // $stmt->bindParam(':produto_categoria', $produto_categoria);
-    // $stmt->bindParam(':produto_descricao', $produto_descricao);
-    // $stmt->bindParam(':produto_info_tec', $produto_info_tec);
-    // $stmt->execute();
-    // echo "Data inserted successfully";
+    // INSERINDO OS DADOS BRUTOS
+    $stmt = $pdo->prepare("INSERT INTO produtos(nome, preco, categoria, descricao, info_tecnica)
+    VALUES (:nome_produto, :produto_preco, :produto_categoria, :produto_descricao, :produto_info_tec)");
+    $stmt->bindParam(':nome_produto', $nome_produto);
+    $stmt->bindParam(':produto_preco', $produto_preco);
+    $stmt->bindParam(':produto_categoria', $produto_categoria);
+    $stmt->bindParam(':produto_descricao', $produto_descricao);
+    $stmt->bindParam(':produto_info_tec', $produto_info_tec);
+    $stmt->execute();
+    echo "Data inserted successfully";
 
     //PEGANDO O ID DO PRODUTO
     $stm = $pdo->prepare("SELECT MAX(id_produto) AS max_id FROM produtos");
@@ -25,26 +24,54 @@
     if (!$row) {
         die('No data found');
     };
-    $maxId = $row['max_id'];
+    $produto_id = $row['max_id'];
 
-    // INSERINDO AS IMAGENS
-    $targetDir = "imgs/";
-    $targetFile = $targetDir . basename($_FILES["photo"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+    // INSERINDO IMAGEM
 
-    if ($uploadOk == 0) {
-        echo "The image was not uploaded.";
-    } else {
-        if (move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile)) {
-            echo "The file " . basename($_FILES["photo"]["name"]) . " has been uploaded.";
-            $filePath = $targetFile;
-            $stm = $pdo->prepare("INSERT INTO produtos_imagens (id_produto, file_path) VALUES (:id_produto, :filePath)");
-            $stm->bindParam(':id_produto', $maxId);
-            $stm->bindParam(':filePath', $filePath);
-            $stm->execute();
-        };
-    };
+    if (!empty($_FILES['arquivo']['name'])) {
+        $nome_arquivo = $_FILES['arquivo']['name'];
+        $tipo = $_FILES['arquivo']['type'];
+        $nome_temporario = $_FILES['arquivo']['tmp_name'];
+        $tamanho = $_FILES['arquivo']['size'];
+        $erros = array();
+
+        $tamanho_maximo = 1024 * 1024 * 5;
+        if ($tamanho > $tamanho_maximo) {
+            $erros[] = "Seu arquivo excede o tamanho máximo<br>";
+        }
+
+        $arquivos_permetidos = ["png", "jpg", "jpeg"];
+        $extensao = pathinfo($nome_arquivo, PATHINFO_EXTENSION);
+        if ( !in_array($extensa, $arquivos_permetidos)){
+            $erros[] = "extensão do arquivo permitida.<br>";
+        }
+
+        $types_permitidos = ["image/png", "image/jpg", "image/jpeg"];
+        if ( !in_array($tipo, $types_permitidos)){
+            $erros[] = "tipo de arquivo não permitido.<br>";
+        }
+
+        if ( !empty($erros)) {
+            foreach ($erros as $erro) {
+                echo $erro;
+            } 
+        } else {
+            $root_path = ../img
+            if (move_uploaded_file($nome_temporario, $root_path.$nome_arquivo)) {
+                echo "upload feito"
+            } else {
+                "erro no upload"
+            }
+        }
+
+         
+    }
+
+    $stmt = $pdo->prepare("INSERT INTO produtos_imagens(id_produto, file_path)
+    VALUES (:produto_id, :file_path)");
+    $stmt->bindParam(':produto_id', $produto_id);
+    $stmt->bindParam(':file_path', $img_file_path);
+
 
     header("Location: ../tela-adm/index.html");
 ?>

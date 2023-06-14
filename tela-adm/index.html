@@ -155,6 +155,7 @@
         <div class="modal fade modal-xl" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
             style="display: none;" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
+                <form action="../php/cadastrar_produto.php" method="post" enctype="multipart/form-data">
                 <div class="modal-content">
                     <div class="modal-header fw-bold" style="font-size: 25px;">
                         Adicionar Produto
@@ -164,7 +165,6 @@
                         <div class="col-md-12">
                             <div class="d-flex">
                                 <label id="imagemInserirLabel" for="insereImagem" class="label-insere">
-
                                         <svg fill="#000000" width="48px" height="48px" viewBox="0 0 32 32" version="1.1"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -179,30 +179,30 @@
                                         <div>
                                         Inserir imagem
                                     </div>
-                                        <input type="file" name="" id="insereImagem" class="imagemProduto">
+                                        <input type="file" name="insereImagem" id="insereImagem" class="imagemProduto">
                                 </label>
                                 <img id="imagemInserida" src="" alt="">
                                 <div class="col-md-10">
                                     <div class="inside-body d-flex flex-column">
                                         <div class="top-side d-flex col-md-11 mb-2
                                         " style="gap:2.3rem">
-                                            <div class="col-md-6"><input type="text" id="produto-nome-adicionar"
+                                            <div class="col-md-6"><input type="text" id="produto-nome-adicionar" name="produto-nome-adicionar"
                                                     class="form-control" placeholder="Nome"></div>
-                                            <div class="col-md-3"><input type="text" id="produto-preço-adicionar"
+                                            <div class="col-md-3"><input type="text" id="produto-preço-adicionar" name="produto-preço-adicionar"
                                                     class="form-control" placeholder="Preço"></div>
                                                     <div class="col-md-3"><input type="text" data-bs-toggle="tooltip"
                                                         data-bs-title="Essa categoria não existe, deseja criá-la?"
-                                                        id="produto-categoria-adicionar" class="form-control"
+                                                        id="produto-categoria-adicionar" name="produto-categoria-adicionar" class="form-control"
                                                         placeholder="categoria"></div>
                                         </div>
                                         <div class="bot-side col-md-12 mb-2">
-                                            <textarea type="text" id="produto-descricao-adicionar" class="form-control"
+                                            <textarea type="text" id="produto-descricao-adicionar" name="produto-descricao-adicionar" class="form-control"
                                                 placeholder="Descrição">
                                                 
                                             </textarea>
                                         </div>
                                         <div class="col-md-12 mb-2">
-                                            <textarea id="produto-tecinfo-adicionar" class="form-control"
+                                            <textarea id="produto-tecinfo-adicionar" name="produto-tecinfo-adicionar" class="form-control"
                                                 placeholder="Informações técnicas"></textarea>
                                         </div>
 
@@ -213,9 +213,10 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn button-primario" onclick="inserir_produto()"> Adicionar
+                        <button type="submit" class="btn button-primario" name="submit-btn"> Adicionar
                             Produto</button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -223,35 +224,6 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 <script>
-    function inserir_produto() {
-        // INSERE OS DADOS BASES
-        let npn = document.getElementById("produto-nome-adicionar").value;
-        let npp = document.getElementById("produto-preço-adicionar").value;
-        let npc = document.getElementById("produto-categoria-adicionar").value;
-        let npd = document.getElementById("produto-descricao-adicionar").value;
-        let npi = document.getElementById("produto-tecinfo-adicionar").value;
-        // INSERINDO IMAGENS
-        let FileInput = document.getElementById('insereImagem');
-        let file = FileInput.files[0];
-
-        let formData = new FormData();
-        formData.append('photo', file);
-
-        let xhr = new XMLHttpRequest();
-        xhr.open('POST', '../php/cadastrar_produto.php', true);
-        xhr.onload = function () {
-            if (xhr.status == 200) {
-                console.log("Photo uploaded successfully");
-            } else {
-                console.log("Error uploading photo ");
-            }
-        };
-        xhr.send(FormData);
-        
-        //LEVANDO OS DADOS PRO PHP
-        window.open("../php/cadastrar_produto.php?npn=" + npn + "&npp=" + npp + "&npc=" + npc + "&npd=" + npd + "&npi=" + npi, "_self")
-        
-    }
     $(function () {
     $("#insereImagem").change(function () {
         if (this.files && this.files[0]) {
