@@ -7,11 +7,10 @@
     $produto_info_tec = $_POST["produto-tecinfo-adicionar"]; 
     
     // INSERINDO OS DADOS BRUTOS
-    $stmt = $pdo->prepare("INSERT INTO produtos(nome, preco, categoria, descricao, info_tecnica)
-    VALUES (:nome_produto, :produto_preco, :produto_categoria, :produto_descricao, :produto_info_tec)");
+    $stmt = $pdo->prepare("INSERT INTO produtos(nome, preco, descricao, info_tecnica)
+    VALUES (:nome_produto, :produto_preco, :produto_descricao, :produto_info_tec)");
     $stmt->bindParam(':nome_produto', $nome_produto);
     $stmt->bindParam(':produto_preco', $produto_preco);
-    $stmt->bindParam(':produto_categoria', $produto_categoria);
     $stmt->bindParam(':produto_descricao', $produto_descricao);
     $stmt->bindParam(':produto_info_tec', $produto_info_tec);
     $stmt->execute();
@@ -56,11 +55,11 @@
                 echo $erro;
             } 
         } else {
-            $root_path = ../img
+            $root_path = ../img;
             if (move_uploaded_file($nome_temporario, $root_path.$nome_arquivo)) {
-                echo "upload feito"
+                echo "upload feito";
             } else {
-                "erro no upload"
+                echo "erro no upload";
             }
         }
 
