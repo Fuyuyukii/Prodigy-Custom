@@ -26,13 +26,12 @@
     $produto_id = $row['max_id'];
 
     // INSERINDO IMAGEM
-
-    if (!empty($_FILES['arquivo']['name'])) {
-        $nome_arquivo = $_FILES['arquivo']['name'];
-        $tipo = $_FILES['arquivo']['type'];
-        $nome_temporario = $_FILES['arquivo']['tmp_name'];
-        $tamanho = $_FILES['arquivo']['size'];
-        $erros = array();
+    if (!empty($_FILES['insereImagem']['name'])) {
+        $nome_arquivo = $_FILES['insereImagem']['name'];
+        $tipo = $_FILES['insereImagem']['type'];
+        $nome_temporario = $_FILES['insereImagem']['tmp_name'];
+        $tamanho = $_FILES['insereImagem']['size'];
+        $erros = [];
 
         $tamanho_maximo = 1024 * 1024 * 5;
         if ($tamanho > $tamanho_maximo) {
@@ -41,7 +40,7 @@
 
         $arquivos_permetidos = ["png", "jpg", "jpeg"];
         $extensao = pathinfo($nome_arquivo, PATHINFO_EXTENSION);
-        if ( !in_array($extensa, $arquivos_permetidos)){
+        if ( !in_array($extensao, $arquivos_permetidos)){
             $erros[] = "extensão do arquivo permitida.<br>";
         }
 
@@ -55,22 +54,26 @@
                 echo $erro;
             } 
         } else {
-            $root_path = ../img;
-            if (move_uploaded_file($nome_temporario, $root_path.$nome_arquivo)) {
-                echo "upload feito";
+            $root_path = "../imgs/";
+            if (move_uploaded_file($nome_temporario, $root_path . $nome_arquivo)) {
+                echo "upload feito.<br>";
             } else {
-                echo "erro no upload";
+                echo "erro no upload.<br>";
             }
         }
 
          
     }
-
+    $img_file_path = $root_path . $nome_arquivo;
+    echo "$produto_id<br>";
+    echo "$img_file_path<br>";
     $stmt = $pdo->prepare("INSERT INTO produtos_imagens(id_produto, file_path)
     VALUES (:produto_id, :file_path)");
     $stmt->bindParam(':produto_id', $produto_id);
     $stmt->bindParam(':file_path', $img_file_path);
+    $stmt->execute();
+    echo "produto_imagem adicionados<br>";
 
 
-    header("Location: ../tela-adm/index.html");
+    // header("Location: ../tela-adm/index.html");
 ?>
