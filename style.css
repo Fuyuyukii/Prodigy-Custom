@@ -35,23 +35,26 @@ a.underline {
 
 .icon{
     cursor: pointer;
-    
 }
 
-input[type=text], input[type=password], input[type=email], select{
-    border:0;
-    border-bottom: 2px solid #cfcfcf;
-    background-color: transparent;
+.textarea{
+    width: 100%;
+}
+
+input[type=text], input[type=password], input[type=email], select, .textarea{
+    border:0 !important;
+    border-bottom: 2px solid #cfcfcf !important;
+    background-color: transparent !important;
     outline: 0 !important;
-    border-radius: 0;
+    border-radius: 0 !important;
 }
 
-input[type=text]:focus, input[type=password]:focus,  input[type=email]:focus, select{
-    border-bottom: 2px solid #000;
-    background-color: transparent;
-    outline: 0;
-    box-shadow: 0 0 0 0;
-    border-radius: 0;
+input[type=text]:focus, input[type=password]:focus,  input[type=email]:focus, select, .textarea:focus{
+    border-bottom: 2px solid #000 !important;
+    background-color: transparent !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0 !important;
+    border-radius: 0 !important;
 }
 
 textarea{
@@ -364,4 +367,9 @@ input::-webkit-inner-spin-button {
     width: 150px;
     height: 150px;
     object-fit: cover;
+}
+
+@media (min-width: 1200px){
+.modal-xl {
+    --bs-modal-width: 1000px !important;
 }
