@@ -75,5 +75,5 @@
     echo "produto_imagem adicionados<br>";
 
 
-    // header("Location: ../tela-adm/index.html");
+    header("Location: ../tela-adm/index.html");
 ?>
