@@ -219,34 +219,27 @@
         </div>
 
         <div class="grid-items d-grid p-5">
-            <a class="item" href="../visualiza-produto/index.php">
-                <img src="subaru.png" alt="">
-                <p class="mt-3">Aerofolio Subaru Impreza WRX STI Hatch com Brake Light - 2008+</p>
-            </a>
-            <div class="item m-2">
-                <img src="opala.png" alt="">
-                <p class="mt-3">Kit 4 Rodas Aro 15X7/15X8 Gm Opala SS 5x114 BD Krmai M8 (2 TALAS)</p>
-            </div>
-            <div class="item m-2">
-                <img src="chev.png" alt="">
-                <p class="mt-3">Emblema Chevrolet do Porta Malas Kadett Ipanema 96 a 98</p>
-            </div>
-            <div class="item m-2">
-                <img src="mola.png" alt="">
-                <p class="mt-3">Molas Originais VW Golf GTI VR6 - 2003</p>
-            </div>
-            <div class="item m-2">
-                <img src="susp.png" alt="">
-                <p class="mt-3">Kit De Suspensao Rosca Extreme Premium Tebao - Gol G4</p>
-            </div>
-            <div class="item m-2">
-                <img src="gti.png" alt="">
-                <p class="mt-3">Emblema Badge Traseiro GTI Silver VW Golf - 1999 a 2012</p>
-            </div>
-            <div class="item m-2">
-                <img src="orbital.png" alt="">
-                <p class="mt-3">4 Rodas Orbital - Volcano - Aro 18 4x100 Prata</p>
-            </div>
+            <?php
+            include("sql_connect.php");
+            $comando = $pdo->prepare("select * from produtos_imagens inner join produtos on produtos_imagens.id_produto = produtos.id_produto");
+            $comando->execute();
+            while ($linhas = $comando->fetch()){
+
+                if (!empty($linhas["file_path"])){
+                    $produto_img = "<img src='$linhas['file_path']'>";
+                } else {
+                    $produto_img = "<img src=''>"
+                }
+                $produto_nome = $linhas["nome"];
+
+                echo(
+                    "<a class='item' href='../visualiza-produto/index.php'>
+                    $produto_img
+                    <p class='mt-3'>$produto_nome</p>
+                    </a>"
+                    );
+            }
+            ?>
         </div>
         <a href="../MQTT.html">
             <div class="faleConosco">
