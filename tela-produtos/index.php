@@ -226,9 +226,10 @@
             while ($linhas = $comando->fetch()){
 
                 if (!empty($linhas["file_path"])){
-                    $produto_img = "<img src='$linhas['file_path']'>";
+                    $img = $linhas["file_path"];
+                    $produto_img = "<img src='$img'>";
                 } else {
-                    $produto_img = "<img src=''>"
+                    $produto_img = "<img src=''>";
                 }
                 $produto_nome = $linhas["nome"];
 
