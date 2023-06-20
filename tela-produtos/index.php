@@ -243,7 +243,7 @@
                 $produto_id = $linhas["id_produto"];
 
                 echo(
-                    "<a class='item' href='../visualiza-produto/index.php?C$produto_id'>
+                    "<a class='item' href='../visualiza-produto/index.php?C=$produto_id'>
                     $produto_img
                     <p class='mt-3'>$produto_nome</p>
                     </a>"
