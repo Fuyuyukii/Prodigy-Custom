@@ -16,7 +16,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.10.0"></script>
+
     <title>Prodigy Custom</title>
 </head>
 
@@ -266,8 +267,9 @@
                 <div class="col-md-8 d-flex justify-content-center align-items-center"
                     style="height: calc(100vh - 120px);">
                     <label for="InsereImagemCarro" class="labelImagem button-primario">Insira uma imagem</label>
-                    <input type="file" name="InsereImagemCarro" id="InsereImagemCarro" class="visually-hidden">
+                    <input type="file" name="InsereImagemCarro" id="InsereImagemCarro" accept="image/*">
                     <img id="ImagemCarroInserida" src="" class="carro" style="display:none">
+                    <div id="result"></div>
                 </div>
             </div>
             <a href="../MQTT.html">
@@ -315,6 +317,39 @@
             reader.readAsDataURL(this.files[0]);
         }
     })
+    $('#InsereImagemCarro').on('change', function(){
+
+    })
+
+    async function recognizeImage() {
+      const inputElement = document.getElementById("InsereImagemCarro");
+      const previewElement = document.getElementById("ImagemCarroInserida");
+      const resultElement = document.getElementById("result");
+
+      const image = inputElement.files[0];
+      const imageUrl = URL.createObjectURL(image);
+      previewElement.src = imageUrl;
+      previewElement.style.display = "block";
+
+      const modelUrl = './modelo/model.json';
+      const classNamesUrl = './modelo/metadata.json'; // Arquivo JSON com o mapeamento das classes
+
+      const model = await tf.loadLayersModel(modelUrl);
+      const classNamesResponse = await fetch(classNamesUrl);
+      const classNames = await classNamesResponse.json();
+      const input = tf.browser.fromPixels(previewElement).expandDims();
+      const predictions = await model.predict(input).data();
+
+      resultElement.innerHTML = "";
+      for (let i = 0; i < predictions.length; i++) {
+        const className = classNames.labels[i];
+        const probability = predictions[i];
+        resultElement.innerHTML += `<div>${className}: ${probability.toFixed(3)}</div>`;
+      }
+    }
+
+    const inputElement = document.getElementById("inputImage");
+    inputElement.addEventListener("change", recognizeImage);
 });
 </script>
 </html>
