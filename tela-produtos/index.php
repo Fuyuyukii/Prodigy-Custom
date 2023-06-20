@@ -227,7 +227,7 @@
 
         <div class="grid-items d-grid p-5">
             <?php
-            include("sql_connect.php");
+            include("../php/sql_connect.php");
             $comando = $pdo->prepare("select * from produtos_imagens inner join produtos on produtos_imagens.id_produto = produtos.id_produto");
             $comando->execute();
             while ($linhas = $comando->fetch()){
