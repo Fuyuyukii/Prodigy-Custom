@@ -22,7 +22,9 @@
 </head>
 <?php
 include("../php/sql_connect.php");
-$comando = $pdo->prepare("SELECT * from produtos_imagens inner join produtos on produtos.id_produto = produtos_imagens.id_produto");
+$produto_id = $_GET["C"];
+$comando = $pdo->prepare("SELECT *, AVG(produto_avaliacao.avaliacao) as produto_avaliacao from produtos_imagens inner join produtos on produtos.id_produto = produtos_imagens.id_produto inner join produto_avaliacao on produto_avaliacao.id_produto = produtos_imagens.id_produto where produtos.id_produto = :produto_id group by produtos.id_produto");
+$comando->bindParam(':produto_id', $produto_id);
 $comando->execute();
 while ($linhas = $comando->fetch()){
 
@@ -33,9 +35,9 @@ while ($linhas = $comando->fetch()){
     }
 
     $produto_nome = $linhas["nome"];
-    $produto_id = $linhas["id_produto"];
-    $produto_avaliacao = '';
+    $produto_avaliacao = $linhas["produto_avaliacao"];
     $produto_preco = $linhas["preco"];
+    $produto_parcela = ($produto_preco/10);
     $produto_desc = $linhas["descricao"];
     $produto_desc_tec = $linhas["info_tecnica"];
 }
@@ -233,10 +235,10 @@ while ($linhas = $comando->fetch()){
                     </svg>
                 </div>
                 <div>
-                    <h2 style="margin-bottom: 0;"><?php echo($produto_preco); ?></h2>
+                    <h2 style="margin-bottom: 0;"><?php echo("R$ $produto_preco"); ?></h2>
                 </div>
                 <div>
-                    <p>10x de R$179,99</p>
+                    <p><?php echo("10x de $produto_parcela"); ?></p>
                 </div>
                 <div class="d-flex justify-content-between">
                     <button class="btn btn-warning p-3 rounded-pill fw-bolder text-light">Carrinho</button>
@@ -323,7 +325,11 @@ while ($linhas = $comando->fetch()){
             </div>
         </div>
     </main>
-
+    <?php
+        echo "<script>";
+        echo "var produto_id =" . $produto_id . ";";
+        echo "</script>";
+    ?>
     <script>
         $(function () {
             $('.botaoExpande').on('click', function () {
@@ -346,10 +352,8 @@ while ($linhas = $comando->fetch()){
             })
             $('#salvar').on('click', function(){
                 if (globalAvaliacao != undefined){
-                    let cpf_usuario = 123;
-                    let produto_id = 5;
                     let produto_avaliacao = globalAvaliacao;
-                    window.open("../php/avaliar.php?produto_id="+produto_id+"&produto_avaliacao="+produto_avaliacao+"&cpf_usuario="+cpf_usuario, "_self");
+                    window.open("../php/avaliar.php?produto_id="+produto_id+"&produto_avaliacao="+produto_avaliacao);
                 } else {
                     console.log("não foi possível avaliar o produto")
                 }
