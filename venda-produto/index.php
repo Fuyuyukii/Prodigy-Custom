@@ -23,7 +23,7 @@
 <body style="overflow:hidden">
     <header>
         <nav class="nav navbar">
-            <a href="../venda-produto/tela_venda.html"><img class="logo" src="fotologo.png" alt="imagem da logo"></a>
+            <a href="../venda-produto/index.php"><img class="logo" src="fotologo.png" alt="imagem da logo"></a>
             <div class="icones">
                 <a href="../tela-carrinho/index.html">
                     <svg style="cursor:pointer" width="45px" height="45px" viewBox="0 0 24 24" fill="none"
