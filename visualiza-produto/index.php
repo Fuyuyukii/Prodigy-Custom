@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +20,26 @@
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="../index.js"></script>
 </head>
+<?php
+include("../php/sql_connect.php");
+$comando = $pdo->prepare("SELECT * from produtos_imagens inner join produtos on produtos.id_produto = produtos_imagens.id_produto");
+$comando->execute();
+while ($linhas = $comando->fetch()){
 
+    if (!empty($linhas["file_path"])){
+        $img = $linhas["file_path"];
+    } else {
+        $produto_img = "<img src=''>";
+    }
+
+    $produto_nome = $linhas["nome"];
+    $produto_id = $linhas["id_produto"];
+    $produto_avaliacao = '';
+    $produto_preco = $linhas["preco"];
+    $produto_desc = $linhas["descricao"];
+    $produto_desc_tec = $linhas["info_tecnica"];
+}
+?>
 <body>
     <header>
         <nav class="nav navbar">
@@ -192,11 +210,11 @@
                     <img src="carro2.png" alt="" class="imagem-produto-menores">
                 </div>
                 <div>
-                    <img src="carro1.png" alt="" class="imagem-produto-grande">
+                    <img src="<?php echo($img); ?>" alt="" class="imagem-produto-grande">
                 </div>
             </div>
             <div>
-                <h4>Retrovisor Porsche 911 Carrera Coupé</h4>
+                <h4><?php echo($produto_nome); ?></h4>
                 <div class="mb-4">
                     <svg width="38" height="38" viewBox="0 0 32 32">
                         <polygon points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
@@ -215,14 +233,10 @@
                     </svg>
                 </div>
                 <div>
-                    <h2 style="margin-bottom: 0;">R$ 1799,90</h2>
+                    <h2 style="margin-bottom: 0;"><?php echo($produto_preco); ?></h2>
                 </div>
                 <div>
                     <p>10x de R$179,99</p>
-                </div>
-                <div class="form-floating mb-5 mt-5">
-                    <input type="text" class="form-control" id="calculaCep" placeholder="Calcular o CEP">
-                    <label style="color:rgb(136, 136, 136)" for="calculaCep" class="form-label">Calcular o CEP</label>
                 </div>
                 <div class="d-flex justify-content-between">
                     <button class="btn btn-warning p-3 rounded-pill fw-bolder text-light">Carrinho</button>
@@ -234,8 +248,7 @@
 
         <div class="descricao-produto mt-5 ms-5">
             <h5>Descrição do produto</h5>
-            <p>O produto é muito bom O produto é muito bomO produto é muito bomO produto é muito bom O produto é muito
-                bom O produto é muito bom</p>
+            <p><?php echo($produto_desc); ?></p>
         </div>
         <div>
             <div class="info d-flex gap-2 align-items-center ms-5">
@@ -257,18 +270,7 @@
             </div>
 
             <div class="mx-5 collapse" id="collapseInfo">
-
-                O produto é muito bom O produto é muito bomO produto é muito bomO produto é muito bom O produto é muito
-                bom O produto é muito bomO produto é muito bom O produto é muito bomO produto é muito bomO produto é
-                muito bom O produto é muito
-                bom O produto é muito bomO produto é muito bom O produto é muito bomO produto é muito bomO produto é
-                muito bom O produto é muito
-                bom O produto é muito bomO produto é muito bom O produto é muito bomO produto é muito bomO produto é
-                muito bom O produto é muito
-                bom O produto é muito bomO produto é muito bom O produto é muito bomO produto é muito bomO produto é
-                muito bom O produto é muito
-                bom O produto é muito bom
-
+                <?php echo($produto_desc_tec); ?>
             </div>
         </div>
         <a href="../MQTT.html">
@@ -322,8 +324,6 @@
         </div>
     </main>
 
-
-
     <script>
         $(function () {
             $('.botaoExpande').on('click', function () {
@@ -358,7 +358,5 @@
         })
     </script>
 </body>
-
-
 
 </html>
