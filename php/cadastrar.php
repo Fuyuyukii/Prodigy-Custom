@@ -26,5 +26,5 @@
         echo "Error: Passwords do not match";
     }
 
-    header("Location: ../tela-cadastro/cadastro.html");
+    header("Location: ../tela-cadastro");
 ?>
