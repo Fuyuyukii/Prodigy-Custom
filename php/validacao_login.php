@@ -9,7 +9,7 @@
     
     if ($comando->rowCount() > 0) {
         echo "Email and password match";
-        header("Location: ../venda-produto/tela_venda.php");
+        header("Location: ../venda-produto/index.php");
         exit(); // Important: Stop further execution after redirecting
     } else {
         echo "Email and password do not match";
