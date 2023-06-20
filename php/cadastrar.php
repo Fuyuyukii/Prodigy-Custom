@@ -10,7 +10,7 @@
 
     if ($senha == $senhaconfirma) {
         try {
-            $stmt = $pdo->prepare("INSERT INTO usuarios(nome, cpf, email, endereco, senha, telefone) VALUES (:nome, :cpf, :email, :endereco, :senha, :telefone)");
+            $stmt = $pdo->prepare("INSERT INTO usuarios(nome, user_cpf, email, endereco, senha, telefone) VALUES (:nome, :cpf, :email, :endereco, :senha, :telefone)");
             $stmt->bindParam(':nome', $nome);
             $stmt->bindParam(':cpf', $cpf);
             $stmt->bindParam(':email', $email);
@@ -26,5 +26,5 @@
         echo "Error: Passwords do not match";
     }
 
-    header("Location: ../tela-cadastro/cadastro.html");
+    header("Location: ../tela-cadastro");
 ?>
