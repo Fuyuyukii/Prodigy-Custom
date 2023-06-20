@@ -181,7 +181,7 @@
     <main>
 
         <div class="col-md-12 d-flex mt-5 ps-5">
-            <a class="me-5" href="../tela-produtos/index.html"><button class="button-primario">Voltar</button></a>
+            <a class="me-5" href="../tela-produtos"><button class="button-primario">Voltar</button></a>
         </div>
 
         <div class="d-flex gap-5 mt-5">

@@ -230,7 +230,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="../tela-produtos/index.html">
+                                <a href="../tela-produtos">
                                     <button class="button-primario">Catálogo</button>
                                 </a>
 

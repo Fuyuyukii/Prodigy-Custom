@@ -152,7 +152,7 @@
     <main>
         <div class="col-md-12 d-flex justify-content-around mt-5">
 
-            <a href="../venda-produto/tela_venda.html"><button class="button-primario">Voltar</button></a>
+            <a href="../venda-produto"><button class="button-primario">Voltar</button></a>
             <input type="text" class="form-control text-center pesquisa-produto" placeholder="Pesquisar">
             <button class="button-primario" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
                 aria-controls="offcanvasExample">
@@ -238,10 +238,12 @@
                 } else {
                     $produto_img = "<img src=''>";
                 }
+
                 $produto_nome = $linhas["nome"];
+                $produto_id = $linhas["id_produto"];
 
                 echo(
-                    "<a class='item' href='../visualiza-produto/index.php'>
+                    "<a class='item' href='../visualiza-produto/index.php?C$produto_id'>
                     $produto_img
                     <p class='mt-3'>$produto_nome</p>
                     </a>"
