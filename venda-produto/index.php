@@ -266,7 +266,7 @@
                 <div class="col-md-8 d-flex justify-content-center align-items-center"
                     style="height: calc(100vh - 120px);">
                     <label for="InsereImagemCarro" class="labelImagem button-primario">Insira uma imagem</label>
-                    <input type="file" name="InsereImagemCarro" id="InsereImagemCarro" accept="image/*">
+                    <input type="file" name="InsereImagemCarro" id="InsereImagemCarro" class="visually-hidden" accept="image/*">
                     <img id="ImagemCarroInserida" src="" class="carro" style="display:none">
                     <div id="result"></div>
                 </div>
@@ -316,9 +316,9 @@
             reader.readAsDataURL(this.files[0]);
         }
     })
-    $('#InsereImagemCarro').on('change', function(){
-
-    })
+    // $('#InsereImagemCarro').on('change', function(){
+    //     recognizeImage()
+    // })
 
     async function recognizeImage() {
       const inputElement = document.getElementById("InsereImagemCarro");
@@ -330,8 +330,8 @@
       previewElement.src = imageUrl;
       previewElement.style.display = "block";
 
-      const modelUrl = './modelo/model.json';
-      const classNamesUrl = './modelo/metadata.json'; // Arquivo JSON com o mapeamento das classes
+      const modelUrl = '../modelo/model.json';
+      const classNamesUrl = '../modelo/metadata.json'; // Arquivo JSON com o mapeamento das classes
 
       const model = await tf.loadLayersModel(modelUrl);
       const classNamesResponse = await fetch(classNamesUrl);
@@ -340,14 +340,17 @@
       const predictions = await model.predict(input).data();
 
       resultElement.innerHTML = "";
+      let carroCerto
       for (let i = 0; i < predictions.length; i++) {
         const className = classNames.labels[i];
         const probability = predictions[i];
+        carroCerto = [classNames.labels[0], predictions[0]]
         resultElement.innerHTML += `<div>${className}: ${probability.toFixed(3)}</div>`;
       }
+      console.log(carroCerto)
     }
 
-    const inputElement = document.getElementById("inputImage");
+    const inputElement = document.getElementById("InsereImagemCarro");
     inputElement.addEventListener("change", recognizeImage);
 });
 </script>
