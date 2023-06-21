@@ -238,7 +238,7 @@
                             <div class="heightfix">
                                 <?php
                                 include("../php/sql_connect.php");
-                                $comando = $pdo->prepare("select * from carro_produto inner join produtos_imagens on carro_produto.id_produto = produtos_imagens.id_produto");
+                                $comando = $pdo->prepare("select * from carro_produto inner join produtos_imagens on carro_produto.produto_id = produtos_imagens.id_produto");
                                 $comando->execute();
                                 while ($linhas = $comando->fetch()){
 
@@ -316,9 +316,6 @@
             reader.readAsDataURL(this.files[0]);
         }
     })
-    // $('#InsereImagemCarro').on('change', function(){
-    //     recognizeImage()
-    // })
 
     async function recognizeImage() {
       const inputElement = document.getElementById("InsereImagemCarro");
@@ -332,7 +329,7 @@
 
       const modelUrl = '../modelo/model.json';
       const classNamesUrl = '../modelo/metadata.json'; // Arquivo JSON com o mapeamento das classes
-
+        console.log(modelUrl)
       const model = await tf.loadLayersModel(modelUrl);
       const classNamesResponse = await fetch(classNamesUrl);
       const classNames = await classNamesResponse.json();
@@ -340,14 +337,26 @@
       const predictions = await model.predict(input).data();
 
       resultElement.innerHTML = "";
-      let carroCerto
+      const carros = [] 
       for (let i = 0; i < predictions.length; i++) {
         const className = classNames.labels[i];
         const probability = predictions[i];
-        carroCerto = [classNames.labels[0], predictions[0]]
+        classNames.labels[i], predictions[i];
         resultElement.innerHTML += `<div>${className}: ${probability.toFixed(3)}</div>`;
+        const carro = {NomeCarro: classNames.labels[i],
+                       Probabilidade: predictions[i]}
+        carros.push(carro)
       }
-      console.log(carroCerto)
+      let Probabilidade = 0
+      let carroProbMaxima = ""
+      for (let i = 0; i < carros.length; i++) {
+            const carro = carros[i];
+            if (carro.Probabilidade > Probabilidade){
+                carroProbMaxima = carro.NomeCarro
+                Probabilidade = carro.Probabilidade
+            }  
+        }
+        console.log(carroProbMaxima, Probabilidade)
     }
 
     const inputElement = document.getElementById("InsereImagemCarro");
