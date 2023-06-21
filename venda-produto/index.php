@@ -238,7 +238,7 @@
                             <div class="heightfix">
                                 <?php
                                 include("../php/sql_connect.php");
-                                $comando = $pdo->prepare("select * from carro_produto inner join produtos_imagens on carro_produto.produto_id = produtos_imagens.id_produto");
+                                $comando = $pdo->prepare("select * from carro_produto inner join produtos_imagens on carro_produto.id_produto = produtos_imagens.id_produto");
                                 $comando->execute();
                                 while ($linhas = $comando->fetch()){
 
