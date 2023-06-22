@@ -159,7 +159,7 @@
                         <div class="card-body">
                             <div class="d-flex flex-column">
                                 <div class="col-md-12 d-flex justify-content-between ps-2">
-                                    <select class="form-select" style="width:200px">
+                                    <select class="form-select" id="selectTipo" style="width:200px">
                                         <option value="1">Produtos</option>
                                         <option value="2">Usuários</option>
                                     </select>
