@@ -354,7 +354,7 @@ $('#produto-categoria-adicionar').bind('keypress', function (e) {
 });
 })
 
-});
+
 
 function deletar(produto_id){
     window.open("../php/deletar.php?produto_id=" + produto_id, "_self")
@@ -382,4 +382,8 @@ function preencher(produto_id){
         }
     });
 }
+$('#selectTipo').on('change', function(){
+        console.log($('#selectTipo option').filter(':selected').text())
+    });
+});
 </script>
