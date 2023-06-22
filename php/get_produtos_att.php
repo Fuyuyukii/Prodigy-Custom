@@ -16,9 +16,9 @@
 
     $produto_att = "{\"produto_att\": 
         [
-           {\"nome\":\"$produto_nome\", \"preco\":$produto_preco, \"descricao\":\"$produto_descricao\", \"informacoes_tecnicas\":\"$produto_infotec\"}
+           {\"nome\":\"$produto_nome\", \"id\":\"$produto_id\", \"preco\":$produto_preco, \"descricao\":\"$produto_descricao\", \"informacoes_tecnicas\":\"$produto_infotec\"}
         ]
       }";
-
+    
    echo($produto_att);
 ?>

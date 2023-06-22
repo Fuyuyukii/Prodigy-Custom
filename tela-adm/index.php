@@ -208,7 +208,8 @@
                                             $produto_preco
                                         </h4>
     
-                                        <div class='col-md-1'><button onclick = \"preencher($produto_id);\" class='button-primario'
+                                        <div class='col-md-1'><button data-bs-toggle='modal'
+                                        data-bs-target='#exampleModalCenter' onclick = \"preencher($produto_id);\" class='button-primario'
                                                 style='padding:0;width:48px !important;height:48px !important;'>
                                                 <svg fill='#fff' height='31px' width='31px' version='1.1' id='Layer_1'
                                                     xmlns='http://www.w3.org/2000/svg'
@@ -258,7 +259,7 @@
                 <form action="../php/cadastrar_produto.php" method="post" enctype="multipart/form-data">
                 <div class="modal-content">
                     <div class="modal-header fw-bold" style="font-size: 25px;">
-                        Adicionar Produto
+                        Adicionar produto
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
@@ -302,6 +303,7 @@
                                         <div class="col-md-12 mb-2">
                                             <textarea id="produto-tecinfo-adicionar" name="produto-tecinfo-adicionar" class="textarea"
                                                 placeholder="Informações técnicas"></textarea>
+                                                <input type="hidden" id="produto_id" name="produto_id">
                                         </div>
 
                                     </div>
@@ -311,8 +313,9 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn button-primario" name="submit-btn"> Adicionar
-                            Produto</button>
+                        <button type="submit" id="bd1"style="padding-inline: 2em;" class="btn button-primario" name="submit-btn"> 
+                            Salvar
+                        </button>
                     </div>
                     </form>
                 </div>
@@ -370,6 +373,7 @@ function preencher(produto_id){
             
             for(x=0;x<lista.length;x++)
             {   
+                document.getElementById("produto_id").value = lista[x].id;
                 document.getElementById("produto-nome-adicionar").value = lista[x].nome;
                 document.getElementById("produto-preço-adicionar").value = lista[x].preco;
                 document.getElementById("produto-descricao-adicionar").value = lista[x].descricao;
@@ -377,8 +381,6 @@ function preencher(produto_id){
             }
         }
     });
-    // modal = document.getElementById("exampleModalCenter");
-    // modal.style.display = "block"
 }
 </script>
 
