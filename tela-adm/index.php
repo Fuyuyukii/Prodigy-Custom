@@ -308,64 +308,67 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 <script>
     $(function () {
-    $("#insereImagem").change(function () {
-        if (this.files && this.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#imagemInserida').attr('src', e.target.result);
+        let Selected_Option = ($('#selectTipo option').filter(':selected').val())
+        let select = document.getElementById('selectTipo')
+        select.selectedIndex = Selected_Option;
+        $("#insereImagem").change(function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imagemInserida').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
             }
-            reader.readAsDataURL(this.files[0]);
-        }
-        $('#imagemInserirLabel').css('display', 'none')
-    });
-    $(document).on('shown.bs.modal', function () {
+            $('#imagemInserirLabel').css('display', 'none')
+        });
+        $(document).on('shown.bs.modal', function () {
+            $('#produto-categoria-adicionar').bind('keypress', function (e) {
+                if (e.keyCode == 13) {
+                    if ($('#produto-categoria-adicionar').val() == '') {
+                        $('#produto-categoria-adicionar').tooltip('toggle')
+                    }
+                    if (!$('#produto-categoria-adicionar').val() == '') {
+                        $('#produto-categoria-adicionar').tooltip('dispose')
+                        let textoCategoria = $('#produto-categoria-adicionar').val()
+                        $('#categoriaAAdicionar').append(textoCategoria + ', ')
+                    }
 
+                }
+            });
+    })
 
-$('#produto-categoria-adicionar').bind('keypress', function (e) {
-    if (e.keyCode == 13) {
-        if ($('#produto-categoria-adicionar').val() == '') {
-            $('#produto-categoria-adicionar').tooltip('toggle')
-        }
-        if (!$('#produto-categoria-adicionar').val() == '') {
-            $('#produto-categoria-adicionar').tooltip('dispose')
-            let textoCategoria = $('#produto-categoria-adicionar').val()
-            $('#categoriaAAdicionar').append(textoCategoria + ', ')
-        }
-
+    function deletar(produto_id){
+        window.open("../php/deletar.php?produto_id=" + produto_id, "_self")
     }
-});
-})
 
-
-
-function deletar(produto_id){
-    window.open("../php/deletar.php?produto_id=" + produto_id, "_self")
-}
-function preencher(produto_id){
-    var dados = "produto_id=" + produto_id
-    $.ajax({
-        type: "GET",
-        url: "../php/get_produtos_att.php",
-        data: dados,
-                        
-        success: function(meu_json)
-        {
-            var valores = JSON.parse(meu_json); 
-            var lista = valores.produto_att; 
-            
-            for(x=0;x<lista.length;x++)
-            {   
-                document.getElementById("produto_id").value = lista[x].id;
-                document.getElementById("produto-nome-adicionar").value = lista[x].nome;
-                document.getElementById("produto-preço-adicionar").value = lista[x].preco;
-                document.getElementById("produto-descricao-adicionar").value = lista[x].descricao;
-                document.getElementById("produto-tecinfo-adicionar").value = lista[x].informacoes_tecnicas;
+    function preencher(produto_id){
+        var dados = "produto_id=" + produto_id
+        $.ajax({
+            type: "GET",
+            url: "../php/get_produtos_att.php",
+            data: dados,
+                            
+            success: function(meu_json)
+            {
+                var valores = JSON.parse(meu_json); 
+                var lista = valores.produto_att; 
+                
+                for(x=0;x<lista.length;x++)
+                {   
+                    document.getElementById("produto_id").value = lista[x].id;
+                    document.getElementById("produto-nome-adicionar").value = lista[x].nome;
+                    document.getElementById("produto-preço-adicionar").value = lista[x].preco;
+                    document.getElementById("produto-descricao-adicionar").value = lista[x].descricao;
+                    document.getElementById("produto-tecinfo-adicionar").value = lista[x].informacoes_tecnicas;
+                }
             }
-        }
-    });
-}
-$('#selectTipo').on('change', function(){
-        console.log($('#selectTipo option').filter(':selected').text())
-    });
+        });
+    }
+
+    
+       
+        
+
+
 });
 </script>
