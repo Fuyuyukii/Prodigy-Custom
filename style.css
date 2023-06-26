@@ -1,6 +1,8 @@
 :root{
     --primary: #D081F4;
     --primary300: #D081F490;
+    --bs-card-border-color: transparent !important;
+    --bs-border-color-translucent: transparent !important;
 
 }
 
@@ -114,7 +116,9 @@ select{
 }
 
 .card{
-    outline: 1px solid black !important;
+    -webkit-box-shadow: -2px -2px 22px 17px rgba(0,0,0,0.13) !important;
+-moz-box-shadow: -2px -2px 22px 17px rgba(0,0,0,0.13) !important;
+box-shadow: -2px -2px 22px 17px rgba(0,0,0,0.13) !important;
 }
 
 .heightfix{
