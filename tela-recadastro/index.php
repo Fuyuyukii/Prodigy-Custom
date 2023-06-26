@@ -154,32 +154,47 @@ session_start();
                 <div class="card" style="background-color: #e8e8e8;">
 
                     <div class="card-body card-padding">
-                        <div class="d-flex gap-5">
-                            <input type="file" class="img-minhaconta">
-                            <img id="InsereImagemPerfil" class="imagem-minha-conta rounded-circle" src="" alt="" style="display:none">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div style="    top: 30px;
+                            position: relative;
+                            left: -30px;">
+                            <label id="imagemInserirLabel" for="insereImagem" class="label-insere">
+                                <svg fill="#000000" width="48px" height="48px" viewBox="0 0 32 32" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                        stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M29 7h-4.599l-2.401-4h-12l-2.4 4h-4.6c-1 0-3 1-3 2.969v16.031c0 1.657 1.5 3 2.792 3h26.271c1.313 0 2.938-1.406 2.938-2.968v-16.032c0-1-1-3-3-3zM30 26.032c0 0.395-0.639 0.947-0.937 0.969h-26.265c-0.232-0.019-0.797-0.47-0.797-1v-16.031c0-0.634 0.851-0.953 1-0.969h5.732l2.4-4h9.802l1.785 3.030 0.55 0.97h5.731c0.705 0 0.99 0.921 1 1v16.032zM16 10c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zM16 22c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z">
+                                        </path>
+                                    </g>
+                                </svg>
+                                <div>
+                                Inserir imagem
+                            </div>
+                                <input type="file" name="insereImagem" id="insereImagem" class="imagemProduto">
+                        </label>
+                        <img id="imagemInserida" src="" alt="">
+                    </div>
                             <div class="d-flex flex-column">
                                 <div class="form-floating">
-                                
-                                <input type="text" id="nome" class="form-control" placeholder="Nome">
-                                <label for="nome">Nome</label>
-                            </div>
-                            <div class="form-floating">
-                                
+                                    <input type="text" id="nome" class="form-control" placeholder="Nome">
+                                    <label for="nome">Nome</label>
+                                </div>
+                            <div class="form-floating">   
                                 <input type="email" id="email" class="form-control" placeholder="Email">
                                 <label for="email">Email</label>
                             </div>
                             <div class="form-floating">
-                                
                                 <input type="password" id="senha" class="form-control" placeholder="Senha">
                                 <label for="senha">Senha</label>
                             </div>
                             <div class="form-floating">
-                                
                                 <input type="text" id="telefone" class="form-control" placeholder="Telefone">
                                 <label for="telefone">Telefone</label>
                             </div>
                             <div class="form-floating">
-                                
                                 <input type="text" id="endereco" class="form-control" placeholder="Endereço">
                                 <label for="endereco">Endereço</label>
                             </div>
@@ -199,23 +214,24 @@ session_start();
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 <script>
     $(function () {
-    $(".img-minhaconta").change(function () {
-        $(this).css('display', 'none')
-        $('#InsereImagemPerfil').css('display', 'block')
-        if (this.files && this.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#InsereImagemPerfil').attr('src', e.target.result);
+        $("#insereImagem").change(function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imagemInserida').attr('src', e.target.result);
+                    $('#imagemInserida').css('border-radius', '50%');
+                    $('#imagemInserida').css('height', '175px');
+                }
+                reader.readAsDataURL(this.files[0]);
             }
-            reader.readAsDataURL(this.files[0]);
-        }
-    })
-    $('#InsereImagemPerfil').on('click', function(){
-        $('.img-minhaconta').trigger('click')
+            $('#imagemInserirLabel').css('display', 'none')
+        });
+        $('#imagemInserida').on('click', function(){
+        $('#insereImagem').trigger('click')
         if (this.files && this.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
-                $('#InsereImagemPerfil').attr('src', e.target.result);
+                $('#imagemInserida').attr('src', e.target.result);
             }
             reader.readAsDataURL(this.files[0]);
         }
