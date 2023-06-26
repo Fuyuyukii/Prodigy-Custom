@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,7 +79,6 @@
                                 <p style="margin:0">Minha Conta</p>
                             </a>
                         </li>
-
                         <li>
                             <a href="../tela-favoritos/index.html"
                                 class="dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2">
@@ -95,11 +97,24 @@
                             </a>
                         </li>
                         <li>
-                            <a href="../tela-adm"
-                                class="dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2">
-                                <svg width="20px" height="20px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path stroke="#535358" stroke-linejoin="round" stroke-width="2" d="M13.905 3.379A.5.5 0 0114.39 3h3.22a.5.5 0 01.485.379l.689 2.757a.515.515 0 00.341.362c.383.126.755.274 1.115.443a.515.515 0 00.449-.003l2.767-1.383a.5.5 0 01.577.093l2.319 2.319a.5.5 0 01.093.577l-1.383 2.767a.515.515 0 00-.003.449c.127.271.243.549.346.833.053.148.17.265.319.315l2.934.978a.5.5 0 01.342.474v3.28a.5.5 0 01-.342.474l-2.934.978a.515.515 0 00-.32.315 9.937 9.937 0 01-.345.833.515.515 0 00.003.449l1.383 2.767a.5.5 0 01-.093.577l-2.319 2.319a.5.5 0 01-.577.093l-2.767-1.383a.515.515 0 00-.449-.003c-.271.127-.549.243-.833.346a.515.515 0 00-.315.319l-.978 2.934a.5.5 0 01-.474.342h-3.28a.5.5 0 01-.474-.342l-.978-2.934a.515.515 0 00-.315-.32 9.95 9.95 0 01-1.101-.475.515.515 0 00-.498.014l-2.437 1.463a.5.5 0 01-.611-.075l-2.277-2.277a.5.5 0 01-.075-.61l1.463-2.438a.515.515 0 00.014-.498 9.938 9.938 0 01-.573-1.383.515.515 0 00-.362-.341l-2.757-.69A.5.5 0 013 17.61v-3.22a.5.5 0 01.379-.485l2.757-.689a.515.515 0 00.362-.341c.157-.478.35-.94.573-1.383a.515.515 0 00-.014-.498L5.594 8.557a.5.5 0 01.075-.611l2.277-2.277a.5.5 0 01.61-.075l2.438 1.463c.152.091.34.094.498.014a9.938 9.938 0 011.382-.573.515.515 0 00.342-.362l.69-2.757z"></path> <circle cx="16" cy="16" r="5" stroke="#535358" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle> </g></svg>
-                                <p style="margin:0">Administração</p>
-                            </a>
+                            <?php
+                            include("../php/sql_connect.php");
+                            $comando = $pdo->prepare("select * from usuarios where usuarios.id_usuario = :id_usuario");
+                            $comando->bindParam(':id_usuario', $_SESSION["logado"]);
+                            $comando->execute();
+                            while ($linhas = $comando->fetch()){
+                                $adm_verify = $linhas["adm"];
+                                if ($adm_verify == 1){
+                                    echo(
+                                        "<a href='../tela-adm/index.html'
+                                        class='dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2'>
+                                        <svg width='20px' height='20px' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' fill='none'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path stroke='#535358' stroke-linejoin='round' stroke-width='2' d='M13.905 3.379A.5.5 0 0114.39 3h3.22a.5.5 0 01.485.379l.689 2.757a.515.515 0 00.341.362c.383.126.755.274 1.115.443a.515.515 0 00.449-.003l2.767-1.383a.5.5 0 01.577.093l2.319 2.319a.5.5 0 01.093.577l-1.383 2.767a.515.515 0 00-.003.449c.127.271.243.549.346.833.053.148.17.265.319.315l2.934.978a.5.5 0 01.342.474v3.28a.5.5 0 01-.342.474l-2.934.978a.515.515 0 00-.32.315 9.937 9.937 0 01-.345.833.515.515 0 00.003.449l1.383 2.767a.5.5 0 01-.093.577l-2.319 2.319a.5.5 0 01-.577.093l-2.767-1.383a.515.515 0 00-.449-.003c-.271.127-.549.243-.833.346a.515.515 0 00-.315.319l-.978 2.934a.5.5 0 01-.474.342h-3.28a.5.5 0 01-.474-.342l-.978-2.934a.515.515 0 00-.315-.32 9.95 9.95 0 01-1.101-.475.515.515 0 00-.498.014l-2.437 1.463a.5.5 0 01-.611-.075l-2.277-2.277a.5.5 0 01-.075-.61l1.463-2.438a.515.515 0 00.014-.498 9.938 9.938 0 01-.573-1.383.515.515 0 00-.362-.341l-2.757-.69A.5.5 0 013 17.61v-3.22a.5.5 0 01.379-.485l2.757-.689a.515.515 0 00.362-.341c.157-.478.35-.94.573-1.383a.515.515 0 00-.014-.498L5.594 8.557a.5.5 0 01.075-.611l2.277-2.277a.5.5 0 01.61-.075l2.438 1.463c.152.091.34.094.498.014a9.938 9.938 0 011.382-.573.515.515 0 00.342-.362l.69-2.757z'></path> <circle cx='16' cy='16' r='5' stroke='#535358' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'></circle> </g></svg>
+                                        <p style='margin:0'>Administração</p>
+                                        </a>"
+                                        );
+                                }
+                            }
+                            ?>
                         </li>
                         <li>
                             <a href="../index.html"
@@ -136,42 +151,24 @@
     <main>
         <div class="d-flex justify-content-center align-items-center" style="margin-top: 145px;">
             <div class="col-md-4">
-                <div class="card" style="background-color: #e8e8e8;">
+                <div class="card" style="background-color: #D9D9D9;">
 
                     <div class="card-body card-padding">
                         <div class="d-flex gap-5">
-                            <input type="file" class="img-minhaconta">
-                            <img id="InsereImagemPerfil" class="imagem-minha-conta rounded-circle" src="" alt="" style="display:none">
+                            <img src="homem.png" class="img-minhaconta rounded-circle" alt="">
                             <div class="d-flex flex-column">
-                                <div class="form-floating">
-                                
-                                <input type="text" id="nome" class="form-control" placeholder="Nome">
-                                <label for="nome">Nome</label>
-                            </div>
-                            <div class="form-floating">
-                                
-                                <input type="email" id="email" class="form-control" placeholder="Email">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="form-floating">
-                                
-                                <input type="password" id="senha" class="form-control" placeholder="Senha">
-                                <label for="senha">Senha</label>
-                            </div>
-                            <div class="form-floating">
-                                
-                                <input type="text" id="telefone" class="form-control" placeholder="Telefone">
-                                <label for="telefone">Telefone</label>
-                            </div>
-                            <div class="form-floating">
-                                
-                                <input type="text" id="endereco" class="form-control" placeholder="Endereço">
-                                <label for="endereco">Endereço</label>
-                            </div>
+                                <h4>Nome</h4>
+                                <p>Bonito da Silva</p>
+                                <h4>E-mail</h4>
+                                <p>bonito@gmail.com</p>
+                                <h4>Telefone</h4>
+                                <p>(47) 9 9999-9999</p>
+                                <h4>Endereço</h4>
+                                <p>Rua dos Bonitos</p>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-end mt-2">
-                            <a href="../tela-minhaconta/index.html"><button class="btn button-primario">Salvar</button></a>
+                        <div class="d-flex justify-content-end">
+                            <a href="../tela-recadastro/index.html"><button class="btn button-primario">Alterar Cadastro</button></a>
                         </div>
                     </div>
                     
@@ -181,30 +178,5 @@
     </main>
 
 </body>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-<script>
-    $(function () {
-    $(".img-minhaconta").change(function () {
-        $(this).css('display', 'none')
-        $('#InsereImagemPerfil').css('display', 'block')
-        if (this.files && this.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#InsereImagemPerfil').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(this.files[0]);
-        }
-    })
-    $('#InsereImagemPerfil').on('click', function(){
-        $('.img-minhaconta').trigger('click')
-        if (this.files && this.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#InsereImagemPerfil').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(this.files[0]);
-        }
-    })
-});
-</script>
+
 </html>

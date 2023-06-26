@@ -362,8 +362,8 @@ input::-webkit-inner-spin-button {
 }
 
 #imagemInserida{
-    max-width: 100px;
-    object-fit: contain;
+    width: 175px;
+    object-fit: cover;
 }
 .imagem-minha-conta{
     width: 150px;
