@@ -220,25 +220,37 @@
                             <div class="heightfix">
                                 <?php
                                 include("../php/sql_connect.php");
-                                $comando = $pdo->prepare("select * from carro_produto inner join produtos_imagens on carro_produto.produto_id = produtos_imagens.id_produto");
+                                $comando = $pdo->prepare("select * from produtos_imagens inner join produtos on produtos_imagens.id_produto = produtos.id_produto
+                                inner join carro_produto on produtos.id_produto = carro_produto.produto_id where carro_id = :carro_id");
+                                $carro_id = 1;
+                                $comando->bindParam(':carro_id', $carro_id);
                                 $comando->execute();
                                 while ($linhas = $comando->fetch()){
+                                    
+                                    if (!empty($linhas["file_path"])){
+                                        $img = $linhas["file_path"];
+                                    } else {
+                                        $default_img = "";
+                                    }
 
                                     $preco = $linhas["preco"];
                                     $nome = $linhas["nome"];
+                                    $produto_id = $linhas["id_produto"];
+
                                     echo(
-                                        "<div class='col-md-12 d-flex align-items-center mt-3 listaProdutos'>
-                                        <img class='imagemLista' src=''>
+                                        "<a class='item' href='../visualiza-produto/index.php?C=$produto_id'>
+                                        <div class='col-md-12 d-flex align-items-center mt-3 listaProdutos'>
+                                        <img class='imagemLista' src='$img'>
                                         <div class='col-md-10 d-flex flex-column ps-2'>
                                         <div class='desc'>
                                             $nome
                                         </div>
                                         <div class='preco'>
-                                            $preco
+                                            R$$preco
                                         </div>
                                         </div>
                                         </div>
-                                        ");
+                                        </a>");
                                 }
                                 ?>
                             </div>
