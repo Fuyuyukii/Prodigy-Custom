@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela produtos</title>
+    <title>Prodigy Custom</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;400;500&display=swap" rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 
 <body>
@@ -43,21 +43,7 @@
                     </svg>
                 </a>
                 <div class="dropdown drop-msg">
-                    <svg style="cursor:pointer" data-bs-toggle="dropdown" fill="#000000" width="45px" height="45px"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <g data-name="Layer 2">
-                                <g data-name="bell">
-                                    <rect width="24" height="24" opacity="0"></rect>
-                                    <path
-                                        d="M20.52 15.21l-1.8-1.81V8.94a6.86 6.86 0 0 0-5.82-6.88 6.74 6.74 0 0 0-7.62 6.67v4.67l-1.8 1.81A1.64 1.64 0 0 0 4.64 18H8v.34A3.84 3.84 0 0 0 12 22a3.84 3.84 0 0 0 4-3.66V18h3.36a1.64 1.64 0 0 0 1.16-2.79zM14 18.34A1.88 1.88 0 0 1 12 20a1.88 1.88 0 0 1-2-1.66V18h4zM5.51 16l1.18-1.18a2 2 0 0 0 .59-1.42V8.73A4.73 4.73 0 0 1 8.9 5.17 4.67 4.67 0 0 1 12.64 4a4.86 4.86 0 0 1 4.08 4.9v4.5a2 2 0 0 0 .58 1.42L18.49 16z">
-                                    </path>
-                                </g>
-                            </g>
-                        </g>
-                    </svg>
+                    <svg style="cursor:pointer" data-bs-toggle="dropdown" fill="#000000" width="45px" height="45px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g data-name="Layer 2"> <g data-name="bell"> <rect width="24" height="24" opacity="0"></rect> <path d="M20.52 15.21l-1.8-1.81V8.94a6.86 6.86 0 0 0-5.82-6.88 6.74 6.74 0 0 0-7.62 6.67v4.67l-1.8 1.81A1.64 1.64 0 0 0 4.64 18H8v.34A3.84 3.84 0 0 0 12 22a3.84 3.84 0 0 0 4-3.66V18h3.36a1.64 1.64 0 0 0 1.16-2.79zM14 18.34A1.88 1.88 0 0 1 12 20a1.88 1.88 0 0 1-2-1.66V18h4zM5.51 16l1.18-1.18a2 2 0 0 0 .59-1.42V8.73A4.73 4.73 0 0 1 8.9 5.17 4.67 4.67 0 0 1 12.64 4a4.86 4.86 0 0 1 4.08 4.9v4.5a2 2 0 0 0 .58 1.42L18.49 16z"></path> </g> </g> </g></svg>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="" class="dropdown-item">
@@ -67,19 +53,7 @@
                     </ul>
                 </div>
                 <div class="dropdown drop-minhaconta">
-                    <svg style="cursor:pointer" data-bs-toggle="dropdown" width="45px" height="45px" viewBox="0 0 48 48"
-                        xmlns="http://www.w3.org/2000/svg" fill="#000000">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path d="M0 0h48v48H0z" fill="none"></path>
-                            <g id="Shopicon">
-                                <path
-                                    d="M31.278,25.525C34.144,23.332,36,19.887,36,16c0-6.627-5.373-12-12-12c-6.627,0-12,5.373-12,12 c0,3.887,1.856,7.332,4.722,9.525C9.84,28.531,5,35.665,5,44h38C43,35.665,38.16,28.531,31.278,25.525z M16,16c0-4.411,3.589-8,8-8 s8,3.589,8,8c0,4.411-3.589,8-8,8S16,20.411,16,16z M24,28c6.977,0,12.856,5.107,14.525,12H9.475C11.144,33.107,17.023,28,24,28z">
-                                </path>
-                            </g>
-                        </g>
-                    </svg>
+                    <svg style="cursor:pointer" data-bs-toggle="dropdown" width="45px" height="45px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M0 0h48v48H0z" fill="none"></path> <g id="Shopicon"> <path d="M31.278,25.525C34.144,23.332,36,19.887,36,16c0-6.627-5.373-12-12-12c-6.627,0-12,5.373-12,12 c0,3.887,1.856,7.332,4.722,9.525C9.84,28.531,5,35.665,5,44h38C43,35.665,38.16,28.531,31.278,25.525z M16,16c0-4.411,3.589-8,8-8 s8,3.589,8,8c0,4.411-3.589,8-8,8S16,20.411,16,16z M24,28c6.977,0,12.856,5.107,14.525,12H9.475C11.144,33.107,17.023,28,24,28z"></path> </g> </g></svg>
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li>
@@ -120,11 +94,24 @@
                             </a>
                         </li>
                         <li>
-                            <a href="../tela-adm"
-                                class="dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2">
-                                <svg width="20px" height="20px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path stroke="#535358" stroke-linejoin="round" stroke-width="2" d="M13.905 3.379A.5.5 0 0114.39 3h3.22a.5.5 0 01.485.379l.689 2.757a.515.515 0 00.341.362c.383.126.755.274 1.115.443a.515.515 0 00.449-.003l2.767-1.383a.5.5 0 01.577.093l2.319 2.319a.5.5 0 01.093.577l-1.383 2.767a.515.515 0 00-.003.449c.127.271.243.549.346.833.053.148.17.265.319.315l2.934.978a.5.5 0 01.342.474v3.28a.5.5 0 01-.342.474l-2.934.978a.515.515 0 00-.32.315 9.937 9.937 0 01-.345.833.515.515 0 00.003.449l1.383 2.767a.5.5 0 01-.093.577l-2.319 2.319a.5.5 0 01-.577.093l-2.767-1.383a.515.515 0 00-.449-.003c-.271.127-.549.243-.833.346a.515.515 0 00-.315.319l-.978 2.934a.5.5 0 01-.474.342h-3.28a.5.5 0 01-.474-.342l-.978-2.934a.515.515 0 00-.315-.32 9.95 9.95 0 01-1.101-.475.515.515 0 00-.498.014l-2.437 1.463a.5.5 0 01-.611-.075l-2.277-2.277a.5.5 0 01-.075-.61l1.463-2.438a.515.515 0 00.014-.498 9.938 9.938 0 01-.573-1.383.515.515 0 00-.362-.341l-2.757-.69A.5.5 0 013 17.61v-3.22a.5.5 0 01.379-.485l2.757-.689a.515.515 0 00.362-.341c.157-.478.35-.94.573-1.383a.515.515 0 00-.014-.498L5.594 8.557a.5.5 0 01.075-.611l2.277-2.277a.5.5 0 01.61-.075l2.438 1.463c.152.091.34.094.498.014a9.938 9.938 0 011.382-.573.515.515 0 00.342-.362l.69-2.757z"></path> <circle cx="16" cy="16" r="5" stroke="#535358" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle> </g></svg>
-                                <p style="margin:0">Administração</p>
-                            </a>
+                            <?php
+                            include("../php/sql_connect.php");
+                            $comando = $pdo->prepare("select * from usuarios where usuarios.id_usuario = :id_usuario");
+                            $comando->bindParam(':id_usuario', $_SESSION["logado"]);
+                            $comando->execute();
+                            while ($linhas = $comando->fetch()){
+                                $adm_verify = $linhas["adm"];
+                                if ($adm_verify == 1){
+                                    echo(
+                                        "<a href='../tela-adm/index.html'
+                                        class='dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2'>
+                                        <svg width='20px' height='20px' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' fill='none'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path stroke='#535358' stroke-linejoin='round' stroke-width='2' d='M13.905 3.379A.5.5 0 0114.39 3h3.22a.5.5 0 01.485.379l.689 2.757a.515.515 0 00.341.362c.383.126.755.274 1.115.443a.515.515 0 00.449-.003l2.767-1.383a.5.5 0 01.577.093l2.319 2.319a.5.5 0 01.093.577l-1.383 2.767a.515.515 0 00-.003.449c.127.271.243.549.346.833.053.148.17.265.319.315l2.934.978a.5.5 0 01.342.474v3.28a.5.5 0 01-.342.474l-2.934.978a.515.515 0 00-.32.315 9.937 9.937 0 01-.345.833.515.515 0 00.003.449l1.383 2.767a.5.5 0 01-.093.577l-2.319 2.319a.5.5 0 01-.577.093l-2.767-1.383a.515.515 0 00-.449-.003c-.271.127-.549.243-.833.346a.515.515 0 00-.315.319l-.978 2.934a.5.5 0 01-.474.342h-3.28a.5.5 0 01-.474-.342l-.978-2.934a.515.515 0 00-.315-.32 9.95 9.95 0 01-1.101-.475.515.515 0 00-.498.014l-2.437 1.463a.5.5 0 01-.611-.075l-2.277-2.277a.5.5 0 01-.075-.61l1.463-2.438a.515.515 0 00.014-.498 9.938 9.938 0 01-.573-1.383.515.515 0 00-.362-.341l-2.757-.69A.5.5 0 013 17.61v-3.22a.5.5 0 01.379-.485l2.757-.689a.515.515 0 00.362-.341c.157-.478.35-.94.573-1.383a.515.515 0 00-.014-.498L5.594 8.557a.5.5 0 01.075-.611l2.277-2.277a.5.5 0 01.61-.075l2.438 1.463c.152.091.34.094.498.014a9.938 9.938 0 011.382-.573.515.515 0 00.342-.362l.69-2.757z'></path> <circle cx='16' cy='16' r='5' stroke='#535358' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'></circle> </g></svg>
+                                        <p style='margin:0'>Administração</p>
+                                        </a>"
+                                        );
+                                }
+                            }
+                            ?>
                         </li>
                         <li>
                             <a href="../index.html"
@@ -159,62 +146,34 @@
     </header>
 
     <main>
-        
-        <div class="col-md-12 mt-5 ms-4">
-            <h1>
-                Pagamento
-            </h1>
-            <hr style="width: 95%;">
-            <div class="row col-md-12 justify-content-between">
+        <div class="d-flex justify-content-center align-items-center" style="margin-top: 145px;">
             <div class="col-md-4">
-                <div class="mb-5" style="display: flex; justify-content: space-between;">
-                <h6 class="h4">Método de pagamento</h6><span class="h5 text-muted">Crédito</span>
-            </div>
-                <div class="col-md-12 mb-4">
-                    <div class="form-floating">
-                        <input id="numeroCartao" type="text" class="form-control" placeholder="Número do cartão">
-                        <label for="numeroCartao">Número do cartão</label>
+                <div class="card" style="background-color: #D9D9D9;">
+
+                    <div class="card-body card-padding">
+                        <div class="d-flex gap-5">
+                            <img src="homem.png" class="img-minhaconta rounded-circle" alt="">
+                            <div class="d-flex flex-column">
+                                <h4>Nome</h4>
+                                <p>Bonito da Silva</p>
+                                <h4>E-mail</h4>
+                                <p>bonito@gmail.com</p>
+                                <h4>Telefone</h4>
+                                <p>(47) 9 9999-9999</p>
+                                <h4>Endereço</h4>
+                                <p>Rua dos Bonitos</p>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <a href="../tela-recadastro/index.html"><button class="btn button-primario">Alterar Cadastro</button></a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-12 mb-4">
-                    <div class="form-floating">
-                        <input id="nomeTitular" type="text" class="form-control" placeholder="Nome do titular">
-                        <label for="nomeTitular">Nome do titular</label>
-                    </div>
-                </div>
-                <div class="row">
-                <div class="col-md-6 ">
-                    <div class="form-floating">
-                        <input id="mesAno" type="text" class="form-control" placeholder="MM/AA">
-                        <label for="mesAno">MM/AA</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-floating">
-                        <input id="cvv" type="text" class="form-control" placeholder="CVV">
-                        <label for="cvv">CVV</label>
-                    </div>
-                </div>
+                    
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="d-flex flex-column gap-2">
-                <h6 class="h4">Endereço de entrega</h6>
-                <div class="d-flex flex-column" style="line-height: 6px;">
-                <p class="text-muted">Joinville, Santa Catarina 55555-555</p>
-                <p class="text-muted">Procópio Gomes, 911</p>
-                <p class="text-muted">Prédio, Bucarein</p>
-            </div>
-                <div class="d-flex">
-                    <a class='link' href="">Alterar</a>
-                    <a class="link" href="" style="margin-left: 100px;">Adicionar novo</a>
-                </div>
-                <a class="button-primario mt-5" href="">Finalizar Compra</a>
-            </div>
-            </div>
-        </div>
         </div>
     </main>
+
 </body>
 
 </html>

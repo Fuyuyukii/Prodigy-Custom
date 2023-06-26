@@ -76,6 +76,7 @@
                                 <p style="margin:0">Minha Conta</p>
                             </a>
                         </li>
+
                         <li>
                             <a href="../tela-favoritos/index.html"
                                 class="dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2">
@@ -94,11 +95,24 @@
                             </a>
                         </li>
                         <li>
-                            <a href="../tela-adm"
-                                class="dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2">
-                                <svg width="20px" height="20px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path stroke="#535358" stroke-linejoin="round" stroke-width="2" d="M13.905 3.379A.5.5 0 0114.39 3h3.22a.5.5 0 01.485.379l.689 2.757a.515.515 0 00.341.362c.383.126.755.274 1.115.443a.515.515 0 00.449-.003l2.767-1.383a.5.5 0 01.577.093l2.319 2.319a.5.5 0 01.093.577l-1.383 2.767a.515.515 0 00-.003.449c.127.271.243.549.346.833.053.148.17.265.319.315l2.934.978a.5.5 0 01.342.474v3.28a.5.5 0 01-.342.474l-2.934.978a.515.515 0 00-.32.315 9.937 9.937 0 01-.345.833.515.515 0 00.003.449l1.383 2.767a.5.5 0 01-.093.577l-2.319 2.319a.5.5 0 01-.577.093l-2.767-1.383a.515.515 0 00-.449-.003c-.271.127-.549.243-.833.346a.515.515 0 00-.315.319l-.978 2.934a.5.5 0 01-.474.342h-3.28a.5.5 0 01-.474-.342l-.978-2.934a.515.515 0 00-.315-.32 9.95 9.95 0 01-1.101-.475.515.515 0 00-.498.014l-2.437 1.463a.5.5 0 01-.611-.075l-2.277-2.277a.5.5 0 01-.075-.61l1.463-2.438a.515.515 0 00.014-.498 9.938 9.938 0 01-.573-1.383.515.515 0 00-.362-.341l-2.757-.69A.5.5 0 013 17.61v-3.22a.5.5 0 01.379-.485l2.757-.689a.515.515 0 00.362-.341c.157-.478.35-.94.573-1.383a.515.515 0 00-.014-.498L5.594 8.557a.5.5 0 01.075-.611l2.277-2.277a.5.5 0 01.61-.075l2.438 1.463c.152.091.34.094.498.014a9.938 9.938 0 011.382-.573.515.515 0 00.342-.362l.69-2.757z"></path> <circle cx="16" cy="16" r="5" stroke="#535358" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle> </g></svg>
-                                <p style="margin:0">Administração</p>
-                            </a>
+                            <?php
+                            include("../php/sql_connect.php");
+                            $comando = $pdo->prepare("select * from usuarios where usuarios.id_usuario = :id_usuario");
+                            $comando->bindParam(':id_usuario', $_SESSION["logado"]);
+                            $comando->execute();
+                            while ($linhas = $comando->fetch()){
+                                $adm_verify = $linhas["adm"];
+                                if ($adm_verify == 1){
+                                    echo(
+                                        "<a href='../tela-adm/index.html'
+                                        class='dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2'>
+                                        <svg width='20px' height='20px' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' fill='none'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path stroke='#535358' stroke-linejoin='round' stroke-width='2' d='M13.905 3.379A.5.5 0 0114.39 3h3.22a.5.5 0 01.485.379l.689 2.757a.515.515 0 00.341.362c.383.126.755.274 1.115.443a.515.515 0 00.449-.003l2.767-1.383a.5.5 0 01.577.093l2.319 2.319a.5.5 0 01.093.577l-1.383 2.767a.515.515 0 00-.003.449c.127.271.243.549.346.833.053.148.17.265.319.315l2.934.978a.5.5 0 01.342.474v3.28a.5.5 0 01-.342.474l-2.934.978a.515.515 0 00-.32.315 9.937 9.937 0 01-.345.833.515.515 0 00.003.449l1.383 2.767a.5.5 0 01-.093.577l-2.319 2.319a.5.5 0 01-.577.093l-2.767-1.383a.515.515 0 00-.449-.003c-.271.127-.549.243-.833.346a.515.515 0 00-.315.319l-.978 2.934a.5.5 0 01-.474.342h-3.28a.5.5 0 01-.474-.342l-.978-2.934a.515.515 0 00-.315-.32 9.95 9.95 0 01-1.101-.475.515.515 0 00-.498.014l-2.437 1.463a.5.5 0 01-.611-.075l-2.277-2.277a.5.5 0 01-.075-.61l1.463-2.438a.515.515 0 00.014-.498 9.938 9.938 0 01-.573-1.383.515.515 0 00-.362-.341l-2.757-.69A.5.5 0 013 17.61v-3.22a.5.5 0 01.379-.485l2.757-.689a.515.515 0 00.362-.341c.157-.478.35-.94.573-1.383a.515.515 0 00-.014-.498L5.594 8.557a.5.5 0 01.075-.611l2.277-2.277a.5.5 0 01.61-.075l2.438 1.463c.152.091.34.094.498.014a9.938 9.938 0 011.382-.573.515.515 0 00.342-.362l.69-2.757z'></path> <circle cx='16' cy='16' r='5' stroke='#535358' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'></circle> </g></svg>
+                                        <p style='margin:0'>Administração</p>
+                                        </a>"
+                                        );
+                                }
+                            }
+                            ?>
                         </li>
                         <li>
                             <a href="../index.html"
@@ -135,24 +149,57 @@
     <main>
         <div class="d-flex justify-content-center align-items-center" style="margin-top: 145px;">
             <div class="col-md-4">
-                <div class="card" style="background-color: #D9D9D9;">
+                <div class="card" style="background-color: #e8e8e8;">
 
                     <div class="card-body card-padding">
-                        <div class="d-flex gap-5">
-                            <img src="homem.png" class="img-minhaconta rounded-circle" alt="">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div style="    top: 30px;
+                            position: relative;
+                            left: -30px;">
+                            <label id="imagemInserirLabel" for="insereImagem" class="label-insere">
+                                <svg fill="#000000" width="48px" height="48px" viewBox="0 0 32 32" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                        stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M29 7h-4.599l-2.401-4h-12l-2.4 4h-4.6c-1 0-3 1-3 2.969v16.031c0 1.657 1.5 3 2.792 3h26.271c1.313 0 2.938-1.406 2.938-2.968v-16.032c0-1-1-3-3-3zM30 26.032c0 0.395-0.639 0.947-0.937 0.969h-26.265c-0.232-0.019-0.797-0.47-0.797-1v-16.031c0-0.634 0.851-0.953 1-0.969h5.732l2.4-4h9.802l1.785 3.030 0.55 0.97h5.731c0.705 0 0.99 0.921 1 1v16.032zM16 10c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zM16 22c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z">
+                                        </path>
+                                    </g>
+                                </svg>
+                                <div>
+                                Inserir imagem
+                            </div>
+                                <input type="file" name="insereImagem" id="insereImagem" class="imagemProduto">
+                        </label>
+                        <img id="imagemInserida" src="" alt="">
+                    </div>
                             <div class="d-flex flex-column">
-                                <h4>Nome</h4>
-                                <p>Bonito da Silva</p>
-                                <h4>E-mail</h4>
-                                <p>bonito@gmail.com</p>
-                                <h4>Telefone</h4>
-                                <p>(47) 9 9999-9999</p>
-                                <h4>Endereço</h4>
-                                <p>Rua dos Bonitos</p>
+                                <div class="form-floating">
+                                    <input type="text" id="nome" class="form-control" placeholder="Nome">
+                                    <label for="nome">Nome</label>
+                                </div>
+                            <div class="form-floating">   
+                                <input type="email" id="email" class="form-control" placeholder="Email">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="password" id="senha" class="form-control" placeholder="Senha">
+                                <label for="senha">Senha</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="text" id="telefone" class="form-control" placeholder="Telefone">
+                                <label for="telefone">Telefone</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="text" id="endereco" class="form-control" placeholder="Endereço">
+                                <label for="endereco">Endereço</label>
+                            </div>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-end">
-                            <a href="../tela-recadastro/index.html"><button class="btn button-primario">Alterar Cadastro</button></a>
+                        <div class="d-flex justify-content-end mt-2">
+                            <a href="../tela-minhaconta/index.html"><button class="btn button-primario">Salvar</button></a>
                         </div>
                     </div>
                     
@@ -162,5 +209,31 @@
     </main>
 
 </body>
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script>
+    $(function () {
+        $("#insereImagem").change(function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imagemInserida').attr('src', e.target.result);
+                    $('#imagemInserida').css('border-radius', '50%');
+                    $('#imagemInserida').css('height', '175px');
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+            $('#imagemInserirLabel').css('display', 'none')
+        });
+        $('#imagemInserida').on('click', function(){
+        $('#insereImagem').trigger('click')
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#imagemInserida').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    })
+});
+</script>
 </html>
