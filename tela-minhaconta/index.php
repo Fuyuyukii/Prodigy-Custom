@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodigy Custom</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;400;500&display=swap" rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
-    <title>Document</title>
 </head>
 
 <body>
@@ -93,11 +94,24 @@
                             </a>
                         </li>
                         <li>
-                            <a href="../tela-adm"
-                                class="dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2">
-                                <svg width="20px" height="20px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path stroke="#535358" stroke-linejoin="round" stroke-width="2" d="M13.905 3.379A.5.5 0 0114.39 3h3.22a.5.5 0 01.485.379l.689 2.757a.515.515 0 00.341.362c.383.126.755.274 1.115.443a.515.515 0 00.449-.003l2.767-1.383a.5.5 0 01.577.093l2.319 2.319a.5.5 0 01.093.577l-1.383 2.767a.515.515 0 00-.003.449c.127.271.243.549.346.833.053.148.17.265.319.315l2.934.978a.5.5 0 01.342.474v3.28a.5.5 0 01-.342.474l-2.934.978a.515.515 0 00-.32.315 9.937 9.937 0 01-.345.833.515.515 0 00.003.449l1.383 2.767a.5.5 0 01-.093.577l-2.319 2.319a.5.5 0 01-.577.093l-2.767-1.383a.515.515 0 00-.449-.003c-.271.127-.549.243-.833.346a.515.515 0 00-.315.319l-.978 2.934a.5.5 0 01-.474.342h-3.28a.5.5 0 01-.474-.342l-.978-2.934a.515.515 0 00-.315-.32 9.95 9.95 0 01-1.101-.475.515.515 0 00-.498.014l-2.437 1.463a.5.5 0 01-.611-.075l-2.277-2.277a.5.5 0 01-.075-.61l1.463-2.438a.515.515 0 00.014-.498 9.938 9.938 0 01-.573-1.383.515.515 0 00-.362-.341l-2.757-.69A.5.5 0 013 17.61v-3.22a.5.5 0 01.379-.485l2.757-.689a.515.515 0 00.362-.341c.157-.478.35-.94.573-1.383a.515.515 0 00-.014-.498L5.594 8.557a.5.5 0 01.075-.611l2.277-2.277a.5.5 0 01.61-.075l2.438 1.463c.152.091.34.094.498.014a9.938 9.938 0 011.382-.573.515.515 0 00.342-.362l.69-2.757z"></path> <circle cx="16" cy="16" r="5" stroke="#535358" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle> </g></svg>
-                                <p style="margin:0">Administração</p>
-                            </a>
+                            <?php
+                            include("../php/sql_connect.php");
+                            $comando = $pdo->prepare("select * from usuarios where usuarios.id_usuario = :id_usuario");
+                            $comando->bindParam(':id_usuario', $_SESSION["logado"]);
+                            $comando->execute();
+                            while ($linhas = $comando->fetch()){
+                                $adm_verify = $linhas["adm"];
+                                if ($adm_verify == 1){
+                                    echo(
+                                        "<a href='../tela-adm/index.html'
+                                        class='dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2'>
+                                        <svg width='20px' height='20px' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' fill='none'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path stroke='#535358' stroke-linejoin='round' stroke-width='2' d='M13.905 3.379A.5.5 0 0114.39 3h3.22a.5.5 0 01.485.379l.689 2.757a.515.515 0 00.341.362c.383.126.755.274 1.115.443a.515.515 0 00.449-.003l2.767-1.383a.5.5 0 01.577.093l2.319 2.319a.5.5 0 01.093.577l-1.383 2.767a.515.515 0 00-.003.449c.127.271.243.549.346.833.053.148.17.265.319.315l2.934.978a.5.5 0 01.342.474v3.28a.5.5 0 01-.342.474l-2.934.978a.515.515 0 00-.32.315 9.937 9.937 0 01-.345.833.515.515 0 00.003.449l1.383 2.767a.5.5 0 01-.093.577l-2.319 2.319a.5.5 0 01-.577.093l-2.767-1.383a.515.515 0 00-.449-.003c-.271.127-.549.243-.833.346a.515.515 0 00-.315.319l-.978 2.934a.5.5 0 01-.474.342h-3.28a.5.5 0 01-.474-.342l-.978-2.934a.515.515 0 00-.315-.32 9.95 9.95 0 01-1.101-.475.515.515 0 00-.498.014l-2.437 1.463a.5.5 0 01-.611-.075l-2.277-2.277a.5.5 0 01-.075-.61l1.463-2.438a.515.515 0 00.014-.498 9.938 9.938 0 01-.573-1.383.515.515 0 00-.362-.341l-2.757-.69A.5.5 0 013 17.61v-3.22a.5.5 0 01.379-.485l2.757-.689a.515.515 0 00.362-.341c.157-.478.35-.94.573-1.383a.515.515 0 00-.014-.498L5.594 8.557a.5.5 0 01.075-.611l2.277-2.277a.5.5 0 01.61-.075l2.438 1.463c.152.091.34.094.498.014a9.938 9.938 0 011.382-.573.515.515 0 00.342-.362l.69-2.757z'></path> <circle cx='16' cy='16' r='5' stroke='#535358' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'></circle> </g></svg>
+                                        <p style='margin:0'>Administração</p>
+                                        </a>"
+                                        );
+                                }
+                            }
+                            ?>
                         </li>
                         <li>
                             <a href="../index.html"
@@ -132,102 +146,34 @@
     </header>
 
     <main>
-        <div class="col-md-12">
-            <div class="d-flex align-items-center gap-2 mt-5 offset-md-2">
-                <svg class="mb-2" width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <path
-                            d="M4.3314 12.0474L12 20L19.6686 12.0474C20.5211 11.1633 21 9.96429 21 8.71405C21 6.11055 18.9648 4 16.4543 4C15.2487 4 14.0925 4.49666 13.24 5.38071L12 6.66667L10.76 5.38071C9.90749 4.49666 8.75128 4 7.54569 4C5.03517 4 3 6.11055 3 8.71405C3 9.96429 3.47892 11.1633 4.3314 12.0474Z"
-                            stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </g>
-                </svg>
-                <h2>Favoritos</h2>
-            </div>
-            <hr class="favoritos">
-            <div class="d-flex gap-4 mt-5 ms-5 justify-content-center">
-                <img src="carro.png" class="rounded" alt="">
-                <div>
-                    <div class="descricao">
-                        <h4>Retrovisor Porsche 911 Carrera Coupé</h4>
+        <div class="d-flex justify-content-center align-items-center" style="margin-top: 145px;">
+            <div class="col-md-4">
+                <div class="card" style="background-color: #D9D9D9;">
+
+                    <div class="card-body card-padding">
+                        <div class="d-flex gap-5">
+                            <img src="homem.png" class="img-minhaconta rounded-circle" alt="">
+                            <div class="d-flex flex-column">
+                                <h4>Nome</h4>
+                                <p>Bonito da Silva</p>
+                                <h4>E-mail</h4>
+                                <p>bonito@gmail.com</p>
+                                <h4>Telefone</h4>
+                                <p>(47) 9 9999-9999</p>
+                                <h4>Endereço</h4>
+                                <p>Rua dos Bonitos</p>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <a href="../tela-recadastro/index.html"><button class="btn button-primario">Alterar Cadastro</button></a>
+                        </div>
                     </div>
-                    <div class="preco">
-                        <p class="h2" style="font-weight: 300;">R$ 1799,90</p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column gap-3">
-                    <button class="button-primario">Adicionar ao carrinho</button>
-                    <button class="button-primario">Excluir dos favoritos</button>
+                    
                 </div>
             </div>
-            <hr class="favoritos">
-            <div class="d-flex gap-4 mt-5 ms-5 justify-content-center">
-                <img src="carro.png" class="rounded" alt="">
-                <div>
-                    <div class="descricao">
-                        <h4>Retrovisor Porsche 911 Carrera Coupé</h4>
-                    </div>
-                    <div class="preco">
-                        <p class="h2" style="font-weight: 300;">R$ 1799,90</p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column gap-3">
-                    <button class="button-primario">Adicionar ao carrinho</button>
-                    <button class="button-primario">Excluir dos favoritos</button>
-                </div>
-            </div>
-            <hr class="favoritos">
-            <div class="d-flex gap-4 mt-5 ms-5 justify-content-center">
-                <img src="carro.png" class="rounded" alt="">
-                <div>
-                    <div class="descricao">
-                        <h4>Retrovisor Porsche 911 Carrera Coupé</h4>
-                    </div>
-                    <div class="preco">
-                        <p class="h2" style="font-weight: 300;">R$ 1799,90</p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column gap-3">
-                    <button class="button-primario">Adicionar ao carrinho</button>
-                    <button class="button-primario">Excluir dos favoritos</button>
-                </div>
-            </div>
-            <hr class="favoritos">
-            <div class="d-flex gap-4 mt-5 ms-5 justify-content-center">
-                <img src="carro.png" class="rounded" alt="">
-                <div>
-                    <div class="descricao">
-                        <h4>Retrovisor Porsche 911 Carrera Coupé</h4>
-                    </div>
-                    <div class="preco">
-                        <p class="h2" style="font-weight: 300;">R$ 1799,90</p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column gap-3">
-                    <button class="button-primario">Adicionar ao carrinho</button>
-                    <button class="button-primario">Excluir dos favoritos</button>
-                </div>
-            </div>
-            <hr class="favoritos">
-            <a href="../MQTT.html">
-                <div class="faleConosco">
-                    <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <g id="Communication / Chat_Circle">
-                                <path id="Vector"
-                                    d="M7.50977 19.8018C8.83126 20.5639 10.3645 21 11.9996 21C16.9702 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 13.6351 3.43604 15.1684 4.19819 16.4899L4.20114 16.495C4.27448 16.6221 4.31146 16.6863 4.32821 16.7469C4.34401 16.804 4.34842 16.8554 4.34437 16.9146C4.34003 16.9781 4.3186 17.044 4.27468 17.1758L3.50586 19.4823L3.50489 19.4853C3.34268 19.9719 3.26157 20.2152 3.31938 20.3774C3.36979 20.5187 3.48169 20.6303 3.62305 20.6807C3.78482 20.7384 4.02705 20.6577 4.51155 20.4962L4.51758 20.4939L6.82405 19.7251C6.95537 19.6813 7.02214 19.6591 7.08559 19.6548C7.14475 19.6507 7.19578 19.6561 7.25293 19.6719C7.31368 19.6887 7.37783 19.7257 7.50563 19.7994L7.50977 19.8018Z"
-                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                </path>
-                            </g>
-                        </g>
-                    </svg>
-                </div>
-            </a>
         </div>
     </main>
+
 </body>
 
 </html>
