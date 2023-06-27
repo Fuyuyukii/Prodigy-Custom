@@ -249,7 +249,7 @@
                                                         </g>
                                                     </g>
                                                 </svg></button></div>
-                                        <div class='col-md-1'><button data-bs-toggle='modal' data-bs-target='#excluir' onclick = \"deletar($produto_id);\" class='button-primario'
+                                        <div class='col-md-1'><button data-bs-toggle='modal' data-bs-target='#excluir' class='button-primario'
                                                 style='padding:0;width:48px !important;height:48px !important;'><svg
                                                     width='36px' height='36px' viewBox='0 0 24 24' fill='none'
                                                     xmlns='http://www.w3.org/2000/svg'>
@@ -263,9 +263,28 @@
                                                             stroke-linejoin='round'></path>
                                                     </g>
                                         </svg></button></div>
-                                        </div>"
+                                        </div>
+                                        <div class='modal fade modal-xl' id='excluir' tabindex='-1' aria-labelledby='exampleModalCenterTitle'
+                                        style='display: none;' aria-hidden='true'>
+                                            <div class='modal-dialog' style='margin-top: 20%;'>
+                                                    <div class='modal-content'>
+                                                        <div class='modal-body'>
+                                                            <div class='d-flex align-items-end flex-column'>
+                                                                <div class='col-md-12' style='font-size:1.475rem'>
+                                                                    Confirmar exclusão?
+                                                                </div>
+                                                                <button type='submit' id='bd1'style='padding-inline: 2em;' onclick = deletar($produto_id) class='btn button-primario' name='submit-btn'> 
+                                                                    Deletar
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>    
+                                            </div>
+                                        </div>
+                                        "
                                         );
                                 }
+                                
                                 ?>
                                 <hr>
                             </div>
@@ -337,25 +356,6 @@
                         <button type="submit" id="bd1"style="padding-inline: 2em;" class="btn button-primario" name="submit-btn"> 
                             Salvar
                         </button>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade modal-xl" id="excluir" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
-            style="display: none;" aria-hidden="true">
-            <div class="modal-dialog" style="margin-top: 20%;">
-                <form action="../php/cadastrar_produto.php" method="post" enctype="multipart/form-data">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="d-flex align-items-end flex-column">
-                        <div class="col-md-12" style="font-size:1.475rem">
-                                Confirmar exclusão?
-                        </div>
-                        <button type="submit" id="bd1"style="padding-inline: 2em;" class="btn button-primario" name="submit-btn"> 
-                            Deletar
-                        </button>
-                    </div>
                     </div>
                     </form>
                 </div>
