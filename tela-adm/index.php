@@ -202,70 +202,106 @@
                                 <hr>
                                 <?php
                                 include("../php/sql_connect.php");
-                                $comando = $pdo->prepare("select * from produtos_imagens inner join produtos on produtos_imagens.id_produto = produtos.id_produto");
-                                $comando->execute();
-                                while ($linhas = $comando->fetch()){
+                                if($selected_option == 0){
+                                    $comando = $pdo->prepare("select * from produtos_imagens inner join produtos on produtos_imagens.id_produto = produtos.id_produto");
+                                    $comando->execute();
+                                    while ($linhas = $comando->fetch()){
 
-                                    if (!empty($linhas["file_path"])){
-                                        $img = $linhas["file_path"];
-                                        $produto_img = "<img src='$img'>";
-                                    } else {
-                                        $produto_img = "<img src=''>";
-                                    }
+                                        if (!empty($linhas["file_path"])){
+                                            $img = $linhas["file_path"];
+                                            $produto_img = "<img src='$img'>";
+                                        } else {
+                                            $produto_img = "<img src=''>";
+                                        }
 
-                                    $produto_nome = $linhas["nome"];
-                                    $produto_id = $linhas["id_produto"];
-                                    $produto_preco = $linhas["preco"];
+                                        $produto_nome = $linhas["nome"];
+                                        $essential_id = $linhas["id_produto"];
+                                        $produto_preco = $linhas["preco"];
 
-                                    echo(
-                                        "<div class='col-md-12 d-flex align-items-center mt-3'>
-                                        <div class='col-md-1'>
-                                            <img class='imagemLista rounded' src='$img' alt=''>
-                                        </div>
-                                        <h4 class='col-md-5'>
-                                            $produto_nome
-                                        </h4>
-                                        <h4 class='col-md-4'>
-                                            $produto_preco
-                                        </h4>
-    
-                                        <div class='col-md-1'><button data-bs-toggle='modal'
-                                        data-bs-target='#exampleModalCenter' onclick = \"preencher($produto_id);\" class='button-primario'
-                                                style='padding:0;width:48px !important;height:48px !important;'>
-                                                <svg fill='#fff' height='31px' width='31px' version='1.1' id='Layer_1'
-                                                    xmlns='http://www.w3.org/2000/svg'
-                                                    xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 512.008 512.008'
-                                                    xml:space='preserve' stroke='#fff' stroke-width='1'>
-                                                    <g id='SVGRepo_bgCarrier' stroke-width='0'></g>
-                                                    <g id='SVGRepo_tracerCarrier' stroke-linecap='round'
-                                                        stroke-linejoin='round'></g>
-                                                    <g id='SVGRepo_iconCarrier'>
-                                                        <g>
+                                        echo(
+                                            "<div class='col-md-12 d-flex align-items-center mt-3'>
+                                            <div class='col-md-1'>
+                                                <img class='imagemLista rounded' src='$img' alt=''>
+                                            </div>
+                                            <h4 class='col-md-5'>
+                                                $produto_nome
+                                            </h4>
+                                            <h4 class='col-md-4'>
+                                                $produto_preco
+                                            </h4>
+        
+                                            <div class='col-md-1'><button data-bs-toggle='modal'
+                                            data-bs-target='#exampleModalCenter' onclick = \"preencher($essential_id);\" class='button-primario'
+                                                    style='padding:0;width:48px !important;height:48px !important;'>
+                                                    <svg fill='#fff' height='31px' width='31px' version='1.1' id='Layer_1'
+                                                        xmlns='http://www.w3.org/2000/svg'
+                                                        xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 512.008 512.008'
+                                                        xml:space='preserve' stroke='#fff' stroke-width='1'>
+                                                        <g id='SVGRepo_bgCarrier' stroke-width='0'></g>
+                                                        <g id='SVGRepo_tracerCarrier' stroke-linecap='round'
+                                                            stroke-linejoin='round'></g>
+                                                        <g id='SVGRepo_iconCarrier'>
                                                             <g>
-                                                                <path
-                                                                    d='M504.507,79.905L432.102,7.499c-9.993-9.992-26.206-10.001-36.207,0L51.959,351.435c-2.807,2.807-4.924,6.238-6.187,10.01 L1.313,478.309c-3.063,9.199-0.674,19.336,6.187,26.197c6.861,6.861,16.998,9.25,26.197,6.187l116.864-44.459 c3.772-1.254,7.194-3.371,10.01-6.187l343.936-343.936C514.508,106.11,514.508,89.906,504.507,79.905z M25.608,486.398 l44.459-116.864l72.405,72.405L25.608,486.398z M160.571,423.841l-72.405-72.405L359.696,79.905l72.405,72.405L160.571,423.841z M450.201,134.211l-72.405-72.405l36.207-36.207l72.405,72.405L450.201,134.211z'>
-                                                                </path>
+                                                                <g>
+                                                                    <path
+                                                                        d='M504.507,79.905L432.102,7.499c-9.993-9.992-26.206-10.001-36.207,0L51.959,351.435c-2.807,2.807-4.924,6.238-6.187,10.01 L1.313,478.309c-3.063,9.199-0.674,19.336,6.187,26.197c6.861,6.861,16.998,9.25,26.197,6.187l116.864-44.459 c3.772-1.254,7.194-3.371,10.01-6.187l343.936-343.936C514.508,106.11,514.508,89.906,504.507,79.905z M25.608,486.398 l44.459-116.864l72.405,72.405L25.608,486.398z M160.571,423.841l-72.405-72.405L359.696,79.905l72.405,72.405L160.571,423.841z M450.201,134.211l-72.405-72.405l36.207-36.207l72.405,72.405L450.201,134.211z'>
+                                                                    </path>
+                                                                </g>
                                                             </g>
                                                         </g>
-                                                    </g>
-                                                </svg></button></div>
-                                        <div class='col-md-1'><button data-bs-toggle='modal' data-bs-target='#excluir' onclick = \"deletar($produto_id);\" class='button-primario'
-                                                style='padding:0;width:48px !important;height:48px !important;'><svg
-                                                    width='36px' height='36px' viewBox='0 0 24 24' fill='none'
-                                                    xmlns='http://www.w3.org/2000/svg'>
-                                                    <g id='SVGRepo_bgCarrier' stroke-width='0'></g>
-                                                    <g id='SVGRepo_tracerCarrier' stroke-linecap='round'
-                                                        stroke-linejoin='round'></g>
-                                                    <g id='SVGRepo_iconCarrier'>
-                                                        <path
-                                                            d='M10 10V16M14 10V16M18 6V18C18 19.1046 17.1046 20 16 20H8C6.89543 20 6 19.1046 6 18V6M4 6H20M15 6V5C15 3.89543 14.1046 3 13 3H11C9.89543 3 9 3.89543 9 5V6'
-                                                            stroke='#fff' stroke-width='1.5' stroke-linecap='round'
-                                                            stroke-linejoin='round'></path>
-                                                    </g>
-                                        </svg></button></div>
-                                        </div>"
-                                        );
-                                }
+                                                    </svg></button></div>
+                                            <div class='col-md-1'><button data-bs-toggle='modal' data-bs-target='#excluir' class='button-primario'
+                                                    style='padding:0;width:48px !important;height:48px !important;'><svg
+                                                        width='36px' height='36px' viewBox='0 0 24 24' fill='none'
+                                                        xmlns='http://www.w3.org/2000/svg'>
+                                                        <g id='SVGRepo_bgCarrier' stroke-width='0'></g>
+                                                        <g id='SVGRepo_tracerCarrier' stroke-linecap='round'
+                                                            stroke-linejoin='round'></g>
+                                                        <g id='SVGRepo_iconCarrier'>
+                                                            <path
+                                                                d='M10 10V16M14 10V16M18 6V18C18 19.1046 17.1046 20 16 20H8C6.89543 20 6 19.1046 6 18V6M4 6H20M15 6V5C15 3.89543 14.1046 3 13 3H11C9.89543 3 9 3.89543 9 5V6'
+                                                                stroke='#fff' stroke-width='1.5' stroke-linecap='round'
+                                                                stroke-linejoin='round'></path>
+                                                        </g>
+                                            </svg></button></div>
+                                            </div>"
+                                            );
+                                }} else {
+                                    $comando = $pdo->prepare("select * from usuarios where id_usuario = :id_usuario");
+                                    $comando->bindParam(':id_usuario', $_SESSION["logado"]);
+                                    $comando->execute();
+                                    while ($linhas = $comando->fetch()){
+
+                                        $user_nome = $linhas["nome"];
+                                        $essential_id = $_SESSION["logado"];
+
+                                        echo(
+                                            "<div class='col-md-12 d-flex align-items-center mt-3'>
+                                            // ALTERA ISSO AQUI BOTA O SVG DE USUARIO
+                                            <div class='col-md-1'>
+                                                <img class='imagemLista rounded' src='$img' alt=''>
+                                            </div>
+                                            ///////////////////////////////////////////////////////
+                                            <h4 class='col-md-5'>
+                                                $user_nome
+                                            </h4>
+                                            <div class='col-md-1'><button data-bs-toggle='modal' data-bs-target='#excluir' class='button-primario'
+                                                    style='padding:0;width:48px !important;height:48px !important;'><svg
+                                                        width='36px' height='36px' viewBox='0 0 24 24' fill='none'
+                                                        xmlns='http://www.w3.org/2000/svg'>
+                                                        <g id='SVGRepo_bgCarrier' stroke-width='0'></g>
+                                                        <g id='SVGRepo_tracerCarrier' stroke-linecap='round'
+                                                            stroke-linejoin='round'></g>
+                                                        <g id='SVGRepo_iconCarrier'>
+                                                            <path
+                                                                d='M10 10V16M14 10V16M18 6V18C18 19.1046 17.1046 20 16 20H8C6.89543 20 6 19.1046 6 18V6M4 6H20M15 6V5C15 3.89543 14.1046 3 13 3H11C9.89543 3 9 3.89543 9 5V6'
+                                                                stroke='#fff' stroke-width='1.5' stroke-linecap='round'
+                                                                stroke-linejoin='round'></path>
+                                                        </g>
+                                            </svg></button></div>
+                                            </div>"
+                                            );
+                                }}
                                 ?>
                                 <hr>
                             </div>
@@ -345,19 +381,17 @@
         <div class="modal fade modal-xl" id="excluir" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
             style="display: none;" aria-hidden="true">
             <div class="modal-dialog" style="margin-top: 20%;">
-                <form action="../php/cadastrar_produto.php" method="post" enctype="multipart/form-data">
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="d-flex align-items-end flex-column">
                         <div class="col-md-12" style="font-size:1.475rem">
                                 Confirmar exclusão?
                         </div>
-                        <button type="submit" id="bd1"style="padding-inline: 2em;" class="btn button-primario" name="submit-btn"> 
+                        <button <?php echo("onclick = \"deletar($essential_id);\"") ?>id="bd1"style="padding-inline: 2em;" class="btn button-primario" name="submit-btn"> 
                             Deletar
                         </button>
                     </div>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -393,38 +427,41 @@
     })
 });
 
-function deletar(produto_id){
-        window.open("../php/deletar.php?produto_id=" + produto_id, "_self")
+function deletar(essential_id){
+        let select = document.getElementById('selectTipo')
+        let OP = select.selectedIndex
+        console.log("VAI TOMA NO CU PIRANHA")
+        window.open("../php/deletar.php?essential_id=" + essential_id + "&OP=" + OP, "_self")
     }
 
-    function preencher(produto_id){
-        var dados = "produto_id=" + produto_id
-        $.ajax({
-            type: "GET",
-            url: "../php/get_produtos_att.php",
-            data: dados,
-                            
-            success: function(meu_json)
-            {
-                var valores = JSON.parse(meu_json); 
-                var lista = valores.produto_att; 
-                
-                for(x=0;x<lista.length;x++)
-                {   
-                    document.getElementById("produto_id").value = lista[x].id;
-                    document.getElementById("produto-nome-adicionar").value = lista[x].nome;
-                    document.getElementById("produto-preço-adicionar").value = lista[x].preco;
-                    document.getElementById("produto-descricao-adicionar").value = lista[x].descricao;
-                    document.getElementById("produto-tecinfo-adicionar").value = lista[x].informacoes_tecnicas;
-                }
+function preencher(produto_id){
+    var dados = "produto_id=" + produto_id
+    $.ajax({
+        type: "GET",
+        url: "../php/get_produtos_att.php",
+        data: dados,
+                        
+        success: function(meu_json)
+        {
+            var valores = JSON.parse(meu_json); 
+            var lista = valores.produto_att; 
+            
+            for(x=0;x<lista.length;x++)
+            {   
+                document.getElementById("produto_id").value = lista[x].id;
+                document.getElementById("produto-nome-adicionar").value = lista[x].nome;
+                document.getElementById("produto-preço-adicionar").value = lista[x].preco;
+                document.getElementById("produto-descricao-adicionar").value = lista[x].descricao;
+                document.getElementById("produto-tecinfo-adicionar").value = lista[x].informacoes_tecnicas;
             }
-        });
-    }
-    
-    function md(){
-        let select = document.getElementById('selectTipo')
-        console.log(select.selectedIndex)
-        window.open("index.php?op="+select.selectedIndex, "_self")
-    }
+        }
+    });
+}
+
+function md(){
+    let select = document.getElementById('selectTipo')
+    console.log(select.selectedIndex)
+    window.open("index.php?op="+select.selectedIndex, "_self")
+}
 
 </script>

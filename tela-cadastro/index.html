@@ -166,12 +166,19 @@
     function cadastrar() {
         var N = document.getElementById("nome").value;
         var C = document.getElementById("cpf").value;
-        var EN = document.getElementById("endereco").value;
         var EM = document.getElementById("email").value;
         var S = document.getElementById("senha").value;
         var SC = document.getElementById("senhaconfirma").value;
         var T = document.getElementById("telefone").value;
-        window.open("../php/cadastrar.php?N=" + N + "&C=" + C + "&EN=" + EN + "&EM=" + EM + "&S=" + S + "&SC=" + SC + "&T=" + T, "_self");
+
+        var CEP = document.getElementById("cep").value;
+        var rua = document.getElementById("rua").value;
+        var numero = document.getElementById("numero").value;
+        var bairro = document.getElementById("bairro").value;
+        var cidade = document.getElementById("cidade").value;
+        var estado = document.getElementById("estado").value;
+        window.open("../php/cadastrar.php?N=" + N + "&C=" + C + "&EM=" + EM + "&S=" + S + "&SC=" + SC + "&T=" + T +
+        "&cep=" + CEP + "&rua=" + rua + "&numero=" + numero + "&bairro" + bairro + "&cidade=" + cidade + "&estado=" + estado ,"_self");
     }
     
     function limpa_formulário_cep() {
