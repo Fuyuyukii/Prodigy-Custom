@@ -344,15 +344,14 @@ session_start();
                 <form action="../php/cadastrar_produto.php" method="post" enctype="multipart/form-data">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <div class="col-md-12">
+                        <div class="d-flex align-items-end flex-column">
+                        <div class="col-md-12" style="font-size:1.475rem">
                                 Confirmar exclusão?
                         </div>
-
-                    </div>
-                    <div class="modal-footer">
                         <button type="submit" id="bd1"style="padding-inline: 2em;" class="btn button-primario" name="submit-btn"> 
                             Deletar
                         </button>
+                    </div>
                     </div>
                     </form>
                 </div>
