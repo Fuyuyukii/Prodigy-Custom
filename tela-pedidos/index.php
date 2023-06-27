@@ -188,5 +188,33 @@ session_start();
             </div>
         </nav>
     </header>
+
+    <main>
+        <div class="col-md-12 d-flex justify-content-center">
+            <div class="col-md-8" style="margin-top:120px">
+                <div class="card">
+                    <div class="card-header">
+                        <b> Seus Pedidos</b>
+                    </div>
+                    <div class="card-body">
+                        <?php
+                        echo("<div class='d-flex align-items-center justify-content-between'>
+                            <div class='col-md-1'>
+                                <img src='../imgs/abafador2.png' style='width:100'>
+                            </div>
+                            <div class='col-md-8'>
+                                Este produto debe sser comprado ppor voce pq ele é a coisa mais pica do mundo tlg
+                            </div>
+                            <div class='col-md-2'>
+                                <button class='button-primario'>Avaliar Produto</button>
+                            </div>
+                        </div>"
+                        )
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
