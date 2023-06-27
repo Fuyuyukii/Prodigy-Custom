@@ -256,8 +256,8 @@ while ($linhas = $comando->fetch()){
                     <p><?php echo("10x de $produto_parcela"); ?></p>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <button class="btn btn-warning p-3 rounded-pill fw-bolder text-light">Carrinho</button>
-                    <button class="btn btn-success p-3 rounded-pill fw-bolder btn-comprar" data-bs-toggle="modal"
+                    <button class="btn btn-warning p-3 rounded-pill fw-bolder text-light" onclick="carrinho()">Carrinho</button>
+                    <button onclick="comprar()" class="btn btn-success p-3 rounded-pill fw-bolder btn-comprar" data-bs-toggle="modal"
                         data-bs-target="#exampleModalCenter">Comprar</button>
                 </div>
             </div>
@@ -374,6 +374,12 @@ while ($linhas = $comando->fetch()){
                 }
 
             })
+            function comprar(){
+                window.open("../php/comprar.php?produto_id=" + produto_id, "_self")
+            }
+            function carrinho(){
+                window.open("../php/carrinho_adicionar.php?produto_id=" + produto_id, "_self")
+            }
         })
     </script>
 </body>

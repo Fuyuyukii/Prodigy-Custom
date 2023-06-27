@@ -1,5 +1,9 @@
 <?php
-session_start();
+    session_start();
+    $selected_option = 0;
+    if(isset($_GET["op"])){
+        $selected_option = $_GET["op"];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -176,9 +180,9 @@ session_start();
                         <div class="card-body">
                             <div class="d-flex flex-column">
                                 <div class="col-md-12 d-flex justify-content-between ps-2">
-                                    <select class="form-select" id="selectTipo" style="width:200px">
-                                        <option value="1">Produtos</option>
-                                        <option value="2">Usuários</option>
+                                    <select onchange="md()" class="form-select" id="selectTipo" style="width:200px">
+                                        <option <?php if($selected_option == 0){echo("selected");} ?>>Produtos</option>
+                                        <option <?php if($selected_option == 1){echo("selected");} ?>>Usuários</option>
                                     </select>
                                     <button class="button-primario" data-bs-toggle="modal"
                                         data-bs-target="#exampleModalCenter"
@@ -362,9 +366,6 @@ session_start();
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 <script>
     $(function () {
-        let Selected_Option = ($('#selectTipo option').filter(':selected').val())
-        let select = document.getElementById('selectTipo')
-        select.selectedIndex = Selected_Option;
         $("#insereImagem").change(function () {
             if (this.files && this.files[0]) {
                 var reader = new FileReader();
@@ -390,8 +391,9 @@ session_start();
                 }
             });
     })
+});
 
-    function deletar(produto_id){
+function deletar(produto_id){
         window.open("../php/deletar.php?produto_id=" + produto_id, "_self")
     }
 
@@ -418,11 +420,11 @@ session_start();
             }
         });
     }
-
     
-       
-        
+    function md(){
+        let select = document.getElementById('selectTipo')
+        console.log(select.selectedIndex)
+        window.open("index.php?op="+select.selectedIndex, "_self")
+    }
 
-
-});
 </script>

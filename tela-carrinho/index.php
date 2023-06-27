@@ -170,7 +170,7 @@
                                         if (!empty($linhas["file_path"])){
                                             $img = $linhas["file_path"];
                                         } else {
-                                            $default_img = "";
+                                            $img = "";
                                         }
 
                                         $preco = $linhas["preco"];

@@ -196,5 +196,28 @@ session_start();
     </main>
 
 </body>
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script>
+    $(function ()){
+        $.ajax({
+            type: "GET",
+            url: "../php/get_produtos_att.php",
+            data: dados,
+                            
+            success: function(meu_json)
+            {
+                var valores = JSON.parse(meu_json); 
+                var lista = valores.user_att; 
+                
+                for(x=0;x<lista.length;x++)
+                {   
+                    user_nome = lista[x].nome;
+                    user_email = lista[x].email;
+                    user_telefone = lista[x].telefone;
+                    user_cep = lista[x].CEP;
+                }
+            }
+        });
+    }
+</script>
 </html>
