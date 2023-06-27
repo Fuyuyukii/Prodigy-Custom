@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;400;500&display=swap" rel="stylesheet">
-    <title>prodigy custom</title>
+    <title>Prodigy Custom</title>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="../index.js"></script>
@@ -49,7 +49,7 @@ while ($linhas = $comando->fetch()){
         <nav class="nav navbar">
             <a href="../venda-produto/index.php"><img class="logo" src="fotologo.png" alt="imagem da logo"></a>
             <div class="icones">
-                <a href="../tela-carrinho/index.html">
+                <a href="../tela-carrinho/index.php">
                     <svg style="cursor:pointer" width="45px" height="45px" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -108,7 +108,7 @@ while ($linhas = $comando->fetch()){
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li>
-                            <a href="../tela-minhaconta/index.html"
+                            <a href="../tela-minhaconta/index.php"
                                 class="dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2">
                                 <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -128,7 +128,25 @@ while ($linhas = $comando->fetch()){
                             </a>
                         </li>
                         <li>
-                            <a href="../tela-favoritos/index.html"
+                            <a href="../tela-pedidos/" class="dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2">
+                                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M6.45925 6C4.02505 6 2.1552 8.15595 2.49945 10.5657L3.51965 17.7071C3.87155 20.1704 5.98115 22 8.4694 22H15.531C18.0193 22 20.1289 20.1704 20.4808 17.7071L21.501 10.5657C21.8452 8.15595 19.9754 6 17.5412 6H6.45925Z"
+                                            fill="#878787"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M7.00016 4.76363C7.84716 3.06962 9.57838 2 11.4721 2H12.5279C14.4218 2 16.1531 3.07003 17 4.76396L17.8944 6.55279C18.1414 7.04677 17.9412 7.64744 17.4472 7.89443C16.9532 8.14142 16.3526 7.94119 16.1056 7.44721L15.2112 5.65838C14.703 4.64202 13.6642 4 12.5279 4H11.4721C10.3357 4 9.29715 4.64179 8.78901 5.65805L7.89443 7.44721C7.64744 7.94119 7.04677 8.14142 6.55279 7.89443C6.05881 7.64744 5.85859 7.04676 6.10558 6.55279L7.00016 4.76363Z"
+                                            fill="#878787"></path>
+                                    </g>
+                                </svg>
+                                <p style="margin:0">Seus Pedidos</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../tela-favoritos/index.php"
                                 class="dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2">
                                 <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -154,7 +172,7 @@ while ($linhas = $comando->fetch()){
                                 $adm_verify = $linhas["adm"];
                                 if ($adm_verify == 1){
                                     echo(
-                                        "<a href='../tela-adm/index.html'
+                                        "<a href='../tela-adm/index.php'
                                         class='dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2'>
                                         <svg width='20px' height='20px' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' fill='none'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path stroke='#535358' stroke-linejoin='round' stroke-width='2' d='M13.905 3.379A.5.5 0 0114.39 3h3.22a.5.5 0 01.485.379l.689 2.757a.515.515 0 00.341.362c.383.126.755.274 1.115.443a.515.515 0 00.449-.003l2.767-1.383a.5.5 0 01.577.093l2.319 2.319a.5.5 0 01.093.577l-1.383 2.767a.515.515 0 00-.003.449c.127.271.243.549.346.833.053.148.17.265.319.315l2.934.978a.5.5 0 01.342.474v3.28a.5.5 0 01-.342.474l-2.934.978a.515.515 0 00-.32.315 9.937 9.937 0 01-.345.833.515.515 0 00.003.449l1.383 2.767a.5.5 0 01-.093.577l-2.319 2.319a.5.5 0 01-.577.093l-2.767-1.383a.515.515 0 00-.449-.003c-.271.127-.549.243-.833.346a.515.515 0 00-.315.319l-.978 2.934a.5.5 0 01-.474.342h-3.28a.5.5 0 01-.474-.342l-.978-2.934a.515.515 0 00-.315-.32 9.95 9.95 0 01-1.101-.475.515.515 0 00-.498.014l-2.437 1.463a.5.5 0 01-.611-.075l-2.277-2.277a.5.5 0 01-.075-.61l1.463-2.438a.515.515 0 00.014-.498 9.938 9.938 0 01-.573-1.383.515.515 0 00-.362-.341l-2.757-.69A.5.5 0 013 17.61v-3.22a.5.5 0 01.379-.485l2.757-.689a.515.515 0 00.362-.341c.157-.478.35-.94.573-1.383a.515.515 0 00-.014-.498L5.594 8.557a.5.5 0 01.075-.611l2.277-2.277a.5.5 0 01.61-.075l2.438 1.463c.152.091.34.094.498.014a9.938 9.938 0 011.382-.573.515.515 0 00.342-.362l.69-2.757z'></path> <circle cx='16' cy='16' r='5' stroke='#535358' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'></circle> </g></svg>
                                         <p style='margin:0'>Administração</p>
