@@ -176,7 +176,8 @@ session_start();
                                 <input type="file" name="insereImagem" id="insereImagem" class="imagemProduto">
                         </label>
                         <img id="imagemInserida" src="" alt="">
-                    </div>
+                    </div>  
+                    <form action="../php/recadastro"  method="post">
                             <div class="d-flex flex-column">
                                 <div class="form-floating">
                                     <input type="text" id="nome" class="form-control" placeholder="Nome">
@@ -201,9 +202,10 @@ session_start();
                             </div>
                         </div>
                         <div class="d-flex justify-content-end mt-2">
-                            <a href="../tela-minhaconta/index.html"><button class="btn button-primario">Salvar</button></a>
+                            <button type="submit" class="btn button-primario">Salvar</button>
                         </div>
                     </div>
+                    </form>
                     
                 </div>
             </div>

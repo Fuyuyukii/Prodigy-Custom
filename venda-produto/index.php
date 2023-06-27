@@ -364,6 +364,7 @@
             }  
         }
         console.log(carroProbMaxima, Probabilidade)
+        window.open("index.php?carro="+carroProbMaxima, "_self")
     }
 
     const inputElement = document.getElementById("InsereImagemCarro");
