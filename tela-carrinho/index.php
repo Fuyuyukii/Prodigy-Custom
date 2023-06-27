@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -143,77 +140,72 @@ session_start();
                                 </div>
                                 <hr>
                                 <div class="produtos">
-                                    <div class="col-md-12 d-flex align-items-center mt-3">
-                                        <img class="imagemLista rounded" src="carro.png" alt="">
-                                        <div class="col-md-10 d-flex flex-column ps-2">
-                                            <div class="d-flex justify-content-between">
-                                                <h4 style="margin: 0;">Retrovisor Porsche 911 Carrera Coupé</h4>
-                                                <h4 style="margin: 0;">R$ 1799,90</h4>
+                                    <?php
+                                    include("../php/sql_connect.php");
+                                    $comando = $pdo->prepare("SELECT *, count(produtos.id_produto) as contador FROM produtos inner join usuario_carrinho on produtos.id_produto = usuario_carrinho.id_produto
+                                    where usuario_carrinho.id_usuario = :id_usuario");
+                                    $comando->bindParam(':id_usuario', $_SESSION["logado"]);
+                                    $comando->execute();
+                                    $subtotal = 0;
+                                    while ($linhas = $comando->fetch()){
+                                        
+                                        if (!empty($linhas["file_path"])){
+                                            $img = $linhas["file_path"];
+                                        } else {
+                                            $default_img = "";
+                                        }
+
+                                        $preco = $linhas["preco"];
+                                        $count = $linhas["contador"];
+                                        $nome = $linhas["nome"];
+                                        $subtotal = $subtotal + $preco;
+    
+                                        echo(
+                                            "<div class='col-md-12 d-flex align-items-center mt-3'>
+                                            <img class='imagemLista rounded' src='$img' alt=''>
+                                            <div class='col-md-10 d-flex flex-column ps-2'>
+                                            <div class='d-flex justify-content-between'>
+                                                <h4 style='margin: 0;'>$nome</h4>
+                                                <h4 style='margin: 0;'>$preco</h4>
                                             </div>
-                                            <span class="status" style="color: green;"> Em estoque </span>
-                                            <a href="" style="text-decoration: none; color: black;">excluir</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 d-flex align-items-center mt-3">
-                                        <img class="imagemLista rounded" src="carro.png" alt="">
-                                        <div class="col-md-10 d-flex flex-column ps-2">
-                                            <div class="d-flex justify-content-between">
-                                                <h4 style="margin: 0;">Retrovisor Porsche 911 Carrera Coupé</h4>
-                                                <h4 style="margin: 0;">R$ 1799,90</h4>
+                                            <span class='status' style='color: green;'> Em estoque </span>
+                                            <a href='' style='text-decoration: none; color: red;'>excluir</a>
                                             </div>
-                                            <span class="status" style="color: green;"> Em estoque </span>
-                                            <a href="" style="text-decoration: none; color: black;">excluir</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 d-flex align-items-center mt-3">
-                                        <img class="imagemLista rounded" src="carro.png" alt="">
-                                        <div class="col-md-10 d-flex flex-column ps-2">
-                                            <div class="d-flex justify-content-between">
-                                                <h4 style="margin: 0;">Retrovisor Porsche 911 Carrera Coupé</h4>
-                                                <h4 style="margin: 0;">R$ 1799,90</h4>
-                                            </div>
-                                            <span class="status" style="color: green;"> Em estoque </span>
-                                            <a href="" style="text-decoration: none; color: black;">excluir</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 d-flex align-items-center mt-3">
-                                        <img class="imagemLista rounded" src="carro.png" alt="">
-                                        <div class="col-md-10 d-flex flex-column ps-2">
-                                            <div class="d-flex justify-content-between">
-                                                <h4 style="margin: 0;">Retrovisor Porsche 911 Carrera Coupé</h4>
-                                                <h4 style="margin: 0;">R$ 1799,90</h4>
-                                            </div>
-                                            <span class="status" style="color: green;"> Em estoque </span>
-                                            <a href="" style="text-decoration: none; color: black;">excluir</a>
-                                        </div>
-                                    </div>
+                                            </div>");
+                                    }
+                                    $frete = 0;
+                                    $total_pedido = $subtotal + $frete;
+                                    $parcelado = $total_pedido / 10; 
+                                echo("
                                 </div>
                                 <hr>
-                                <div class="col-md-11 d-flex justify-content-end ps-2 gap-1">
-                                    <h4>Subtotal</h4><h4>(1 item):</h4><h4>R$1799,90</h4>
+                                <div class='col-md-11 d-flex justify-content-end ps-2 gap-1'>
+                                    <h4>Subtotal</h4><h4>($count item):</h4><h4>R$$subtotal</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Lado direito da tela -->
-                <div class="col-md-3 d-flex justify-content-center">
-                    <div class="d-flex flex-column" style="gap:0.89rem!important">
+                <div class='col-md-3 d-flex justify-content-center'>
+                    <div class='d-flex flex-column' style='gap:0.89rem!important'>
                         <h4>Finalizar pedido</h4>
                         <hr>
-                        <div class="d-flex gap-1">
-                            <h4>Itens:</h4><h4>R$1799,90</h4>
+                        <div class='d-flex gap-1'>
+                            <h4>Itens:</h4><h4>R$$subtotal</h4>
                         </div>
-                        <div class="d-flex gap-1">
-                            <h4>Frete:</h4><h4>R$50,00</h4>
+                        <div class='d-flex gap-1'>
+                            <h4>Frete:</h4><h4>R$$frete</h4>
                         </div>  
                         <hr>
-                        <div class="d-flex gap-1">
-                            <h4>Total do Pedido:</h4><h4>R$1850,90</h4>
+                        <div class='d-flex gap-1'>
+                            <h4>Total do Pedido:</h4><h4>R$$total_pedido </h4>
                         </div>
-                        <div class="d-flex justify-content-end gap-1">
-                            <h4>10x</h4><h4>de</h4><h4>R$185,09</h4>
+                        <div class='d-flex justify-content-end gap-1'>
+                            <h4>10x</h4><h4>de</h4><h4>R$$parcelado</h4>
                         </div>
+                        ");
+                        ?>
                         <div class="botoes d-flex gap-3 flex-column align-items-end">
                             <a href="../tela-pagamento/index.php" class="button-primario">Finalizar</a>
                         </div>
