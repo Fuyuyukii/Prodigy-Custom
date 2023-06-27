@@ -81,7 +81,7 @@ session_start();
                             </a>
                         </li>
                         <li>
-                            <a href="" class="dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2">
+                            <a href="../tela-pedidos/" class="dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2">
                                 <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -245,7 +245,7 @@ session_start();
                                                         </g>
                                                     </g>
                                                 </svg></button></div>
-                                        <div class='col-md-1'><button onclick = \"deletar($produto_id);\" class='button-primario'
+                                        <div class='col-md-1'><button data-bs-toggle='modal' data-bs-target='#excluir' onclick = \"deletar($produto_id);\" class='button-primario'
                                                 style='padding:0;width:48px !important;height:48px !important;'><svg
                                                     width='36px' height='36px' viewBox='0 0 24 24' fill='none'
                                                     xmlns='http://www.w3.org/2000/svg'>
@@ -332,6 +332,26 @@ session_start();
                     <div class="modal-footer">
                         <button type="submit" id="bd1"style="padding-inline: 2em;" class="btn button-primario" name="submit-btn"> 
                             Salvar
+                        </button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade modal-xl" id="excluir" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
+            style="display: none;" aria-hidden="true">
+            <div class="modal-dialog" style="margin-top: 20%;">
+                <form action="../php/cadastrar_produto.php" method="post" enctype="multipart/form-data">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="col-md-12">
+                                Confirmar exclusão?
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="bd1"style="padding-inline: 2em;" class="btn button-primario" name="submit-btn"> 
+                            Deletar
                         </button>
                     </div>
                     </form>

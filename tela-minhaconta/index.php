@@ -80,7 +80,7 @@ session_start();
                             </a>
                         </li>
                         <li>
-                            <a href="" class="dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2">
+                            <a href="../tela-pedidos/" class="dropdown-item d-flex align-items-center mt-2 mb-2 ps-3 gap-2">
                                 <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
