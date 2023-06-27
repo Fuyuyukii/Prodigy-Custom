@@ -222,13 +222,13 @@
                                         <div class='col-md-1'>
                                             <img class='imagemLista rounded' src='$img' alt=''>
                                         </div>
-                                        <h4 class='col-md-5'>
+                                        <h4 class='col-md-4'>
                                             $produto_nome
                                         </h4>
                                         <h4 class='col-md-4'>
                                             $produto_preco
                                         </h4>
-    
+                                        <div class='col-md-1 form-check'><label class='form-check-label'>É ADM?</label><input class='form-check-input' type='checkbox'></div>
                                         <div class='col-md-1'><button data-bs-toggle='modal'
                                         data-bs-target='#exampleModalCenter' onclick = \"preencher($produto_id);\" class='button-primario'
                                                 style='padding:0;width:48px !important;height:48px !important;'>
