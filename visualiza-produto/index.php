@@ -305,17 +305,18 @@ while ($linhas = $comando->fetch()){
         echo "</script>";
     ?>
     <script>
-        $(function () {
-            $('.botaoExpande').on('click', function () {
-                $(this).toggleClass('rodar')
-            })
-            
-            function comprar(){
+        function comprar(){
                 window.open("../php/comprar.php?produto_id=" + produto_id, "_self")
             }
             function carrinho(){
                 window.open("../php/carrinho_adicionar.php?produto_id=" + produto_id, "_self")
             }
+        $(function () {
+            $('.botaoExpande').on('click', function () {
+                $(this).toggleClass('rodar')
+            })
+            
+            
         })
     </script>
 </body>
