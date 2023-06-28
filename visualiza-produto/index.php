@@ -257,8 +257,7 @@ while ($linhas = $comando->fetch()){
                 </div>
                 <div class="d-flex justify-content-between">
                     <button class="btn btn-warning p-3 rounded-pill fw-bolder text-light" onclick="carrinho()">Carrinho</button>
-                    <button onclick="comprar()" class="btn btn-success p-3 rounded-pill fw-bolder btn-comprar" data-bs-toggle="modal"
-                        data-bs-target="#exampleModalCenter">Comprar</button>
+                    <button onclick="comprar()" class="btn btn-success p-3 rounded-pill fw-bolder btn-comprar">Comprar</button>
                 </div>
             </div>
         </div>
@@ -306,39 +305,6 @@ while ($linhas = $comando->fetch()){
                 </svg>
             </div>
         </a>
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Avalie seu produto</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="estrelas">
-                            <svg width="38" height="38" viewBox="0 0 32 32">
-                                <polygon  class="icon" points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
-                            </svg>
-                            <svg width="38" height="38" viewBox="0 0 32 32" >
-                                <polygon class="icon" points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
-                            </svg>
-                            <svg width="38" height="38" viewBox="0 0 32 32" >
-                                <polygon class="icon" points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
-                            </svg>
-                            <svg width="38" height="38" viewBox="0 0 32 32" >
-                                <polygon class="icon" points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
-                            </svg>
-                            <svg width="38" height="38" viewBox="0 0 32 32" >
-                                <polygon class="icon" points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn button-primario" id="salvar" data-bs-dismiss="modal">Salvar avaliação</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
     <?php
         echo "<script>";
@@ -350,30 +316,7 @@ while ($linhas = $comando->fetch()){
             $('.botaoExpande').on('click', function () {
                 $(this).toggleClass('rodar')
             })
-            let globalAvaliacao
-            $('.btn-comprar').on('click', function () {
-                if ($('body').hasClass('modal-open')) {
-                    const poligonos = document.querySelectorAll('.estrelas #poligono')
-                    poligonos.forEach((poligono, index1) => {
-                        poligono.addEventListener('click', function(){
-                            poligonos.forEach((poligono, index2) => {
-                                if(index1 >= index2){ poligono.setAttribute('fill', 'yellow'); poligono.setAttribute('stroke','black'); poligono.setAttribute('stroke-width','1')}else{poligono.setAttribute('fill', 'black')};
-                            })
-                            let avaliacao = (index1 + 1)
-                            globalAvaliacao = avaliacao
-                        })
-                    })
-                }
-            })
-            $('#salvar').on('click', function(){
-                if (globalAvaliacao != undefined){
-                    let produto_avaliacao = globalAvaliacao;
-                    window.open("../php/avaliar.php?produto_id="+produto_id+"&produto_avaliacao="+produto_avaliacao);
-                } else {
-                    console.log("não foi possível avaliar o produto")
-                }
-
-            })
+            
             function comprar(){
                 window.open("../php/comprar.php?produto_id=" + produto_id, "_self")
             }

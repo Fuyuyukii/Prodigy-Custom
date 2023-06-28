@@ -18,6 +18,8 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -198,23 +200,106 @@ session_start();
                     </div>
                     <div class="card-body">
                         <?php
-                        echo("<div class='d-flex align-items-center justify-content-between'>
+                        include("../php/sql_connect.php");
+                        $comando = $pdo->prepare("select * from usuario_historico inner join produtos on produtos.id_produto = usuario_historico.id_produto inner join produtos_imagens on produtos_imagens.id_produto = produtos.id_produto");
+                        $comando->execute();
+                        while ($linhas = $comando->fetch()){
+            
+                            if (!empty($linhas["file_path"])){
+                                $img = $linhas["file_path"];
+                                $produto_img = $img;
+                            } else {
+                                $produto_img = '';
+                            }
+            
+                            $produto_nome = $linhas["nome"];
+                            $produto_id = $linhas["id_produto"];
+            
+                            echo("<div class='d-flex align-items-center justify-content-between'>
                             <div class='col-md-1'>
-                                <img src='../imgs/abafador2.png' style='width:100'>
+                                <img src='$produto_img' style='width:100%'>
                             </div>
                             <div class='col-md-8'>
-                                Este produto debe sser comprado ppor voce pq ele é a coisa mais pica do mundo tlg
+                                $produto_nome
                             </div>
                             <div class='col-md-2'>
-                                <button class='button-primario'>Avaliar Produto</button>
+                                <button class='button-primario'  data-bs-toggle='modal'
+                                data-bs-target='#exampleModalCenter'>Avaliar Produto</button>
                             </div>
                         </div>"
-                        )
+                        );
+                        }
+                        
                         ?>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Avalie seu produto</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="estrelas">
+                            <svg width="38" height="38" viewBox="0 0 32 32">
+                                <polygon  class="icon" points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
+                            </svg>
+                            <svg width="38" height="38" viewBox="0 0 32 32" >
+                                <polygon class="icon" points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
+                            </svg>
+                            <svg width="38" height="38" viewBox="0 0 32 32" >
+                                <polygon class="icon" points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
+                            </svg>
+                            <svg width="38" height="38" viewBox="0 0 32 32" >
+                                <polygon class="icon" points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
+                            </svg>
+                            <svg width="38" height="38" viewBox="0 0 32 32" >
+                                <polygon class="icon" points="16 1.8 20.9 10.6 30.3 11.7 23.1 18.1 24.6 27.2 16 22.4 7.4 27.2 8.9 18.1 1.7 11.7 11.1 10.6" fill="black" id="poligono"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn button-primario btn-avaliacao" id="avaliar" data-bs-dismiss="modal">Salvar avaliação</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+    <?php
+        echo "<script>";
+        echo "var produto_id =" . $produto_id . ";";
+        echo "</script>";
+    ?>
 </body>
+<script>
+    $(function(){
+    let globalAvaliacao
+        $('.btn-avaliacao').on('click', function () {
+            if ($('body').hasClass('modal-open')) {
+               const poligonos = document.querySelectorAll('.estrelas #poligono')
+                poligonos.forEach((poligono, index1) => {
+                    poligono.addEventListener('click', function(){
+                        poligonos.forEach((poligono, index2) => {
+                            if(index1 >= index2){ poligono.setAttribute('fill', 'yellow'); poligono.setAttribute('stroke','black'); poligono.setAttribute('stroke-width','1')}else{poligono.setAttribute('fill', 'black')};
+                        })
+                        let avaliacao = (index1 + 1)
+                        globalAvaliacao = avaliacao
+                    })
+                })
+            }
+        })
+        $('#avaliar').on('click', function(){
+            if (globalAvaliacao != undefined){
+                let produto_avaliacao = globalAvaliacao;
+                window.open("../php/avaliar.php?produto_id="+produto_id+"&produto_avaliacao="+produto_avaliacao);
+            } else {
+                console.log("não foi possível avaliar o produto")
+            }
+        })
+    })
+</script>
 </html>
