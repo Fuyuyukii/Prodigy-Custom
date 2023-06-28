@@ -160,7 +160,7 @@
                                 <div class="produtos">
                                     <?php
                                     include("../php/sql_connect.php");
-                                    $comando = $pdo->prepare("SELECT *, count(produtos.id_produto) as contador FROM produtos inner join usuario_carrinho on produtos.id_produto = usuario_carrinho.id_produto
+                                    $comando = $pdo->prepare("SELECT * FROM produtos inner join usuario_carrinho on produtos.id_produto = usuario_carrinho.id_produto
                                     where usuario_carrinho.id_usuario = :id_usuario");
                                     $comando->bindParam(':id_usuario', $_SESSION["logado"]);
                                     $comando->execute();
