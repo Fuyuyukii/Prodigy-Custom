@@ -219,11 +219,6 @@ while ($linhas = $comando->fetch()){
 
         <div class="d-flex gap-5 mt-5">
             <div class="d-flex me-5">
-                <div class="d-flex flex-column gap-4 ms-4 me-4">
-                    <img src="carro.png" alt="" class="imagem-produto-menores">
-                    <img src="carro3.png" alt="" class="imagem-produto-menores">
-                    <img src="carro2.png" alt="" class="imagem-produto-menores">
-                </div>
                 <div>
                     <img src="<?php echo($img); ?>" alt="" class="imagem-produto-grande">
                 </div>
