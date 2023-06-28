@@ -108,6 +108,16 @@ select{
 
 }
 
+.btn-excluir{
+    text-decoration: none;
+    color: red;
+    outline: 0;
+    border: 0;
+    background: transparent;
+    display: inherit;
+}
+
+
 .icones{
     display: flex;
     gap:2em;

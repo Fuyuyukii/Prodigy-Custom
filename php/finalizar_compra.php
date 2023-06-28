@@ -4,7 +4,7 @@
     $id_produto = $_GET["produto_id"];
 
     //pegando o path da imagem
-    $stmt = $pdo->prepare("INSERT INTO usuario_historico(id_produto, id_usuario) VALUES (:id_usuario, :id_produto)");
+    $stmt = $pdo->prepare("INSERT INTO usuario_historico(id_usuario, id_produto) VALUES (:id_usuario, :id_produto)");
     $stmt->bindParam(':id_produto', $id_produto);
     $stmt->bindParam(':id_usuario', $_SESSION["logado"]);
     $stmt->execute();
