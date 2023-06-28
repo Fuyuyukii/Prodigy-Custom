@@ -191,7 +191,7 @@ session_start();
                                                 <h4 style='margin: 0;'>R$$preco</h4>
                                             </div>
                                             <span class='status' style='color: green;'> Em estoque </span>
-                                            <button onclick='deletar_carrinho($id_produto)' style='text-decoration: none; color: red;'>excluir</button>
+                                            <button class='btn-excluir' onclick='deletar_carrinho($id_produto)'>excluir</button>
                                             </div>
                                             </div>");
                                     }
