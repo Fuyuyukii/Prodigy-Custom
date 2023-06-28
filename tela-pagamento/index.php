@@ -250,5 +250,9 @@ session_start();
         </div>
     </main>
 </body>
-
+<script>
+    function finalizar_compra(){
+        window.open("../php/finalizar_compra.php?id_produto="+ "31" ,"_self")
+    }
+</script>
 </html>

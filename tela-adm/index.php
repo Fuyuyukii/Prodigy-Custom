@@ -184,20 +184,26 @@
                                         <option <?php if($selected_option == 0){echo("selected");} ?>>Produtos</option>
                                         <option <?php if($selected_option == 1){echo("selected");} ?>>Usuários</option>
                                     </select>
-                                    <button class="button-primario" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModalCenter"
-                                        style="padding:0;width:36px !important;height: 36px !important;"><svg
-                                            fill="#fff" width="32px" height="32px" viewBox="0 0 32 32"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
-                                                stroke-linejoin="round"></g>
-                                            <g id="SVGRepo_iconCarrier">
+                                    <?php 
+                                    if($selected_option == 0){
+                                        echo("
+                                        <button class='button-primario' data-bs-toggle='modal'
+                                        data-bs-target='#exampleModalCenter'
+                                        style='padding:0;width:36px !important;height: 36px !important;'><svg
+                                            fill='#fff' width='32px' height='32px' viewBox='0 0 32 32'
+                                            xmlns='http://www.w3.org/2000/svg'>
+                                            <g id='SVGRepo_bgCarrier' stroke-width='0'></g>
+                                            <g id='SVGRepo_tracerCarrier' stroke-linecap='round'
+                                                stroke-linejoin='round'></g>
+                                            <g id='SVGRepo_iconCarrier'>
                                                 <path
-                                                    d="M9,17h6v6a1,1,0,0,0,2,0V17h6a1,1,0,0,0,0-2H17V9a1,1,0,0,0-2,0v6H9a1,1,0,0,0,0,2Z">
+                                                    d='M9,17h6v6a1,1,0,0,0,2,0V17h6a1,1,0,0,0,0-2H17V9a1,1,0,0,0-2,0v6H9a1,1,0,0,0,0,2Z'>
                                                 </path>
                                             </g>
                                         </svg></button>
+                                        ");
+                                    }
+                                    ?>
                                 </div>
                                 <hr>
                                 <?php
@@ -271,10 +277,11 @@
                                     $comando->execute();
                                     while ($linhas = $comando->fetch()){
                                         $produto_nome = $linhas["nome"];
-                                        $essential_id = $linhas["id_produto"];
+                                        $essential_id = $linhas["id_usuario"];
 
                                     echo(
                                         "
+                                        <div class='d-flex justify-content-between align-items-center'>
                                         <h4 class='col-md-5'>
                                             $produto_nome
                                         </h4>
@@ -292,6 +299,7 @@
                                                             stroke-linejoin='round'></path>
                                                     </g>
                                         </svg></button></div>
+                                        </div>
                                         </div>"
                                         );
                                 }

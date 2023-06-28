@@ -251,8 +251,8 @@
                             <div class="heightfix">
                                 <?php
                                 include("../php/sql_connect.php");
-
-                                $comando = $pdo->prepare("select * from carro where carro.nome = :nome_carro");
+                                if(isset($_GET["carro"])){
+                                    $comando = $pdo->prepare("select * from carro where carro.nome = :nome_carro");
                                 $comando->bindParam(":nome_carro", $_GET["carro"]);
                                 $comando->execute();
                                 while($linhas = $comando->fetch()){
@@ -290,6 +290,7 @@
                                         </div>
                                         </div>
                                         </a>");
+                                }
                                 }
                                 ?>
                             </div>
