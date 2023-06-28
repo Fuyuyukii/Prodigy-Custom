@@ -231,7 +231,7 @@
                                         </h4>
     
                                         <div class='col-md-1'><button data-bs-toggle='modal'
-                                        data-bs-target='#exampleModalCenter' onclick = \"preencher($produto_id);\" class='button-primario'
+                                        data-bs-target='#exampleModalCenter' onclick = \"preencher($essential_id);\" class='button-primario'
                                                 style='padding:0;width:48px !important;height:48px !important;'>
                                                 <svg fill='#fff' height='31px' width='31px' version='1.1' id='Layer_1'
                                                     xmlns='http://www.w3.org/2000/svg'
@@ -250,7 +250,7 @@
                                                         </g>
                                                     </g>
                                                 </svg></button></div>
-                                        <div class='col-md-1'><button data-bs-toggle='modal' data-bs-target='#excluir' onclick = \"deletar($produto_id);\" class='button-primario'
+                                        <div class='col-md-1'><button data-bs-toggle='modal' data-bs-target='#excluir' onclick = \"deletar($essential_id);\" class='button-primario'
                                                 style='padding:0;width:48px !important;height:48px !important;'><svg
                                                     width='36px' height='36px' viewBox='0 0 24 24' fill='none'
                                                     xmlns='http://www.w3.org/2000/svg'>
@@ -266,6 +266,35 @@
                                         </svg></button></div>
                                         </div>"
                                         );
+                                }} else {
+                                    $comando = $pdo->prepare("select * from usuarios");
+                                    $comando->execute();
+                                    while ($linhas = $comando->fetch()){
+                                        $produto_nome = $linhas["nome"];
+                                        $essential_id = $linhas["id_produto"];
+
+                                    echo(
+                                        "
+                                        <h4 class='col-md-5'>
+                                            $produto_nome
+                                        </h4>
+                                        <div class='col-md-1'><button data-bs-toggle='modal' data-bs-target='#excluir' onclick = \"deletar($essential_id);\" class='button-primario'
+                                                style='padding:0;width:48px !important;height:48px !important;'><svg
+                                                    width='36px' height='36px' viewBox='0 0 24 24' fill='none'
+                                                    xmlns='http://www.w3.org/2000/svg'>
+                                                    <g id='SVGRepo_bgCarrier' stroke-width='0'></g>
+                                                    <g id='SVGRepo_tracerCarrier' stroke-linecap='round'
+                                                        stroke-linejoin='round'></g>
+                                                    <g id='SVGRepo_iconCarrier'>
+                                                        <path
+                                                            d='M10 10V16M14 10V16M18 6V18C18 19.1046 17.1046 20 16 20H8C6.89543 20 6 19.1046 6 18V6M4 6H20M15 6V5C15 3.89543 14.1046 3 13 3H11C9.89543 3 9 3.89543 9 5V6'
+                                                            stroke='#fff' stroke-width='1.5' stroke-linecap='round'
+                                                            stroke-linejoin='round'></path>
+                                                    </g>
+                                        </svg></button></div>
+                                        </div>"
+                                        );
+                                }
                                 }
                                 ?>
                                 <hr>

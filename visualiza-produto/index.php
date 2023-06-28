@@ -23,9 +23,8 @@
 <?php
 include("../php/sql_connect.php");
 $produto_id = $_GET["C"];
-$comando = $pdo->prepare("SELECT *, AVG(produto_avaliacao.avaliacao) as produto_avaliacao from produtos_imagens inner join produtos on produtos.id_produto = produtos_imagens.id_produto 
-inner join produto_avaliacao on produto_avaliacao.id_produto = produtos_imagens.id_produto 
-where produtos.id_produto = :produto_id group by produtos.id_produto");
+$comando = $pdo->prepare("SELECT * from produtos_imagens inner join produtos on produtos.id_produto = produtos_imagens.id_produto
+where produtos.id_produto = :produto_id");
 $comando->bindParam(':produto_id', $produto_id);
 $comando->execute();
 while ($linhas = $comando->fetch()){
@@ -37,7 +36,6 @@ while ($linhas = $comando->fetch()){
     }
 
     $produto_nome = $linhas["nome"];
-    $produto_avaliacao = $linhas["produto_avaliacao"];
     $produto_preco = $linhas["preco"];
     $produto_desc = $linhas["descricao"];
     $produto_desc_tec = $linhas["info_tecnica"];

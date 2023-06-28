@@ -251,9 +251,17 @@
                             <div class="heightfix">
                                 <?php
                                 include("../php/sql_connect.php");
+
+                                $comando = $pdo->prepare("select * from carro where carro.nome = :nome_carro");
+                                $comando->bindParam(":nome_carro", $_GET["carro"]);
+                                $comando->execute();
+                                while($linhas = $comando->fetch()){
+                                    $id_carro = $linhas["id_carro"];
+                                }
+
                                 $comando = $pdo->prepare("select * from produtos_imagens inner join produtos on produtos_imagens.id_produto = produtos.id_produto
                                 inner join carro_produto on produtos.id_produto = carro_produto.produto_id where carro_id = :carro_id");
-                                $carro_id = 1;
+                                $carro_id = $id_carro;
                                 $comando->bindParam(':carro_id', $carro_id);
                                 $comando->execute();
                                 while ($linhas = $comando->fetch()){
