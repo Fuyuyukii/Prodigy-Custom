@@ -245,7 +245,7 @@ session_start();
 </body>
 <script>
     function deletar_carrinho(id_produto){
-        window.open("../php/carrinho_deletar?id_produto=" + id_produto ,"_self")
+        window.open("../php/carrinho_deletar.php?id_produto=" + id_produto ,"_self")
     }
 </script>
 </html>
