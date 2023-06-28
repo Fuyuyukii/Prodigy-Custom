@@ -202,33 +202,34 @@
                                 <hr>
                                 <?php
                                 include("../php/sql_connect.php");
-                                $comando = $pdo->prepare("select * from produtos_imagens inner join produtos on produtos_imagens.id_produto = produtos.id_produto");
-                                $comando->execute();
-                                while ($linhas = $comando->fetch()){
+                                if($selected_option == 0){
+                                    $comando = $pdo->prepare("select * from produtos_imagens inner join produtos on produtos_imagens.id_produto = produtos.id_produto");
+                                    $comando->execute();
+                                    while ($linhas = $comando->fetch()){
 
-                                    if (!empty($linhas["file_path"])){
-                                        $img = $linhas["file_path"];
-                                        $produto_img = "<img src='$img'>";
-                                    } else {
-                                        $produto_img = "<img src=''>";
-                                    }
+                                        if (!empty($linhas["file_path"])){
+                                            $img = $linhas["file_path"];
+                                            $produto_img = "<img src='$img'>";
+                                        } else {
+                                            $produto_img = "<img src=''>";
+                                        }
 
-                                    $produto_nome = $linhas["nome"];
-                                    $produto_id = $linhas["id_produto"];
-                                    $produto_preco = $linhas["preco"];
+                                        $produto_nome = $linhas["nome"];
+                                        $essential_id = $linhas["id_produto"];
+                                        $produto_preco = $linhas["preco"];
 
                                     echo(
                                         "<div class='col-md-12 d-flex align-items-center mt-3'>
                                         <div class='col-md-1'>
                                             <img class='imagemLista rounded' src='$img' alt=''>
                                         </div>
-                                        <h4 class='col-md-4'>
+                                        <h4 class='col-md-5'>
                                             $produto_nome
                                         </h4>
                                         <h4 class='col-md-4'>
                                             $produto_preco
                                         </h4>
-                                        <div class='col-md-1 form-check'><label class='form-check-label'>É ADM?</label><input class='form-check-input' type='checkbox'></div>
+    
                                         <div class='col-md-1'><button data-bs-toggle='modal'
                                         data-bs-target='#exampleModalCenter' onclick = \"preencher($produto_id);\" class='button-primario'
                                                 style='padding:0;width:48px !important;height:48px !important;'>
@@ -249,7 +250,7 @@
                                                         </g>
                                                     </g>
                                                 </svg></button></div>
-                                        <div class='col-md-1'><button data-bs-toggle='modal' data-bs-target='#excluir' class='button-primario'
+                                        <div class='col-md-1'><button data-bs-toggle='modal' data-bs-target='#excluir' onclick = \"deletar($produto_id);\" class='button-primario'
                                                 style='padding:0;width:48px !important;height:48px !important;'><svg
                                                     width='36px' height='36px' viewBox='0 0 24 24' fill='none'
                                                     xmlns='http://www.w3.org/2000/svg'>
@@ -263,28 +264,9 @@
                                                             stroke-linejoin='round'></path>
                                                     </g>
                                         </svg></button></div>
-                                        </div>
-                                        <div class='modal fade modal-xl' id='excluir' tabindex='-1' aria-labelledby='exampleModalCenterTitle'
-                                        style='display: none;' aria-hidden='true'>
-                                            <div class='modal-dialog' style='margin-top: 20%;'>
-                                                    <div class='modal-content'>
-                                                        <div class='modal-body'>
-                                                            <div class='d-flex align-items-end flex-column'>
-                                                                <div class='col-md-12' style='font-size:1.475rem'>
-                                                                    Confirmar exclusão?
-                                                                </div>
-                                                                <button type='submit' id='bd1'style='padding-inline: 2em;' onclick = deletar($produto_id) class='btn button-primario' name='submit-btn'> 
-                                                                    Deletar
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>    
-                                            </div>
-                                        </div>
-                                        "
+                                        </div>"
                                         );
                                 }
-                                
                                 ?>
                                 <hr>
                             </div>
@@ -361,6 +343,25 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade modal-xl" id="excluir" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
+            style="display: none;" aria-hidden="true">
+            <div class="modal-dialog" style="margin-top: 20%;">
+                <form action="../php/cadastrar_produto.php" method="post" enctype="multipart/form-data">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="d-flex align-items-end flex-column">
+                        <div class="col-md-12" style="font-size:1.475rem">
+                                Confirmar exclusão?
+                        </div>
+                        <button type="submit" id="bd1"style="padding-inline: 2em;" class="btn button-primario" name="submit-btn"> 
+                            Deletar
+                        </button>
+                    </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
@@ -393,38 +394,41 @@
     })
 });
 
-function deletar(produto_id){
-        window.open("../php/deletar.php?produto_id=" + produto_id, "_self")
+function deletar(essential_id){
+        let select = document.getElementById('selectTipo')
+        let OP = select.selectedIndex
+        console.log("VAI TOMA NO CU PIRANHA")
+        window.open("../php/deletar.php?essential_id=" + essential_id + "&OP=" + OP, "_self")
     }
 
-    function preencher(produto_id){
-        var dados = "produto_id=" + produto_id
-        $.ajax({
-            type: "GET",
-            url: "../php/get_produtos_att.php",
-            data: dados,
-                            
-            success: function(meu_json)
-            {
-                var valores = JSON.parse(meu_json); 
-                var lista = valores.produto_att; 
-                
-                for(x=0;x<lista.length;x++)
-                {   
-                    document.getElementById("produto_id").value = lista[x].id;
-                    document.getElementById("produto-nome-adicionar").value = lista[x].nome;
-                    document.getElementById("produto-preço-adicionar").value = lista[x].preco;
-                    document.getElementById("produto-descricao-adicionar").value = lista[x].descricao;
-                    document.getElementById("produto-tecinfo-adicionar").value = lista[x].informacoes_tecnicas;
-                }
+function preencher(produto_id){
+    var dados = "produto_id=" + produto_id
+    $.ajax({
+        type: "GET",
+        url: "../php/get_produtos_att.php",
+        data: dados,
+                        
+        success: function(meu_json)
+        {
+            var valores = JSON.parse(meu_json); 
+            var lista = valores.produto_att; 
+            
+            for(x=0;x<lista.length;x++)
+            {   
+                document.getElementById("produto_id").value = lista[x].id;
+                document.getElementById("produto-nome-adicionar").value = lista[x].nome;
+                document.getElementById("produto-preço-adicionar").value = lista[x].preco;
+                document.getElementById("produto-descricao-adicionar").value = lista[x].descricao;
+                document.getElementById("produto-tecinfo-adicionar").value = lista[x].informacoes_tecnicas;
             }
-        });
-    }
-    
-    function md(){
-        let select = document.getElementById('selectTipo')
-        console.log(select.selectedIndex)
-        window.open("index.php?op="+select.selectedIndex, "_self")
-    }
+        }
+    });
+}
+
+function md(){
+    let select = document.getElementById('selectTipo')
+    console.log(select.selectedIndex)
+    window.open("index.php?op="+select.selectedIndex, "_self")
+}
 
 </script>

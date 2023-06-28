@@ -2,7 +2,6 @@
     include("sql_connect.php");
     $produto_id = $_GET["produto_id"];
 
-    //pegando o path da imagem
     $stmt = $pdo->prepare("SELECT * FROM produtos where id_produto = :produto_id");
     $stmt->bindParam(':produto_id', $produto_id);
     $stmt->execute();
