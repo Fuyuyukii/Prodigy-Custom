@@ -232,12 +232,27 @@ session_start();
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="d-flex flex-column gap-2">
-                <h6 class="h4">Endereço de entrega</h6>
-                <div class="d-flex flex-column" style="line-height: 6px;">
-                <p class="text-muted">Joinville, Santa Catarina 55555-555</p>
-                <p class="text-muted">Procópio Gomes, 911</p>
-                <p class="text-muted">Prédio, Bucarein</p>
+                <?php
+                $comando = $pdo->prepare("select * from usuarios where id_usuario = :id_usuario");
+                $comando->bindParam(':id_usuario', $_SESSION["logado"]);
+                $comando->execute();
+                while ($linhas = $comando->fetch()){
+                    $estado = $linhas["Estado"];
+                    $cidade = $linhas["Cidade"];
+                    $numero = $linhas["Numero"];
+                    $rua = $linhas["Rua"];
+                    $bairro = $linhas["Bairro"];
+                    $cep = $linhas["CEP"];
+                }
+                echo("
+                <div class='d-flex flex-column gap-2'>
+                <h6 class='h4'>Endereço de entrega</h6>
+                <div class='d-flex flex-column' style='line-height: 6px;'>
+                <p class='text-muted'>$cidade, $estado $cep</p>
+                <p class='text-muted'>$rua, $numero</p>
+                <p class='text-muted'>$bairro</p>
+                ");
+                ?>
             </div>
                 <div class="d-flex">
                     <a class='link' href="">Alterar</a>
