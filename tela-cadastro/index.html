@@ -150,8 +150,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" id="bd1" style="padding-inline: 2em;" class="btn button-primario"
-                                    name="submit-btn">
+                                <button type="button" id="bd1" style="padding-inline: 2em;" class="btn button-primario"
+                                    name="submit-btn" data-bs-dismiss="modal">
                                     Salvar
                                 </button>
                             </div>
@@ -162,7 +162,6 @@
 
 </body>
 <script>
-    $(function(){
     function cadastrar() {
         var N = document.getElementById("nome").value;
         var C = document.getElementById("cpf").value;
@@ -180,6 +179,8 @@
         window.open("../php/cadastrar.php?N=" + N + "&C=" + C + "&EM=" + EM + "&S=" + S + "&SC=" + SC + "&T=" + T +
         "&cep=" + CEP + "&rua=" + rua + "&numero=" + numero + "&bairro" + bairro + "&cidade=" + cidade + "&estado=" + estado ,"_self");
     }
+    $(function(){
+    
     
     function limpa_formulário_cep() {
                 // Limpa valores do formulário de cep.
