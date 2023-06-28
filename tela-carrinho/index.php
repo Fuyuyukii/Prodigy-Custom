@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -161,7 +165,7 @@
                                     <?php
                                     include("../php/sql_connect.php");
                                     $comando = $pdo->prepare("SELECT * FROM produtos inner join usuario_carrinho on produtos.id_produto = usuario_carrinho.id_produto
-                                    where usuario_carrinho.id_usuario = :id_usuario");
+                                    inner join produtos_imagens on produtos.id_produto = produtos_imagens.id_produto where usuario_carrinho.id_usuario = :id_usuario");
                                     $comando->bindParam(':id_usuario', $_SESSION["logado"]);
                                     $comando->execute();
                                     $subtotal = 0;
@@ -174,8 +178,8 @@
                                         }
 
                                         $preco = $linhas["preco"];
-                                        $count = $linhas["contador"];
                                         $nome = $linhas["nome"];
+                                        $id_produto = $linhas["id_produto"];
                                         $subtotal = $subtotal + $preco;
     
                                         echo(
@@ -184,12 +188,18 @@
                                             <div class='col-md-10 d-flex flex-column ps-2'>
                                             <div class='d-flex justify-content-between'>
                                                 <h4 style='margin: 0;'>$nome</h4>
-                                                <h4 style='margin: 0;'>$preco</h4>
+                                                <h4 style='margin: 0;'>R$$preco</h4>
                                             </div>
                                             <span class='status' style='color: green;'> Em estoque </span>
-                                            <a href='' style='text-decoration: none; color: red;'>excluir</a>
+                                            <button onclick='deletar_carrinho($id_produto)' style='text-decoration: none; color: red;'>excluir</button>
                                             </div>
                                             </div>");
+                                    }
+                                    $comando = $pdo->prepare("SELECT count(usuario_carrinho.id_usuario) as contador FROM usuario_carrinho where usuario_carrinho.id_usuario = :id_usuario");
+                                    $comando->bindParam(':id_usuario', $_SESSION["logado"]);
+                                    $comando->execute();
+                                    while ($linhas = $comando->fetch()){
+                                        $count = $linhas["contador"];
                                     }
                                     $frete = 0;
                                     $total_pedido = $subtotal + $frete;
@@ -233,4 +243,9 @@
         </div>
     </main>
 </body>
+<script>
+    function deletar_carrinho(id_produto){
+        window.open("../php/carrinho_deletar?id_produto=" + id_produto ,"_self")
+    }
+</script>
 </html>
