@@ -258,7 +258,7 @@ session_start();
                     <a class='link' href="">Alterar</a>
                     <a class="link" href="" style="margin-left: 100px;">Adicionar novo</a>
                 </div>
-                <a class="button-primario mt-5" href="">Finalizar Compra</a>
+                <a onclick="finalizar_compra()" class="button-primario mt-5" href="">Finalizar Compra</a>
             </div>
             </div>
         </div>
