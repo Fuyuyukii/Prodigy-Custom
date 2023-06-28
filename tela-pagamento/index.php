@@ -258,16 +258,11 @@ session_start();
                     <a class='link' href="">Alterar</a>
                     <a class="link" href="" style="margin-left: 100px;">Adicionar novo</a>
                 </div>
-                <a onclick="finalizar_compra()" class="button-primario mt-5" href="">Finalizar Compra</a>
+                <a class="button-primario mt-5" href="../venda-produto">Finalizar Compra</a>
             </div>
             </div>
         </div>
         </div>
     </main>
 </body>
-<script>
-    function finalizar_compra(){
-        window.open("../php/finalizar_compra.php?id_produto="+ "31" ,"_self")
-    }
-</script>
 </html>
